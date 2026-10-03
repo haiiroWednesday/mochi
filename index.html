@@ -248,7 +248,7 @@ button{font:inherit;color:inherit}
 
   <section class="scrolly" id="machine" aria-label="Graphic 1: the color machine">
     <div class="stage">
-      <div class="ghead hand"><b>Six dyes ran the grocery aisle</b><span>1 of 3</span></div>
+      <div class="ghead hand"><b>Six dyes ran the grocery aisle</b></div>
       <p class="gsub">Each jar is one synthetic dye. The pipes lead to foods FDA lets it color.</p>
       <svg id="machineSvg" viewBox="0 0 400 560" preserveAspectRatio="xMidYMin meet" role="img" aria-label="Six synthetic dye vats pour into labeled foods. In 2026 the machine cracks, each vat splits into plant sources, and the blue candy shells receive no color."></svg>
     </div>
@@ -269,7 +269,7 @@ button{font:inherit;color:inherit}
 
   <section class="scrolly" id="lab" aria-label="Graphic 2: how to make mint green">
     <div class="stage">
-      <div class="ghead hand"><b>How do you make mint green?</b><span>2 of 3</span></div>
+      <div class="ghead hand"><b>How do you make mint green?</b></div>
       <p class="gsub">Mint green is a blue mixed with a yellow-orange.</p>
       <svg id="labSvg" viewBox="0 0 400 560" preserveAspectRatio="xMidYMin meet" role="img" aria-label="A blue disc and a yellow-orange annatto disc overlap to color an ice cream sandwich filling. With Blue No. 1 the filling is electric mint. With spirulina it turns pale jade, and heat and acid dull spirulina further."></svg>
     </div>
@@ -300,7 +300,6 @@ button{font:inherit;color:inherit}
 
   <div class="g3wrap">
 <div class="lgw lg3" data-lg="trix-timeline" data-trix-photo="">
-  <div class="lg-kick">3 of 3 · Trix, twice</div>
   <p class="lg-h">Trix lost blue and green once. They look gone again.</p>
   <p class="lg-sub">Colors in a bowl of Trix, 2015 to 2026</p>
   <div class="lg3-bar">
@@ -459,7 +458,7 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
     if(type==='cupcake')S('path',{d:`M${fx-14} ${fy+4}L${fx-10} ${fy+21}H${fx+10}L${fx+14} ${fy+4}Z`,fill:'none',stroke:'#8B8891','stroke-width':1.3},outG);
     if(type==='lolly')S('path',{d:`M${fx} ${fy+7}V${fy+24}`,stroke:'#8B8891','stroke-width':2.4,'stroke-linecap':'round'},outG);
     S('path',{d:dd,fill:'none',stroke:'#8B8891','stroke-width':1.3,'fill-rule':'evenodd'},outG);
-    S('text',{x:fx,y:fy+(type==='lolly'?36:33),'text-anchor':'middle',class:'svg-tiny'},gLower).textContent=LABELS[i][j];
+    {const lb=LABELS[i][j],tt=S('text',{x:fx,y:fy+(type==='lolly'?35:32),'text-anchor':'middle',class:'svg-tiny'},gLower);const ws=lb.length>8&&lb.includes(' ')?[lb.slice(0,lb.indexOf(' ')),lb.slice(lb.indexOf(' ')+1)]:[lb];ws.forEach((w,k)=>{const sp=S('tspan',{x:fx,dy:k?10:0},tt);sp.textContent=w})}
     const ghost=S('path',{d:dd,fill:'none',stroke:d.c,'stroke-width':1.6,'fill-rule':'evenodd',transform:'translate(3,-3)',opacity:0},ghostG);
     const cp=S('clipPath',{id:`fc${i}${j}`},defs);const rect=S('rect',{x:fx-26,y:fy+26,width:52,height:0},cp);
     const fp=S('path',{d:dd,fill:d.c,'fill-rule':'evenodd','clip-path':`url(#fc${i}${j})`},fillG);
@@ -680,14 +679,13 @@ LessGreen.each('.lg3',function(root){
     s+='<g data-q="2"><path d="M263 12H358a8 8 0 0 1 8 8V36a8 8 0 0 1-8 8H262L243 55 254 40V20a8 8 0 0 1 9-8Z" fill="#FAFAF6" stroke="#55525E" stroke-width="1.1"/><text class="qt" x="310" y="25.5" text-anchor="middle">“What did you do</text><text class="qt" x="310" y="38.5" text-anchor="middle">with my cereal?”</text><text class="an" x="318" y="62" text-anchor="middle">kids in 2016 taste tests</text></g>';
     s+='<g data-q="2"><path d="M262 116C256 118 252 122 250 128" class="anl"/><path d="M247 122L250 129L255 124" class="anl"/><text class="an" x="266" y="112">Sales still beat</text><text class="an" x="266" y="125">expectations,</text><text class="an" x="266" y="138">General Mills said.</text></g>';
     s+='<g data-q="4"><path d="M468 118C460 120 455 124 452 130" class="anl"/><path d="M449 124L452 131L457 126" class="anl"/><text class="an" x="472" y="112">It returned after</text><text class="an" x="472" y="125">fans complained. One</text><text class="an" x="472" y="138">called the plant version</text><text class="an" x="472" y="151"><tspan class="k">“basically a salad.”</tspan></text></g>';
-    s+='<g data-q="7"><path d="M'+xs[1]+' 342V352H'+xs[3]+'V342" stroke="#1E1C25" stroke-width="1.5" fill="none"/><text class="br" x="'+((xs[1]+xs[3])/2)+'" y="372" text-anchor="middle">two attempts, ten years apart</text></g>';
     var x25=X(4.25);
     s+='<g data-q="5"><circle cx="'+x25+'" cy="'+ly+'" r="4" fill="#FAFAF6" stroke="#1E1C25" stroke-width="1.6"/><path d="M'+x25+' 58V44" class="anl"/><text class="an" x="'+(x25+18)+'" y="26" text-anchor="end"><tspan class="k">May 2025:</tspan> FDA approves</text><text class="an" x="'+(x25+18)+'" y="38" text-anchor="end">two new blues for cereal</text></g>';
-    s+='<g data-q="7"><text class="an" x="716" y="398" text-anchor="end">New blues were approved in 2025, but the 2026</text><text class="an" x="716" y="411" text-anchor="end">label lists no <tspan class="k" style="fill:#2F7FD1">blue</tspan>. General Mills hasn’t said why.</text></g>';
+    s+='<g data-q="7"><text class="an" x="716" y="358" text-anchor="end">New blues were approved in 2025, but the 2026</text><text class="an" x="716" y="371" text-anchor="end">label lists no <tspan class="k" style="fill:#2F7FD1">blue</tspan>. General Mills hasn’t said why.</text></g>';
     var gy={3:307,4:296};
     [3,4].forEach(function(c){var y=gy[c];s+='<g data-q="3"><circle cx="'+xs[1]+'" cy="'+y+'" r="4" fill="#FAFAF6" stroke="'+C[c]+'" stroke-width="2"/></g><g data-q="5"><circle cx="'+xs[2]+'" cy="'+y+'" r="4.2" fill="'+C[c]+'" stroke="#FAFAF6" stroke-width="1.5"/></g>'});
     s+='<g data-q="3"><text class="an" x="'+((xs[1]+xs[2])/2)+'" y="329" text-anchor="middle"><tspan class="k" style="fill:#2F7FD1">blue</tspan> and <tspan class="k" style="fill:#2E8A3A">green</tspan> gone for almost two years</text></g>';
-    return{vb:'0 0 720 422',s:s}}
+    return{vb:'0 0 720 382',s:s}}
   function buildV(){
     var Y=function(u){return 40+u*86},lx=56,by=Y(3.75),s='';
     var ys=M.map(function(m){return Y(m.u)}),end=ys[3]+58;
@@ -705,8 +703,7 @@ LessGreen.each('.lg3',function(root){
       s+='<g data-q="'+q+'"><circle cx="'+lx+'" cy="'+y+'" r="5" fill="#1E1C25"/><text class="yr" x="44" y="'+(y+6)+'" text-anchor="end">'+m.y+'</text>'+(m.mo?'<text class="mo" x="44" y="'+(y+20)+'" text-anchor="end">'+m.mo+'</text>':'')+notes(178,y-10,m.n,'start',14)+'</g>';
       s+=bowl(143,y,25,m.st,q,i)});
     s+='<g data-q="2"><path d="M188 '+(ys[1]+40)+'h104a8 8 0 0 1 8 8v18a8 8 0 0 1-8 8H188a8 8 0 0 1-8-8v-18a8 8 0 0 1 3-6l-5-11 12 9z" fill="#FAFAF6" stroke="#55525E" stroke-width="1.1"/><text class="qt" x="240" y="'+(ys[1]+54)+'" text-anchor="middle">“What did you do</text><text class="qt" x="240" y="'+(ys[1]+68)+'" text-anchor="middle">with my cereal?”</text><text class="an" x="182" y="'+(ys[1]+90)+'">kids in 2016 taste tests</text><text class="an" x="182" y="'+(ys[1]+108)+'">Sales still beat expectations,</text><text class="an" x="182" y="'+(ys[1]+121)+'">General Mills said.</text></g>';
-    s+='<g data-q="4"><text class="an" x="178" y="'+(ys[2]+36)+'">It returned after fans complained.</text><text class="an" x="178" y="'+(ys[2]+49)+'">One called the plant version</text><text class="an" x="178" y="'+(ys[2]+62)+'"><tspan class="k">“basically a salad.”</tspan></text></g>';
-    s+='<g data-q="7"><path d="M326 '+ys[1]+'H334V'+ys[3]+'H326" stroke="#1E1C25" stroke-width="1.5" fill="none"/><text class="br" x="178" y="'+(by-4)+'">two attempts,</text><text class="br" x="178" y="'+(by+11)+'">ten years apart</text></g>';
+    s+='<g data-q="4"><text class="an" x="178" y="'+(ys[2]+36)+'">It came back after fans</text><text class="an" x="178" y="'+(ys[2]+49)+'">complained. One called the</text><text class="an" x="178" y="'+(ys[2]+62)+'">plant version <tspan class="k">“basically a salad.”</tspan></text></g>';
     var y25=Y(4.25);
     s+='<g data-q="5"><circle cx="'+lx+'" cy="'+y25+'" r="3.5" fill="#FAFAF6" stroke="#1E1C25" stroke-width="1.5"/><text class="an" x="178" y="'+(y25-6)+'"><tspan class="k">May 2025:</tspan> FDA approves</text><text class="an" x="178" y="'+(y25+7)+'">two new blues for cereal</text></g>';
     s+='<g data-q="7"><text class="an" x="178" y="'+(ys[3]+44)+'">New blues were approved in</text><text class="an" x="178" y="'+(ys[3]+57)+'">2025, but the 2026 label</text><text class="an" x="178" y="'+(ys[3]+70)+'">lists no <tspan class="k" style="fill:#2F7FD1">blue</tspan>. General Mills</text><text class="an" x="178" y="'+(ys[3]+83)+'">hasn’t said why.</text></g>';
