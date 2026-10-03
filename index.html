@@ -284,12 +284,12 @@ button{font:inherit;color:inherit}
     <div class="stage">
       <div class="ghead hand"><b>Six dyes ran the grocery aisle</b></div>
       <p class="gsub">Each jar is one synthetic dye. The pipes lead to foods FDA lets it color.</p>
-      <svg id="machineSvg" viewBox="0 0 400 560" preserveAspectRatio="xMidYMin meet" role="img" aria-label="Six synthetic dye vats pour straight down into labeled foods. In 2026 the machine cracks. Below it, seven plant and algae sources feed the foods through crossing pipes, each food with its own recipe, and the blue candy shells get none."></svg>
+      <svg id="machineSvg" viewBox="0 0 400 560" preserveAspectRatio="xMidYMin meet" role="img" aria-label="Six synthetic dye vats pour into labeled foods. In 2026 the machine cracks. Below it each dye is replaced unevenly by one or two plant or algae sources, green is mixed from spirulina and turmeric, and the two blue candy shells stay empty."></svg>
     </div>
     <div class="steps">
       <div class="step"><div class="card"><span class="stamp" style="--c:#1B57C9">Spread</span><p>FDA lets <span class="chip" style="--c:#1A5BD6">Blue No. 1</span> color candy, drinks, cereal, ice cream and frosting. A small set of standardized dyes gave a cereal plant in Minnesota and an ice cream plant near San Francisco the same intense, predictable color to design around.</p><button class="btn" id="pourAgain" type="button">Pour again</button></div></div>
       <div class="step"><div class="card"><span class="stamp" style="--c:#1E1C25;--r:3deg">2026</span><p>This year the machine cracked. All six dyes are still legal, yet companies are dropping them anyway after the Trump administration’s health secretary, Robert F. Kennedy Jr., asked food makers to phase them out by the end of 2027. A California law keeps them out of school meals from that date too.</p></div></div>
-      <div class="step"><div class="card"><span class="stamp" style="--c:#A97F00">Split</span><p>Below the crack the pipes stop lining up. Each food now needs its own recipe from beet, paprika, turmeric, flowers and algae, and one source can feed several colors. A blend that matches in one food can fade or need far more of itself in another. At Sam’s Club, a frosted cookie needed thirty times more natural color, NPR reported, because of the fat in its icing. The blue candy shells have no recipe yet.</p><p class="note">The <span class="chip thin" style="--c:#1A5BD6">thin outline</span> around each food is its old color.</p></div></div>
+      <div class="step"><div class="card"><span class="stamp" style="--c:#A97F00">Split</span><p>Below the crack the six dyes break unevenly. Some get one plant source, some get two, and none of them swaps in everywhere: at Sam’s Club, a frosted cookie needed thirty times more natural color, NPR reported, because of the fat in its icing. Plant green fades fast and FDA allows it in almost nothing, so green gets mixed from blue and yellow. The blue candy shells have nothing yet.</p><p class="note">The <span class="chip thin" style="--c:#1A5BD6">thin outline</span> around each food is its old color.</p></div></div>
     </div>
   </section>
   <p class="gsrc"><b>Note:</b> food colors are drawn, not measured. <b>Sources:</b> FDA color additive rules; San Francisco Chronicle, 2026; Mars, 2026.</p>
@@ -455,13 +455,14 @@ addEventListener('scroll',req,{passive:true});addEventListener('resize',req);
 })();
 
 /* ===== GRAPHIC 1: THE COLOR MACHINE ===== */
+/* below the crack: uneven replacements. Some dyes get one source, some two, green gets no plant of its own */
 const DYES=[
- {name:'Red 40',c:'#D7261E',src:['beet','carrot'],sc:['#B3204A','#C2324F']},
- {name:'Yellow 6',c:'#F28C1E',src:['paprika','annatto'],sc:['#DD6F33','#E8822E']},
- {name:'Yellow 5',c:'#F6D200',src:['turmeric','safflower'],sc:['#E6B52C','#EFC646']},
- {name:'Green 3',c:'#0FA37F',src:['spirulina','+ turmeric'],sc:['#4F9C86','#8DB05A']},
- {name:'Blue 1',c:'#1A5BD6',src:['spirulina','pea flower'],sc:['#3E86B8','#4F6FC0']},
- {name:'Blue 2',c:'#2B2A8F',src:['gardenia','galdieria'],sc:['#3C55A5','#3F6FB8']}];
+ {name:'Red 40',c:'#D7261E',src:['beet','radish'],sc:['#B3204A','#A8305A']},
+ {name:'Yellow 6',c:'#F28C1E',src:['paprika','annatto'],sc:['#D9482B','#F2A33A']},
+ {name:'Yellow 5',c:'#F6D200',src:['turmeric'],sc:['#E6B52C','#E6B52C']},
+ {name:'Green 3',c:'#0FA37F',src:['spirulina','turmeric'],sc:['#2FA3C4','#E6B52C'],mix:'#5FA878'},
+ {name:'Blue 1',c:'#1A5BD6',src:['spirulina'],sc:['#2FA3C4','#2FA3C4']},
+ {name:'Blue 2',c:'#2B2A8F',src:['pea flower','galdieria'],sc:['#4F5FC0','#2B8FC9']}];
 const MM_OLD=['#C8102E','#F26F22','#FFC72C','#2F9B47','#1F6FD1','#5A3A22'],MM_NEW=['#C22A37','#E8752E','#F2C343','#5F9E4E'];
 const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
 (function machine(){
@@ -479,25 +480,16 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   S('rect',{x:cxs[4]-58,y:6,width:116,height:20,rx:6,fill:'#FAFAF6',stroke:'#E0702E','stroke-width':1.4,'stroke-dasharray':'5 4'},gVats);
   S('text',{x:cxs[4],y:20,'text-anchor':'middle',class:'svg-mono',style:'fill:#B4521A;font-weight:600'},gVats).textContent='It’s-It’s old blue';
   const splitG=S('g',{filter:'url(#wob)'},gSplit);
-  /* plant and algae sources: uneven sizes, not lined up under the old dyes */
-  const SRC=[
-    {n:'beet',c:'#B3204A',x:30,top:92,hw:15},
-    {n:'paprika',c:'#D9482B',x:80,top:70,hw:17},
-    {n:'annatto',c:'#F2A33A',x:128,top:100,hw:13},
-    {n:'turmeric',c:'#E6B52C',x:176,top:78,hw:18},
-    {n:'spirulina',sub:'algae',c:'#2FA3C4',x:236,top:66,hw:20},
-    {n:'butterfly',n2:'pea',c:'#4F5FC0',x:296,top:96,hw:14},
-    {n:'galdieria',sub:'algae',c:'#2B8FC9',x:352,top:84,hw:16}];
-  SRC.forEach((r,k)=>{vat(splitG,r.x,r.top,144,r.hw,r.c,'src'+k);
-    const t=S('text',{x:r.x,y:r.top-(r.n2||r.sub?26:14),'text-anchor':'middle',class:'svg-mono',style:'font-size:10.5px'},gSplit);t.textContent=r.n;
-    if(r.n2){S('text',{x:r.x,y:r.top-14,'text-anchor':'middle',class:'svg-mono',style:'font-size:10.5px'},gSplit).textContent=r.n2}
-    if(r.sub){S('text',{x:r.x,y:r.top-14,'text-anchor':'middle',class:'svg-tiny'},gSplit).textContent='('+r.sub+')'}});
-  const SI=Object.fromEntries(SRC.map((r,k)=>[r.n,k]));
-  const gPipes=S('g',{},gLower);gPipes.style.transition='opacity .5s';const gTangle=S('g',{},gLower);gTangle.style.transition='opacity .5s';
+  DYES.forEach((d,i)=>{const cx=cxs[i],two=d.src.length>1;
+    if(two){vat(splitG,cx-13,80,144,11,d.sc[0],'sj'+i+'a');vat(splitG,cx+13,80,144,11,d.sc[1],'sj'+i+'b')}
+    else vat(splitG,cx,72,144,16,d.sc[0],'sj'+i+'a');
+    const lab=d.mix?[d.src[0],'+ '+d.src[1]]:d.src.length>1?d.src:[d.src[0]];
+    const top=two?80:72;lab.forEach((w,k)=>{S('text',{x:cx,y:top-24+k*12+(lab.length===1?12:0),'text-anchor':'middle',class:'svg-mono',style:'font-size:10.5px'},gSplit).textContent=w});
+    if(d.mix)S('text',{x:cx,y:118,'text-anchor':'middle',class:'svg-mono',style:'font-size:13px;font-weight:700'},gSplit).textContent='+'});
   const flows=[];
   DYES.forEach((d,i)=>{const cx=cxs[i];const up=`M${cx} 144V168Q${cx} 178 ${cx-10} 178H${cx-12}Q${cx-22} 178 ${cx-22} 188V202`,lo=`M${cx-22} 202V452`;
     S('path',{d:up,fill:'none',stroke:'#CBCBC2','stroke-width':7,'stroke-linecap':'round'},gUpper);const fu=S('path',{d:up,fill:'none',stroke:d.c,'stroke-width':3.4,'stroke-linecap':'round'},gUpper);
-    S('path',{d:lo,fill:'none',stroke:'#CBCBC2','stroke-width':7,'stroke-linecap':'round'},gPipes);const fl=S('path',{d:lo,fill:'none',stroke:d.c,'stroke-width':3.4,'stroke-linecap':'round'},gPipes);
+    S('path',{d:lo,fill:'none',stroke:'#CBCBC2','stroke-width':7,'stroke-linecap':'round'},gLower);const fl=S('path',{d:lo,fill:'none',stroke:d.c,'stroke-width':3.4,'stroke-linecap':'round'},gLower);
     flows.push({fu,fl})});
   const LABELS=[['candy','sports drink','cereal'],['cheese puff','soda','candy'],['cupcake','lemonade','cereal'],['sherbet','candy','lollipop'],['mint ice cream','sports drink','candy shell'],['icing','cereal','candy shell']];
   const TYPES=[['lentil','bottle','ring'],['puff','bottle','lentil'],['cupcake','glass','puff'],['scoop','lentil','lolly'],['scoop','bottle','lentil'],['cupcake','puff','lentil']];
@@ -514,7 +506,7 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   const foods=[];
   const outG=S('g',{filter:'url(#wob)'},gLower),ghostG=S('g',{},gLower),fillG=S('g',{},gLower),dropG=S('g',{filter:'url(#goo)'},gLower),splatG=S('g',{},gLower);
   DYES.forEach((d,i)=>{const cx=cxs[i],fx=cx+8;TYPES[i].forEach((type,j)=>{const fy=LEVELS[j],dd=foodD(type,fx,fy,i*10+j+3);
-    S('path',{d:`M${cx-22} ${fy-28}H${cx-3}`,stroke:'#CBCBC2','stroke-width':5,'stroke-linecap':'round'},gPipes);
+    S('path',{d:`M${cx-22} ${fy-28}H${cx-3}`,stroke:'#CBCBC2','stroke-width':5,'stroke-linecap':'round'},gLower);
     if(type==='cupcake')S('path',{d:`M${fx-14} ${fy+4}L${fx-10} ${fy+21}H${fx+10}L${fx+14} ${fy+4}Z`,fill:'none',stroke:'#8B8891','stroke-width':1.3},outG);
     if(type==='lolly')S('path',{d:`M${fx} ${fy+7}V${fy+24}`,stroke:'#8B8891','stroke-width':2.4,'stroke-linecap':'round'},outG);
     S('path',{d:dd,fill:'none',stroke:'#8B8891','stroke-width':1.3,'fill-rule':'evenodd'},outG);
@@ -524,26 +516,6 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
     const fp=S('path',{d:dd,fill:d.c,'fill-rule':'evenodd','clip-path':`url(#fc${i}${j})`},fillG);
     foods.push({i,j,cx,fx,fy,rect,fp,ghost})})});
   const byIJ=(i,j)=>foods[i*3+j];
-  /* each food gets its own recipe; one source can feed many colors, and the blue shells get none yet */
-  const RECIPE=[
-    [['beet'],['beet','paprika'],['beet','turmeric']],
-    [['paprika','annatto'],['paprika'],['annatto','turmeric']],
-    [['turmeric'],['turmeric','annatto'],['turmeric']],
-    [['spirulina','turmeric'],['spirulina','turmeric'],['butterfly','turmeric']],
-    [['spirulina','?'],['butterfly','galdieria'],[]],
-    [['galdieria','spirulina'],['butterfly','galdieria'],[]]];
-  const tangle=[];
-  foods.forEach(f=>{const rec=RECIPE[f.i][f.j];f.rec=rec;
-    const ends=rec.length?rec:['spirulina'];
-    ends.forEach((nm,k)=>{if(nm==='?')return;const r=SRC[SI[nm]];const x0=r.x+(k?4:-4),y0=146,x1=f.fx+(ends.length>1?(k?7:-7):0),y1=f.fy-(f.j===0?22:20);
-      const d=`M${x0} ${y0}C${x0} ${y0+70} ${x1} ${y1-80} ${x1} ${y1}`;
-      const dead=!rec.length;
-      const p=S('path',{d,fill:'none',stroke:r.c,'stroke-width':dead?1.6:2.2,'stroke-linecap':'round',opacity:dead?.55:.8,'stroke-dasharray':dead?'3 4':'none'},gTangle);
-      tangle.push({p,f,k,dead})});
-    if(rec.includes('?')){const q=S('text',{x:f.fx+19,y:f.fy-26,class:'svg-mono',style:'font-size:11px;fill:#B4521A;font-weight:600'},gTangle);q.textContent='+ ?'}});
-  const SRCOL=nm=>SRC[SI[nm]].c;
-  function recipeColor(f){if(f.i===4&&f.j===0)return MINT_NEW;const rec=f.rec.filter(n=>n!=='?');if(!rec.length)return '#CCC';let c=SRCOL(rec[0]);for(let k=1;k<rec.length;k++)c=mix(c,SRCOL(rec[k]),f.i===3?.45:.3);return mix(c,DYES[f.i].c,f.i===3?.4:.18)}
-  function tangleSet(v){tangle.forEach(t=>{const L=t.p.getTotalLength();t.p.style.strokeDasharray=t.dead?'3 4':L;t.p.style.strokeDashoffset=t.dead?0:L*(1-v);if(t.dead)t.p.style.opacity=v>.6?.55:0})}
   const setLevel=(f,v)=>{f.rect.setAttribute('y',(f.fy+26-52*v).toFixed(1));f.rect.setAttribute('height',(52*v).toFixed(1))};
   const CR=rng(11);const cpts=[];for(let x=-10;x<=414;x+=14)cpts.push([x,196+(CR()*2-1)*7]);
   const cd='M'+cpts.map(p=>p[0].toFixed(1)+','+p[1].toFixed(1)).join('L');
@@ -553,22 +525,17 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   let jobs=[];const job=c=>jobs.push(c);const kill=()=>{jobs.forEach(c=>c());jobs=[];dropG.innerHTML=''};
   const vis=(g,on)=>{g.style.opacity=on?1:0;g.style.pointerEvents=on?'auto':'none'};
   function flowSet(i,u,l){const f=flows[i];[[f.fu,u],[f.fl,l]].forEach(([p,v])=>{const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L*(1-v)})}
-  function colorFor(i,j,mode){const d=DYES[i];if(mode==='old')return d.c;return recipeColor(byIJ(i,j))}
-  const misses=(i,j,mode)=>mode==='new'&&!byIJ(i,j).rec.length;
-  function splats(on,instant){splatG.innerHTML='';if(!on)return;[4,5].forEach(i=>{const f=byIJ(i,2);const g=S('g',{},splatG);S('path',{d:blobD(f.fx,500,9,90+i,.35,9),fill:SRCOL('spirulina'),opacity:.85},g);S('text',{x:f.fx,y:528,'text-anchor':'middle',class:'svg-mono'},g).textContent='?';if(!instant){g.style.opacity=0;job(tween({dur:300,delay:1400+i*140,update:t=>g.style.opacity=t}))}})}
-  function modeLayers(mode){gPipes.style.opacity=mode==='new'?0:1;gTangle.style.opacity=mode==='new'?1:0;gUpper.style.opacity=mode==='new'?0:1}
-  function fillInstant(mode){modeLayers(mode);tangleSet(mode==='new'?1:0);foods.forEach(f=>{f.fp.setAttribute('fill',colorFor(f.i,f.j,mode));setLevel(f,misses(f.i,f.j,mode)?0:1);f.ghost.setAttribute('opacity',mode==='new'?.95:0)});DYES.forEach((d,i)=>{flows[i].fu.setAttribute('stroke',mode==='old'?d.c:d.sc[0]);flows[i].fl.setAttribute('stroke',mode==='old'?d.c:d.sc[1]);flowSet(i,1,1)});splats(mode==='new',true)}
+  function colorFor(i,j,mode){const d=DYES[i];if(mode==='old')return d.c;if(i===4&&j===0)return MINT_NEW;if(d.mix)return shade(d.mix,[.04,-.04,.08][j]);return shade(mix(d.sc[0],d.sc[1],[.1,.5,.9][j]),[.05,-.04,.08][j])}
+  const misses=(i,j,mode)=>mode==='new'&&i>=4&&j===2;
+  function splats(on,instant){splatG.innerHTML='';return;if(!on)return;[4,5].forEach(i=>{const f=byIJ(i,2);const g=S('g',{},splatG);S('path',{d:blobD(f.fx,500,9,90+i,.35,9),fill:DYES[i].sc[0],opacity:.85},g);S('text',{x:f.fx,y:528,'text-anchor':'middle',class:'svg-mono'},g).textContent='?';if(!instant){g.style.opacity=0;job(tween({dur:300,delay:1400+i*140,update:t=>g.style.opacity=t}))}})}
+  function fillInstant(mode){foods.forEach(f=>{f.fp.setAttribute('fill',colorFor(f.i,f.j,mode));setLevel(f,misses(f.i,f.j,mode)?0:1);f.ghost.setAttribute('opacity',mode==='new'?.95:0)});DYES.forEach((d,i)=>{flows[i].fu.setAttribute('stroke',mode==='old'?d.c:d.sc[0]);flows[i].fl.setAttribute('stroke',mode==='old'?d.c:d.sc[1]);flowSet(i,1,1)});splats(mode==='new',true)}
   function pour(mode){kill();foods.forEach(f=>{setLevel(f,0);f.ghost.setAttribute('opacity',mode==='new'?.95:0)});splatG.innerHTML='';
     if(RM){fillInstant(mode);return}
-    modeLayers(mode);
-    if(mode==='new'){tangleSet(0);job(tween({dur:1300,ease:E.inOut,update:t=>tangleSet(t)}));
-      foods.forEach(f=>{if(misses(f.i,f.j,'new'))return;f.fp.setAttribute('fill',colorFor(f.i,f.j,'new'));job(tween({dur:520,delay:900+f.j*220+f.i*60,ease:E.out,update:t=>setLevel(f,t)}))});
-      splats(true,false);return}
     DYES.forEach((d,i)=>{const delay=i*140;flows[i].fu.setAttribute('stroke',mode==='old'?d.c:d.sc[0]);flows[i].fl.setAttribute('stroke',mode==='old'?d.c:d.sc[1]);flowSet(i,0,0);
       job(tween({dur:340,delay,ease:E.lin,update:t=>flowSet(i,t,0)}));job(tween({dur:640,delay:delay+340,ease:E.lin,update:t=>flowSet(i,1,t)}));
       for(let j=0;j<3;j++){const f=byIJ(i,j);const reach=delay+340+640*((f.fy-28-202)/250);const col=colorFor(i,j,mode);const miss=misses(i,j,mode);
         const drop=S('circle',{cx:f.cx-3,cy:f.fy-28,r:0,fill:mode==='old'?d.c:(j%2?d.sc[1]:d.sc[0])},dropG);
-        const tx=miss?f.fx+(i===4?-4:4):f.fx-2,ty=miss?500:f.fy-12;
+        if(miss){drop.remove();continue}const tx=f.fx-2,ty=f.fy-12;
         job(tween({dur:300,delay:reach,ease:E.lin,update:t=>{drop.setAttribute('r',(5*Math.min(1,t*3)).toFixed(1));drop.setAttribute('cx',lerp(f.cx-3,tx,E.out(t)).toFixed(1));drop.setAttribute('cy',lerp(f.fy-28,ty,t*t).toFixed(1))},done:()=>drop.remove()}));
         if(!miss){f.fp.setAttribute('fill',col);job(tween({dur:520,delay:reach+240,ease:E.out,update:t=>setLevel(f,t)}))}}});
     if(mode==='new')splats(true,false)}
@@ -579,16 +546,16 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   const annOld=S('g',{},gAnn),annNew=S('g',{},gAnn);annOld.style.transition=annNew.style.transition='opacity .5s';
   note(annOld,[[['One ',0],['Blue No. 1',1,'#1A5BD6'],[' colored',0]],[['all three foods,',0]],[['predictably.',0]]],150,500,'start');
   arrow(annOld,'M252 500C272 496 284 482 290 466',290,466,-1.25);
-  note(annNew,[[['Mars’s new M&M’s',1]],[['skip ',0],['blue',1,'#1A5BD6'],[' for now.',0]]],268,506,'end');
-  arrow(annNew,'M272 502C280 502 286 501 290 500',291,500,0);
+  note(annNew,[[['No ',0],['green',1,'#2E9A5C'],[' jar: plant green',0]],[['fades and is barely approved,',0]],[['so it’s ',0],['blue',1,'#2A8FB5'],[' + ',0],['yellow',1,'#B8901A'],['.',0]]],20,500,'start');
+  note(annNew,[[['Empty shells: Mars’s new',0]],[['M&M’s launched without ',0],['blue',1,'#1A5BD6'],['.',0]]],392,500,'end');
   $('#pourAgain').addEventListener('click',()=>pour('old'));
   let filled='none';
   function step(i,dir){kill();
-    vis(gLower,true);gUpper.style.pointerEvents='none';vis(gVats,i<=1);vis(gSplit,i>=2);vis(gCrack,i>=1);
+    vis(gUpper,true);vis(gLower,true);vis(gVats,i<=1);vis(gSplit,i>=2);vis(gCrack,i>=1);
     annOld.style.opacity=(i===0)?1:0;annNew.style.opacity=(i>=2)?1:0;
     gLower.style.transform=i>=1?'translate(0px,8px) rotate(1.4deg)':'none';
     gVats.classList.toggle('shake',i===1&&dir>0&&!RM);
-    if(i<0){modeLayers('old');tangleSet(0);foods.forEach(f=>{setLevel(f,0);f.ghost.setAttribute('opacity',0)});DYES.forEach((d,k)=>flowSet(k,0,0));splatG.innerHTML='';filled='none'}
+    if(i<0){foods.forEach(f=>{setLevel(f,0);f.ghost.setAttribute('opacity',0)});DYES.forEach((d,k)=>flowSet(k,0,0));splatG.innerHTML='';filled='none'}
     if(i===0){if(dir>0||filled!=='old')pour('old');filled='old'}
     if(i===1){if(filled!=='old')fillInstant('old');filled='old';crackLines.forEach(p=>{const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=dir>0?L:0;if(dir>0)job(tween({dur:700,ease:E.out,update:t=>p.style.strokeDashoffset=L*(1-t)}))})}
     if(i>=2){crackLines.forEach(p=>{p.style.strokeDashoffset=0});if((dir>0&&i===2)||filled!=='new'){if(i===2&&dir>0)pour('new');else fillInstant('new')}filled='new'}}
