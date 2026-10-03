@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Less Green · mochi.</title>
+<meta name="description" content="Why Is My Mint Ice Cream Less Green? America's food is changing color. An alternate edition of mochi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0F100D;--bg2:#161712;--ink:#EDEAE0;--ink2:#B3B0A4;--ink3:#77756C;--rule:#2C2D27;
+  --yel:#FFD60A;--old:#34C77B;--new:#A9D4B5;
+  --serif:"Instrument Serif",Georgia,serif;--body:"Spectral",Georgia,serif;--mono:"Space Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:19px;line-height:1.62;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:inherit}
+
+/* ---------- HERO: the page drains ---------- */
+.hero{position:relative;height:190vh}
+.hero-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--old);color:#0F100D}
+.hero-grain{position:absolute;inset:0;width:100%;height:100%;opacity:.22;mix-blend-mode:multiply;pointer-events:none}
+.top{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:baseline;padding:16px 22px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;border-bottom:1.5px solid rgba(15,16,13,.55)}
+.top .logo{font-family:var(--serif);font-size:30px;letter-spacing:0;text-transform:none;line-height:1}
+.top .logo i{font-style:normal;color:#0F100D}
+.hero-title{position:absolute;left:0;right:0;top:50%;transform:translateY(-54%);padding:0 22px;text-align:center}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(50px,10.2vw,138px);line-height:.9;letter-spacing:-.01em;margin:0 auto;max-width:11ch}
+.hero h1 em{font-style:italic}
+.dek{margin:22px auto 0;font-family:var(--mono);font-weight:700;font-size:clamp(13px,1.6vw,17px);letter-spacing:.14em;text-transform:uppercase}
+.dek .cc{background:#0F100D;padding:3px 9px 2px;border-radius:3px;white-space:pre}
+.dek .cc span{transition:color .2s}
+.byline{margin-top:14px;font-family:var(--mono);font-size:12.5px;letter-spacing:.05em}
+.byline b{font-weight:700}
+.readout{position:absolute;left:22px;bottom:22px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;width:min(300px,calc(100% - 44px))}
+.readout .hex{font-size:22px;font-weight:700;letter-spacing:.02em;display:flex;align-items:center;gap:10px;margin:2px 0 8px}
+.readout .hex i{width:22px;height:22px;border-radius:50%;border:2px solid #0F100D;display:inline-block;background:var(--old)}
+.readout .bar{position:relative;height:2px;background:rgba(15,16,13,.3)}
+.readout .bar b{position:absolute;left:0;top:-3px;height:8px;width:8px;border-radius:50%;background:#0F100D;transform:translateX(-50%)}
+.readout .ends{display:flex;justify-content:space-between;margin-top:6px;opacity:.75}
+.scrollcue{position:absolute;right:22px;bottom:22px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.scrollcue svg{animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(5px)}}
+.drip{position:absolute;left:0;right:0;bottom:-58px;width:100%;height:60px;display:block;z-index:2}
+
+/* ---------- body column ---------- */
+.col{max-width:620px;margin:0 auto;padding:0 22px}
+.col p{margin:0 0 1.05em}
+.lede{padding-top:96px}
+.dl{font-family:var(--mono);font-size:.68em;font-weight:700;letter-spacing:.1em;margin-right:.35em}
+q{quotes:"“" "”"}
+.mint-o{color:var(--old)}.mint-n{color:var(--new)}
+
+/* ---------- photos ---------- */
+.photo{margin:72px auto;max-width:1120px;padding:0 22px}
+.ph{position:relative;aspect-ratio:3/2;border:1.5px dashed #4A4B43;border-radius:4px;background:repeating-linear-gradient(135deg,#14150F 0 14px,#171812 14px 28px);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}
+.ph-in{max-width:30rem;font-family:var(--mono);font-size:13px;line-height:1.55;color:var(--ink2)}
+.ph-in b{display:block;color:var(--yel);letter-spacing:.12em;text-transform:uppercase;font-size:11px;margin-bottom:8px}
+.photo figcaption{display:flex;justify-content:space-between;gap:18px;max-width:1120px;margin:10px auto 0;font-size:15px;line-height:1.45;color:var(--ink2)}
+.photo figcaption span{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);white-space:nowrap;padding-top:3px}
+
+/* ---------- graphic shells ---------- */
+.g{margin:92px auto;max-width:1120px;padding:0 22px}
+.g-head{max-width:760px;margin:0 auto 26px}
+.g-h{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4.6vw,50px);line-height:1;margin:0;letter-spacing:-.005em}
+.g-sub{font-family:var(--mono);font-size:12.5px;line-height:1.5;color:var(--ink2);margin:12px 0 0;letter-spacing:.02em}
+.g-note{max-width:760px;margin:22px auto 0;padding-top:12px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:11px;line-height:1.6;color:var(--ink3)}
+.g-note b{color:var(--ink2)}
+.k{font-weight:700}
+
+/* ---------- G1: paint chip ---------- */
+.g1-wrap{display:grid;grid-template-columns:auto 1fr;gap:44px;max-width:760px;margin:0 auto;align-items:start}
+.strip-zone{position:relative;padding-left:58px;padding-right:150px}
+.strip{position:relative;width:250px;background:#F6F3EA;color:#1A1A16;border-radius:7px;padding:12px 12px 34px;box-shadow:0 18px 40px rgba(0,0,0,.45),0 2px 0 rgba(255,255,255,.08) inset;transform:rotate(-1.2deg)}
+.strip .brand{display:flex;white-space:nowrap;gap:8px;justify-content:space-between;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;padding:0 2px 9px}
+.strip .hole{position:absolute;left:50%;bottom:11px;width:13px;height:13px;margin-left:-6.5px;border-radius:50%;background:var(--bg);box-shadow:inset 0 1px 2px rgba(0,0,0,.6)}
+.chip{position:relative;display:flex;justify-content:space-between;align-items:flex-end;width:100%;height:58px;border:0;border-top:2px solid #F6F3EA;padding:7px 10px;text-align:left;background:var(--c);transition:transform .25s,box-shadow .25s}
+.chip:first-of-type{border-top:0;border-radius:3px 3px 0 0}
+.chip:last-of-type{border-radius:0 0 3px 3px}
+.chip .nm{font-family:var(--body);font-style:italic;font-size:15px;line-height:1}
+.chip .cd{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;opacity:.8}
+.chip.dk{color:#F6F3EA}.chip.lt{color:#1A1A16}
+.chip:hover{transform:translateX(5px)}
+.chip:focus-visible{outline:3px solid var(--yel);outline-offset:2px}
+.strip.done .chip{cursor:default}
+.strip.done .chip:hover{transform:none}
+.chip.pick{transform:translateX(9px);box-shadow:-4px 0 0 var(--yel)}
+.tag{position:absolute;left:calc(100% + 18px);top:50%;transform:translate(-6px,-50%);opacity:0;white-space:nowrap;font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--ink);transition:opacity .4s,transform .4s;display:flex;align-items:center;gap:6px;pointer-events:none}
+.tag::before{content:"";width:12px;height:1.5px;background:currentColor}
+.done .tag{opacity:1;transform:translate(0,-50%)}
+.tag.you{color:var(--yel)}
+.brk{position:absolute;left:8px;width:34px;border:1.5px dashed var(--ink2);border-right:0;opacity:0;transition:opacity .5s .3s}
+.brk span{position:absolute;right:100%;top:50%;transform:translate(50%,-50%) rotate(-90deg);transform-origin:center;white-space:nowrap;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);background:var(--bg);padding:0 6px;margin-right:-17px}
+.done ~ .brk,.strip-zone.done .brk{opacity:1}
+.g1-side{padding-top:6px;min-height:300px}
+.ask{font-size:18px;color:var(--ink2);margin:0 0 14px}
+.skip{background:none;border:0;padding:0;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--yel);border-bottom:1px solid currentColor}
+.verdict{font-family:var(--serif);font-size:30px;line-height:1.08;margin:0 0 18px;min-height:2.2em}
+.stat{background:#000;border:1px solid #2A2A22;padding:16px 18px 14px;font-family:var(--mono);color:var(--yel);max-width:340px;opacity:.25;transition:opacity .5s}
+.done-side .stat{opacity:1}
+.stat .lab{font-size:11px;letter-spacing:.05em;text-transform:uppercase;line-height:1.4}
+.stat .num{font-size:56px;font-weight:700;line-height:1;margin:10px 0 6px;letter-spacing:-.02em}
+.stat .sm{font-size:11.5px;letter-spacing:.03em}
+.stat .sw{display:flex;gap:6px;margin-top:12px}
+.stat .sw i{flex:1;height:16px;border-radius:2px}
+.why{font-size:15.5px;line-height:1.5;color:var(--ink2);margin:14px 0 0;max-width:340px}
+
+/* ---------- G2: hue ruler ---------- */
+.g2-grid{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:40px;max-width:1060px;margin:0 auto}
+.g2-steps .st{min-height:78vh;display:flex;align-items:center}
+.g2-steps .st:first-child{min-height:55vh;align-items:flex-start;padding-top:12vh}
+.g2-steps .st:last-child{min-height:90vh}
+.g2-steps p{margin:0;font-size:18px;line-height:1.55;color:var(--ink2);transition:color .35s;border-left:2px solid var(--rule);padding-left:16px}
+.g2-steps .st.on p{color:var(--ink);border-left-color:var(--yel)}
+.g2-stick{position:sticky;top:6vh;height:88vh;display:flex;align-items:center}
+#ruler{width:100%;display:block;overflow:visible}
+#ruler text{font-family:var(--mono);fill:var(--ink)}
+#ruler .lbl,#ruler .an{paint-order:stroke;stroke:var(--bg);stroke-width:4px;stroke-linejoin:round}
+#ruler .lbl{font-size:11px;letter-spacing:.02em}
+#ruler .sec{font-size:10px;letter-spacing:.14em;fill:var(--ink3)}
+#ruler .an{font-size:11px;fill:var(--ink2)}
+#ruler .an .k{fill:var(--ink)}
+#ruler .ax{font-size:10px;letter-spacing:.12em;fill:var(--ink3)}
+#ruler .fade{transition:opacity .6s}
+#ruler .anl{fill:none;stroke:var(--ink2);stroke-width:1.2;stroke-linecap:round}
+
+/* ---------- G3: the bowl ---------- */
+.g3-scrolly{position:relative;max-width:1060px;margin:0 auto}
+.g3-stick{position:sticky;top:0;height:100vh;height:100svh;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:36px;align-items:center}
+.bowl-box{position:relative;width:100%;aspect-ratio:1/1;max-height:84vh;justify-self:center}
+#bowl{width:100%;height:100%;display:block}
+.panel{position:relative;min-height:400px}
+.yr{font-family:var(--serif);font-size:clamp(76px,9vw,128px);line-height:.85;letter-spacing:-.02em;margin:0 0 14px;color:var(--ink)}
+.yr small{font-family:var(--mono);font-size:12px;letter-spacing:.1em;vertical-align:top;color:var(--ink3);margin-left:8px}
+.notes{position:relative;min-height:235px}
+.note{position:absolute;inset:0 0 auto 0;opacity:0;transform:translateY(10px);transition:opacity .45s,transform .45s;font-size:17px;line-height:1.5;color:var(--ink2)}
+.note.on{opacity:1;transform:none}
+.note .qt{display:block;font-family:var(--serif);font-style:italic;font-size:27px;line-height:1.1;color:var(--ink);margin-top:10px}
+.label{display:block;margin-top:10px;background:#F4F1E8;color:#151510;font-family:var(--mono);font-size:11.5px;line-height:1.45;padding:9px 11px;border-radius:2px;letter-spacing:.01em;box-shadow:3px 3px 0 #000}
+.label b{font-weight:700}
+.ledger{margin-top:22px;border-top:1px solid var(--rule);padding-top:12px;font-family:var(--mono);font-size:11px;color:var(--ink3)}
+.lrow{display:flex;align-items:center;gap:14px;height:24px;opacity:.12;transition:opacity .4s}
+.lrow.on{opacity:1}
+.lrow.cur .y{color:var(--yel)}
+.lrow .y{width:38px;letter-spacing:.06em}
+.lrow .dots{display:flex;gap:7px}
+.lrow .dots i{width:13px;height:13px;border-radius:50%;display:block}
+.lrow .dots i.miss{border:1.5px dashed #6E6C64;background:none}
+.lrow .dots i.q{border:1.5px dashed #6E6C64;background:none;position:relative}
+.lrow .dots i.q::after{content:"?";position:absolute;inset:-2px 0 0;font-size:9px;text-align:center;color:var(--ink2)}
+.g3-steps .s{height:95vh}
+.g3-steps .s:first-child{margin-top:-60vh}
+.g3-steps .s:last-child{height:150vh}
+
+/* ---------- ending ---------- */
+.foot{margin-top:110px;border-top:1px solid var(--rule);padding:34px 22px 60px}
+.foot-in{max-width:760px;margin:0 auto;display:grid;grid-template-columns:150px 1fr;gap:26px}
+.foot .logo{font-family:var(--serif);font-size:38px;line-height:1}
+.foot .logo i{font-style:normal;color:var(--new)}
+.foot p{font-size:14px;line-height:1.5;color:var(--ink2);margin:0 0 12px}
+.foot ul{margin:0;padding:0;list-style:none;font-family:var(--mono);font-size:11px;line-height:1.6;color:var(--ink3)}
+.foot li{margin-bottom:6px}
+.foot li b{color:var(--ink2)}
+.switch{display:inline-block;margin-top:6px;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--yel);text-decoration:none;border-bottom:1px solid currentColor}
+
+/* ---------- small screens ---------- */
+@media (max-width:760px){
+  body{font-size:18px}
+  .top{padding:13px 16px}.top .logo{font-size:26px}
+  .hero-title{padding:0 16px}
+  .hero h1{font-size:clamp(50px,14.5vw,72px)}
+  .readout{left:16px;bottom:18px}.scrollcue{display:none}
+  .col{padding:0 16px}
+  .photo,.g{padding:0 16px}
+  .photo figcaption{flex-direction:column;gap:2px}
+  .g1-wrap{grid-template-columns:1fr;gap:26px}
+  .strip-zone{padding-left:48px;padding-right:0;justify-self:start}
+  .strip{width:200px}
+  .tag{font-size:10px;left:calc(100% + 12px)}
+  .g1-side{min-height:0}
+  .g2-grid{display:flex;flex-direction:column}
+  .g2-stick{order:-1;top:0;height:62vh;z-index:1;background:linear-gradient(var(--bg) 88%,rgba(15,16,13,0))}
+  .g2-steps{position:relative;z-index:2;margin-top:-6vh}
+  .g2-steps .st,.g2-steps .st:first-child,.g2-steps .st:last-child{min-height:100vh;align-items:flex-end;padding:0 0 3vh}
+  .g2-steps .st:first-child{margin-top:0}
+  .g2-steps p{background:rgba(22,23,18,.94);border:1px solid var(--rule);border-left:2px solid var(--rule);padding:12px 14px;border-radius:3px;font-size:16.5px}
+  .g3-stick{grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:4px;align-content:start;padding-top:10px}
+  .bowl-box{width:min(78vw,44vh)}
+  .panel{min-height:0}
+  .yr{font-size:58px;margin-bottom:6px}
+  .notes{min-height:215px}
+  .note{font-size:15.5px}.note .qt{font-size:22px}
+  .ledger{margin-top:8px;padding-top:8px}.lrow{height:20px}
+  .foot-in{grid-template-columns:1fr;gap:10px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero" aria-label="Title">
+  <div class="hero-pin" id="heroPin">
+    <svg class="hero-grain" aria-hidden="true"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 0"/></filter><rect width="100%" height="100%" filter="url(#grain)"/></svg>
+    <div class="top"><span class="logo">mochi<i>.</i></span><span>Vol. 1 · No. 1</span></div>
+    <div class="hero-title">
+      <h1>Why Is My Mint Ice Cream <em>Less Green?</em></h1>
+      <p class="dek">America’s Food Is <span class="cc" id="cc">Changing Color</span></p>
+      <p class="byline">By <b>Cynthia</b> · 2 min read</p>
+    </div>
+    <div class="readout" aria-hidden="true">
+      <div>It’s-It mint filling</div>
+      <div class="hex"><i id="hexDot"></i><span id="hexTxt">#34C77B</span></div>
+      <div class="bar"><b id="hexKnob"></b></div>
+      <div class="ends"><span>Official image</span><span>2026</span></div>
+    </div>
+    <div class="scrollcue" aria-hidden="true">Scroll to drain<svg width="14" height="20" viewBox="0 0 14 20"><path d="M7 1v17M1 12l6 6 6-6" fill="none" stroke="#0F100D" stroke-width="1.8"/></svg></div>
+  </div>
+  <svg class="drip" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><defs><clipPath id="dripC"><path id="dripP" d="M0 0H1200V10C1180 10 1176 24 1166 24S1152 10 1130 10 1100 12 1092 30 1078 50 1066 50 1052 32 1048 18 1034 10 1000 10 952 10 944 20 936 34 926 34 916 18 900 10H780C764 10 760 16 756 26S746 58 732 58 718 36 714 22 700 10 680 10H560C548 10 544 18 540 24S530 36 522 36 512 26 508 18 498 10 480 10H330C316 10 312 22 308 34S296 54 284 54 270 38 266 26 252 10 236 10H120C106 10 102 16 98 22S88 30 80 30 70 20 64 14 50 10 30 10H0Z"/></clipPath></defs><g clip-path="url(#dripC)"><rect width="1200" height="60" fill="#A9D4B5"/><rect width="1200" height="60" filter="url(#grain)" opacity=".22" style="mix-blend-mode:multiply"/></g></svg>
+</section>
+
+<!-- ============ STORY ============ -->
+<article>
+  <div class="col lede">
+    <p><span class="dl">SAN FRANCISCO</span>In 2018, Chronicle staff building a papier-mâché It’s-It held paint chips up to its mint filling until one matched. This spring the filling slid out of the wrapper a milky jade, and the old chip no longer fits.</p>
+  </div>
+
+  <figure class="photo">
+    <div class="ph"><div class="ph-in"><b>Photo 1 · to shoot</b>Mid-bite at the freezer case: the pale 2026 sandwich held up against a box or poster that still shows the old bright green.</div></div>
+    <figcaption>A 2026 mint It’s-It next to the company’s own picture of it.<span>Photo: Cynthia</span></figcaption>
+  </figure>
+
+  <!-- ============ G1: PAINT CHIP ============ -->
+  <section class="g g1" id="chipTest" aria-label="Paint chip memory test">
+    <div class="g-head">
+      <h2 class="g-h">Which green do you remember?</h2>
+      <p class="g-sub">Tap the chip closest to the It’s-It mint you picture.</p>
+    </div>
+    <div class="g1-wrap">
+      <div class="strip-zone" id="zone">
+        <div class="strip" id="strip"><div class="brand"><span>mochi paint co.</span><span>Mint family</span></div><span class="hole"></span></div>
+        <div class="brk" id="brk"><span id="brkTxt"></span></div>
+      </div>
+      <div class="g1-side" id="side">
+        <p class="verdict" id="verdict">Pick a chip.</p>
+        <p class="ask" id="ask">Or <button class="skip" id="skip" type="button">skip to the answer</button></p>
+        <div class="stat" aria-live="polite">
+          <div class="lab">Color strength of the filling,<br>official image → 2026</div>
+          <div class="num" id="statNum">−00%</div>
+          <div class="sm" id="statSm">chroma 00 → 00</div>
+          <div class="sw"><i style="background:var(--old)"></i><i style="background:var(--new)"></i></div>
+        </div>
+        <p class="why">Chroma measures how far a color sits from gray. The lower it falls, the more the green reads as a tint of white.</p>
+      </div>
+    </div>
+    <p class="g-note"><b>Note:</b> the old color is sampled from the company’s product image. The 2026 color is a placeholder until sampled from Photo 1, and the chips between are mixed from those two. <b>Sources:</b> San Francisco Chronicle, 2018 and 2026; It’s-It.</p>
+  </section>
+
+  <div class="col">
+    <p>The company’s president told the Chronicle the peppermint is untouched. His technicians tested blues for <q>which one would give color without an aftertaste</q> and swapped FD&amp;C Blue No. 1 for spirulina, a pigment pressed from algae.</p>
+  </div>
+
+  <!-- ============ G2: HUE RULER ============ -->
+  <section class="g g2" id="hue" aria-label="Where food colors land on the rainbow">
+    <div class="g-head">
+      <h2 class="g-h">Plants can paint the warm colors. Mint sits in the gap.</h2>
+      <p class="g-sub">Where food colors land on the rainbow, synthetic dyes against their plant and algae replacements</p>
+    </div>
+    <div class="g2-grid">
+      <div class="g2-steps" id="g2steps">
+        <div class="st" data-s="0"><p>The six synthetic dyes most foods used each hit one sharp shade, and together they cover the rainbow from red to indigo.</p></div>
+        <div class="st" data-s="1"><p>Their plant replacements pile up at the warm end. Beet, paprika, carrot, annatto and turmeric all land somewhere in red, orange or yellow.</p></div>
+        <div class="st" data-s="2"><p>Nothing on the plant side lands on green. Food green is usually mixed from a blue and a yellow, which is how It’s-It builds its mint, and why the blue it picks decides the shade.</p></div>
+        <div class="st" data-s="3"><p>The blues each come with a catch. Spirulina fades when heated, butterfly pea turns purple in acid, and galdieria was approved only in May 2025. Mars launched its new M&amp;M’s with no blue at all.</p></div>
+      </div>
+      <div class="g2-stick"><svg id="ruler" role="img" aria-label="Hue ruler. Six synthetic dyes spread from red to indigo. Plant replacements cluster in red, orange and yellow, none land on green, and four blues sit at the cool end with conditions."></svg></div>
+    </div>
+    <p class="g-note"><b>Note:</b> dots are placed by approximate hue to show the spread, not measured from samples. <b>Sources:</b> FDA color additive listings; HHS and FDA, May 9, 2025; Food Research International, 2021; Mars, 2026; San Francisco Chronicle, 2026.</p>
+  </section>
+
+  <div class="col">
+    <p>One frosted cookie, food makers told NPR, needed thirty times more natural color to look as bright, and Mars spent more than a decade on M&amp;M’s without synthetic dyes before launching them short two colors.</p>
+  </div>
+
+  <figure class="photo">
+    <div class="ph"><div class="ph-in"><b>Photo 2 · to shoot</b>Overhead, mid-pour: the new M&amp;M’s tumbling into a six-cup muffin tin sorted by color, with the blue and brown cups left empty.</div></div>
+    <figcaption>The new M&amp;M’s sorted by color. The blue and brown cups stay empty.<span>Photo: Cynthia</span></figcaption>
+  </figure>
+
+  <div class="col">
+    <p>General Mills has been here before, and children noticed first.</p>
+  </div>
+
+  <!-- ============ G3: THE BOWL ============ -->
+  <section class="g g3" id="trix" aria-label="Trix colors by year">
+    <div class="g-head">
+      <h2 class="g-h">Blue and green have left the bowl before</h2>
+      <p class="g-sub">One bowl of Trix, refilled for each year</p>
+    </div>
+    <div class="g3-scrolly" id="g3">
+      <div class="g3-stick">
+        <div class="bowl-box"><canvas id="bowl" role="img" aria-label="A bowl of Trix. In 2016 the blue and green pieces disappear, in 2017 they fall back in, and in 2026 the colors dull and blue and green are marked with question marks."></canvas></div>
+        <div class="panel">
+          <div class="yr" id="yr">2015</div>
+          <div class="notes">
+            <div class="note on" data-n="0">Six colors, all from synthetic dyes.</div>
+            <div class="note" data-n="1">General Mills switched to colors from fruit, vegetables and spices. In its taste tests, kids asked one thing.<span class="qt">“What did you do with my cereal? Where’s the blue and green?”</span></div>
+            <div class="note" data-n="2">Sales of the new Trix beat expectations, and Classic Trix came back anyway after fans complained. One called the plant version <span class="qt">“basically a salad.”</span></div>
+            <div class="note" data-n="3">Synthetic dyes are out again. The color line on the box now reads<span class="label"><b>Color</b> (vegetable and fruit juice, annatto extract, turmeric extract and other color added)</span><span style="display:block;margin-top:10px">No blue is listed. General Mills hasn’t said why.</span></div>
+          </div>
+          <div class="ledger" id="ledger"></div>
+        </div>
+      </div>
+      <div class="g3-steps"><div class="s" data-s="0"></div><div class="s" data-s="1"></div><div class="s" data-s="2"></div><div class="s" data-s="3"></div></div>
+    </div>
+    <p class="g-note"><b>Note:</b> pieces are drawn, not counted. Duller pieces mark years colored with plants. <b>Sources:</b> Food Dive and Food Business News, 2016, quoting General Mills technology director Erika Smith; CNBC and CNN, 2017; General Mills, Aug. 26, 2026, and its current Trix ingredient list.</p>
+  </section>
+
+  <figure class="photo">
+    <div class="ph"><div class="ph-in"><b>Photo 3 · to shoot</b>Overhead, milk splashing into a bowl of 2026 Trix.</div></div>
+    <figcaption>A bowl of 2026 Trix.<span>Photo: Cynthia</span></figcaption>
+  </figure>
+
+  <div class="col">
+    <p>General Mills tried its new colors on brand-new cereals first, where, Food Dive noted, shoppers had no memory of how they should look. The It’s-It had decades of it.</p>
+  </div>
+</article>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div><div class="logo">mochi<i>.</i></div><a class="switch" href="../">Original edition</a></div>
+    <div>
+      <p>A one-person visual desk by Cynthia, telling small stories about how ordinary things look and why they look that way. This is the alternate edition.</p>
+      <ul>
+        <li><b>San Francisco Chronicle, 2026:</b> the It’s-It mint recipe change, Blue No. 1 with annatto, spirulina, the 2018 papier-mâché sandwich</li>
+        <li><b>NPR, 2025:</b> food makers phasing out dyes, and the frosted cookie that needed thirty times more color</li>
+        <li><b>FDA and HHS:</b> certified and exempt color additives, May 9, 2025 approvals</li>
+        <li><b>Food Research International, 2021:</b> heat stability of spirulina and butterfly pea blues</li>
+        <li><b>Mars, 2026:</b> M&amp;M’s without synthetic dyes, launched without blue and brown</li>
+        <li><b>Food Dive, Food Business News, CNBC, CNN, General Mills:</b> Trix in 2016, 2017 and 2026</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+const NS='http://www.w3.org/2000/svg';
+function S(tag,at,par){const e=document.createElementNS(NS,tag);for(const k in at)e.setAttribute(k,at[k]);if(par)par.appendChild(e);return e}
+
+/* ---- color math (sRGB <-> CIELAB) ---- */
+const hx=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
+const toHex=a=>'#'+a.map(v=>Math.round(clamp(v,0,255)).toString(16).padStart(2,'0')).join('').toUpperCase();
+const lin=c=>{c/=255;return c<=.04045?c/12.92:Math.pow((c+.055)/1.055,2.4)};
+const gam=c=>255*(c<=.0031308?12.92*c:1.055*Math.pow(c,1/2.4)-.055);
+function lab(h){const [r,g,b]=hx(h).map(lin);let x=(r*.4124+g*.3576+b*.1805)/.95047,y=r*.2126+g*.7152+b*.0722,z=(r*.0193+g*.1192+b*.9505)/1.08883;const f=t=>t>.008856?Math.cbrt(t):7.787*t+16/116;x=f(x);y=f(y);z=f(z);return[116*y-16,500*(x-y),200*(y-z)]}
+function unlab([L,A,B]){let y=(L+16)/116,x=A/500+y,z=y-B/200;const f=t=>t*t*t>.008856?t*t*t:(t-16/116)/7.787;x=f(x)*.95047;y=f(y);z=f(z)*1.08883;return toHex([gam(x*3.2406+y*-1.5372+z*-.4986),gam(x*-.9689+y*1.8758+z*.0415),gam(x*.0557+y*-.204+z*1.057)])}
+const mixLab=(a,b,t)=>{const A=lab(a),B=lab(b);return unlab(A.map((v,i)=>v+(B[i]-v)*t))};
+const chroma=h=>{const [,a,b]=lab(h);return Math.hypot(a,b)};
+const lum=h=>lab(h)[0];
+const OLD='#34C77B',NEW='#A9D4B5';
+
+/* ================= HERO ================= */
+const hero=$('#hero'),pin=$('#heroPin'),hexTxt=$('#hexTxt'),hexDot=$('#hexDot'),knob=$('#hexKnob');
+const CC=['#E2382F','#F08A24','#F5CF2B','#3DAE4A','#2F7FD1','#7B4BB0'];
+const cc=$('#cc');const ccText=cc.textContent;cc.textContent='';
+const letters=[...ccText].map((ch,i)=>{const s=document.createElement('span');s.textContent=ch;cc.appendChild(s);return s});
+let ci=0;letters.forEach(s=>{if(s.textContent.trim()){s.dataset.c=ci%6;ci++}});
+function heroDraw(){const r=hero.getBoundingClientRect();const p=clamp(-r.top/(r.height-innerHeight));const e=p<.08?0:clamp((p-.08)/.8);
+  const col=mixLab(OLD,NEW,e);pin.style.background=col;hexTxt.textContent=col;hexDot.style.background=col;knob.style.left=(e*100)+'%';
+  letters.forEach(s=>{if(s.dataset.c!==undefined){const base=CC[+s.dataset.c];s.style.color=mixLab(base,'#9C9C90',e*.55)}})}
+
+/* ================= G1: PAINT CHIP ================= */
+const strip=$('#strip'),zone=$('#zone'),side=$('#side');
+const CHIPS=[
+  ['Highlighter',mixLab(OLD,'#00B85C',.55)],
+  ['Freezer Aisle',OLD],
+  ['Spearmint',mixLab(OLD,NEW,.25)],
+  ['Pistachio',mixLab(OLD,NEW,.5)],
+  ['Sea Glass',mixLab(OLD,NEW,.75)],
+  ['Milky Jade',NEW],
+  ['Celery Ice',mixLab(NEW,'#EEF3EC',.55)]];
+const OLDI=1,NEWI=5;
+const hole=strip.querySelector('.hole');
+const chipEls=CHIPS.map(([n,c],i)=>{const b=document.createElement('button');b.type='button';b.className='chip '+(lum(c)<62?'dk':'lt');b.style.setProperty('--c',c);
+  b.innerHTML=`<span class="nm">${n}</span><span class="cd">${c}</span>`;b.setAttribute('aria-label',`${n}, ${c}`);strip.insertBefore(b,hole);b.addEventListener('click',()=>reveal(i));return b});
+const c0=chroma(OLD),c1=chroma(NEW),drop=Math.round((1-c1/c0)*100);
+$('#statNum').textContent='−'+drop+'%';$('#statSm').textContent=`chroma ${Math.round(c0)} → ${Math.round(c1)}`;
+let picked=-1;
+function tag(i,txt,cls){const t=document.createElement('span');t.className='tag '+(cls||'');t.textContent=txt;chipEls[i].appendChild(t)}
+function reveal(i){if(strip.classList.contains('done'))return;picked=i;
+  if(i>=0)chipEls[i].classList.add('pick');
+  tag(OLDI,'official image','');tag(NEWI,'2026 sandwich','');
+  if(i>=0&&i!==OLDI&&i!==NEWI)tag(i,'your memory','you');
+  else if(i>=0)chipEls[i].querySelector('.tag').classList.add('you'),chipEls[i].querySelector('.tag').textContent+=' · you';
+  strip.classList.add('done');zone.classList.add('done');side.classList.add('done-side');
+  const a=chipEls[OLDI],b=chipEls[NEWI],zr=zone.getBoundingClientRect(),ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
+  const brk=$('#brk');brk.style.top=(ar.top+ar.height/2-zr.top)+'px';brk.style.height=(br.top+br.height/2-(ar.top+ar.height/2))+'px';$('#brkTxt').textContent=(NEWI-OLDI)+' chips paler';
+  const v=$('#verdict');
+  v.textContent=i<0?'Four chips, one recipe change.':i<=OLDI?'You remember the old filling.':i<NEWI?'You landed between the two.':'You already know the new green.';
+  $('#ask').style.display='none'}
+$('#skip').addEventListener('click',()=>reveal(-1));
+
+/* ================= G2: HUE RULER ================= */
+const svg=$('#ruler');
+const SYN=[['Red 40',-4,'#E3262E'],['Yellow 6',28,'#F28C28'],['Yellow 5',52,'#F7D51E'],['Green 3',168,'#1FA88A'],['Blue 1',205,'#1E7FD8'],['Blue 2',236,'#3343B0']];
+const PL=[['beet',-14,'#C42454',1],['paprika',12,'#D9482B',1],['carrot',30,'#EE8A2E',1],['annatto',38,'#F2A33A',1],['turmeric',50,'#E9C02A',1],
+          ['spirulina',192,'#2FA3C4',3],['galdieria',201,'#2B8FC9',3],['gardenia',216,'#2E5FB5',3],['butterfly pea',228,'#3C5BC0',3,286,'#7A4BB0'],['purple carrot',300,'#7B3C8E',1]];
+let g2state=-1,G={};
+function buildRuler(){svg.innerHTML='';const W=Math.max(300,svg.parentNode.clientWidth),narrow=W<520;
+  const L=narrow?14:30,R=W-(narrow?14:30),x=h=>L+(h+25)/(312+25)*(R-L);
+  const rowH=narrow?28:34,yS=narrow?56:62,yP0=yS+(narrow?84:78),yM=yP0+5*rowH+(narrow?14:16);
+  const yP=i=>i<5?yP0+i*rowH:yM+rowH+(narrow?8:10)+(i-5)*rowH;
+  const yAx=yP(9)+rowH+(narrow?10:14),H=yAx+(narrow?50:40);
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);svg.setAttribute('height',H);
+  const defs=S('defs',{},svg);const gr=S('linearGradient',{id:'rb'},defs);
+  for(let h=-25;h<=312;h+=12){S('stop',{offset:((h+25)/337*100).toFixed(1)+'%','stop-color':`hsl(${(h+360)%360} 72% 52%)`},gr)}
+  const hat=S('pattern',{id:'hat',width:7,height:7,patternUnits:'userSpaceOnUse',patternTransform:'rotate(45)'},defs);S('rect',{width:7,height:7,fill:'none'},hat);S('line',{x1:0,y1:0,x2:0,y2:7,stroke:'#3B3C34','stroke-width':2.2},hat);
+  const fs=narrow?10:11;
+  /* green gap band */
+  const gap=S('g',{class:'fade',opacity:0},svg);
+  S('rect',{x:x(78),y:yP0-rowH*.7,width:x(178)-x(78),height:yAx-yP0+rowH*.7-6,fill:'url(#hat)',stroke:'#55564C','stroke-dasharray':'4 4',rx:3},gap);
+  /* section labels */
+  S('text',{x:L,y:yS-30,class:'sec'},svg).textContent='SYNTHETIC DYES';
+  const secP=S('text',{x:L,y:yP0-rowH*.7-10,class:'sec fade',opacity:0},svg);secP.textContent='PLANT AND ALGAE COLORS';
+  /* synthetic row */
+  S('line',{x1:L,x2:R,y1:yS,y2:yS,stroke:'#2C2D27'},svg);
+  const syn=SYN.map(([n,h,c],i)=>{const g=S('g',{class:'fade',opacity:0},svg);S('circle',{cx:x(h),cy:yS,r:narrow?7:9,fill:c},g);
+    const t=S('text',{x:x(h),y:yS-(narrow?13:16),'text-anchor':'middle',class:'lbl','font-size':fs},g);t.textContent=narrow?n.replace('Yellow','Yel.').replace('Green','Grn.'):n;
+    const below=narrow?(i===1||i===4):i===2;if(below)t.setAttribute('y',yS+(narrow?22:26));return g});
+  /* plant rows */
+  const pl=PL.map(([n,h,c,grp,h2,c2],i)=>{const y=yP(i),g=S('g',{class:'fade',opacity:0},svg);
+    S('line',{x1:L,x2:R,y1:y,y2:y,stroke:'#1F201B'},g);
+    if(h2){const id='bp'+i,lg=S('linearGradient',{id},defs);S('stop',{offset:'0%','stop-color':c},lg);S('stop',{offset:'100%','stop-color':c2},lg);
+      S('rect',{x:x(h)-7,y:y-7,width:x(h2)-x(h)+14,height:14,rx:7,fill:`url(#${id})`},g)}
+    else S('circle',{cx:x(h),cy:y,r:narrow?6.5:8,fill:c},g);
+    const right=x(h)>(R-L)*.62+L;const t=S('text',{x:right?x(h)-14:x(h)+14,y:y+4,'text-anchor':right?'end':'start',class:'lbl','font-size':fs},g);t.textContent=n;
+    return{g,grp,y,h,h2}});
+  /* mint row */
+  const mint=S('g',{class:'fade',opacity:0},svg);const mx1=x(149),mx2=x(137);
+  S('text',{x:(mx1+mx2)/2,y:yM-17,class:'lbl','font-size':fs,'text-anchor':'middle'},mint).textContent='It’s-It mint';
+  S('circle',{cx:mx1,cy:yM,r:narrow?8:10,fill:OLD,stroke:'#0F100D','stroke-width':2},mint);S('circle',{cx:mx2,cy:yM+0.5,r:narrow?8:10,fill:NEW,stroke:'#0F100D','stroke-width':2},mint);
+  S('text',{x:mx1+14,y:yM+4,class:'an','font-size':fs-1},mint).textContent='old';
+  S('text',{x:mx2-4,y:yM+26,class:'an','font-size':fs-1,'text-anchor':'middle'},mint).textContent='2026';
+  /* mix arrows: annatto (3) and spirulina (5) feeding the mint row */
+  const a=pl[3],sp=pl[5];
+  S('path',{d:`M${x(a.h)+6} ${a.y+8} C ${x(a.h)+30} ${yM-4}, ${mx2-50} ${yM+2}, ${mx2-14} ${yM}`,class:'anl','stroke-dasharray':'3 4'},mint);
+  S('path',{d:`M${x(sp.h)-4} ${sp.y-9} C ${x(sp.h)-14} ${yM+30}, ${mx1+40} ${yM+20}, ${mx1+12} ${yM+6}`,class:'anl','stroke-dasharray':'3 4'},mint);
+  if(!narrow){const gt=S('text',{x:x(128),y:yP0+rowH*1.2,'text-anchor':'middle',class:'an','font-size':fs},mint);
+  [['No plant green.',1],['Green gets mixed',0],['from blue + yellow.',0]].forEach(([s,b],k)=>{const ts=S('tspan',{x:x(128),dy:k?14:0,class:b?'k':''},gt);ts.textContent=s})}
+  else{const gt=S('text',{x:x(128),y:yAx+40,'text-anchor':'middle',class:'an','font-size':fs},mint);gt.innerHTML='<tspan class="k">↑ no plant green</tspan>'}
+  /* blue notes */
+  const bl=S('g',{class:'fade',opacity:0},svg);
+  const nB=(i,txt,dx,dy)=>{const r=pl[i];const t=S('text',{x:x(r.h)+dx,y:r.y+dy,class:'an','font-size':fs-1,'text-anchor':dx<0?'end':'start'},bl);t.innerHTML=txt};
+  nB(5,'<tspan class="k">fades</tspan> when heated',14,4);
+  nB(6,'approved <tspan class="k">May 2025</tspan>',14,4);
+  {const r=pl[8];const t=S('text',{x:x(r.h2)+7,y:r.y-13,class:'an','font-size':fs-1,'text-anchor':'end'},bl);t.innerHTML='turns <tspan class="k">purple</tspan> in acid'}
+  const b1=SYN[4];S('circle',{cx:x(b1[1]),cy:yS,r:narrow?12:15,fill:'none',stroke:'#FFD60A','stroke-width':1.6,'stroke-dasharray':'3 3'},bl);
+  const bt=S('text',{x:x(b1[1]),y:yS+(narrow?40:34),'text-anchor':'middle',class:'an','font-size':fs-1},bl);bt.innerHTML='<tspan class="k" style="fill:#FFD60A">It’s-It’s old blue</tspan>';
+  const mm=S('text',{x:R,y:yP(9)+rowH*.9,'text-anchor':'end',class:'an','font-size':fs-1},bl);mm.innerHTML='Mars’s new M&amp;M’s: <tspan class="k">no blue</tspan>';
+  /* axis */
+  S('rect',{x:L,y:yAx,width:R-L,height:9,rx:4.5,fill:'url(#rb)'},svg);
+  [['RED',-4],['ORANGE',30],['YELLOW',56],['GREEN',128],['BLUE',215],['PURPLE',290]].filter(a=>!narrow||a[0]!=='ORANGE').forEach(([t,h])=>{const e=S('text',{x:x(h),y:yAx+26,'text-anchor':'middle',class:'ax','font-size':narrow?8.5:10},svg);e.textContent=t});
+  G={syn,pl,mint,gap,bl,secP};const s=g2state;g2state=-1;setG2(Math.max(0,s))}
+function setG2(s){if(s===g2state)return;g2state=s;
+  G.syn.forEach((g,i)=>{g.style.transitionDelay=(s===0?i*90:0)+'ms';g.setAttribute('opacity',s>=3&&i!==4?.45:1)});
+  G.secP.setAttribute('opacity',s>=1?1:0);
+  G.pl.forEach((r,i)=>{r.g.style.transitionDelay=(s===1?i*70:0)+'ms';r.g.setAttribute('opacity',s<1?0:r.grp===3?(s>=3?1:s>=2?.25:.12):(s>=3?.35:s>=2?.55:1))});
+  G.gap.setAttribute('opacity',s>=2?1:0);G.mint.setAttribute('opacity',s>=2?1:0);G.bl.setAttribute('opacity',s>=3?1:0);
+  $$('#g2steps .st').forEach(e=>e.classList.toggle('on',+e.dataset.s===s))}
+buildRuler();setG2(0);
+let rw=innerWidth;addEventListener('resize',()=>{if(Math.abs(innerWidth-rw)>40){rw=innerWidth;buildRuler()}});
+
+/* ================= G3: THE BOWL ================= */
+const cv=$('#bowl'),ctx=cv.getContext('2d');
+const SYNC=['#E2382F','#F08A24','#F5CF2B','#3DAE4A','#2F7FD1','#7B4BB0'],PLC=['#C65447','#DD9750','#E3C664','#86A46F','#7390B5','#86679C'];
+function rng(s){return()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const R0=rng(7),P=[],BR=400,PR=31;
+let tries=0;while(P.length<132&&tries<20000){tries++;const a=R0()*Math.PI*2,r=Math.sqrt(R0())*(BR-PR-6);const x=Math.cos(a)*r,y=Math.sin(a)*r;
+  if(P.every(p=>Math.hypot(p.x-x,p.y-y)>PR*1.82))P.push({x,y})}
+P.forEach((p,i)=>{p.c=i%6;p.wob=[...Array(9)].map(()=>.88+R0()*.22);p.rot=R0()*6.28;p.rs=.92+R0()*.16;p.s=1;p.dy=0;p.ring=0;p.mix=0;p.del=R0()});
+/* shuffle colors */
+for(let i=P.length-1;i>0;i--){const j=Math.floor(R0()*(i+1));[P[i].c,P[j].c]=[P[j].c,P[i].c]}
+const GONE=c=>c===3||c===4;
+let DPR=1,SZ=500;
+function sizeCanvas(){const r=cv.getBoundingClientRect();DPR=Math.min(2,devicePixelRatio||1);SZ=r.width;cv.width=Math.round(r.width*DPR);cv.height=Math.round(r.height*DPR);drawBowl()}
+function blob(p,rad){ctx.beginPath();const n=p.wob.length;for(let k=0;k<=n;k++){const a=p.rot+k/n*Math.PI*2,rr=rad*p.wob[k%n];const X=Math.cos(a)*rr,Y=Math.sin(a)*rr;if(!k)ctx.moveTo(X,Y);else{const a0=p.rot+(k-.5)/n*Math.PI*2,r0=rad*(p.wob[(k-1)%n]+p.wob[k%n])/2*1.04;ctx.quadraticCurveTo(Math.cos(a0)*r0,Math.sin(a0)*r0,X,Y)}}ctx.closePath()}
+function drawBowl(){const k=SZ/1000*DPR;ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,cv.width,cv.height);ctx.setTransform(k,0,0,k,500*k,500*k);
+  /* table shadow + rim */
+  ctx.fillStyle='rgba(0,0,0,.55)';ctx.beginPath();ctx.ellipse(18,26,486,486,0,0,Math.PI*2);ctx.fill();
+  let g=ctx.createRadialGradient(-120,-160,60,0,0,490);g.addColorStop(0,'#FBF9F3');g.addColorStop(1,'#CFC9BB');ctx.fillStyle=g;ctx.beginPath();ctx.arc(0,0,488,0,Math.PI*2);ctx.fill();
+  g=ctx.createRadialGradient(40,60,40,0,0,440);g.addColorStop(0,'#EFEBE2');g.addColorStop(.85,'#DCD6C9');g.addColorStop(1,'#BDB6A7');ctx.fillStyle=g;ctx.beginPath();ctx.arc(0,0,438,0,Math.PI*2);ctx.fill();
+  ctx.save();ctx.beginPath();ctx.arc(0,0,436,0,Math.PI*2);ctx.clip();
+  /* pieces: holes first, then cereal */
+  for(const p of P){if(p.ring>0.01){ctx.save();ctx.translate(p.x,p.y);ctx.globalAlpha=p.ring;ctx.setLineDash([7,7]);ctx.lineWidth=3;ctx.strokeStyle='#8E887A';ctx.beginPath();ctx.arc(0,0,PR*.95,0,Math.PI*2);ctx.stroke();ctx.restore()}}
+  const order=P.slice().sort((a,b)=>a.dy-b.dy);
+  for(const p of order){if(p.s<.02)continue;const rad=PR*p.s*p.rs;ctx.save();ctx.translate(p.x,p.y+p.dy);
+    ctx.fillStyle='rgba(60,45,30,.28)';ctx.translate(3,6);blob(p,rad);ctx.fill();ctx.translate(-3,-6);
+    const col=mixLab(SYNC[p.c],PLC[p.c],p.mix);ctx.fillStyle=col;blob(p,rad);ctx.fill();
+    const hg=ctx.createRadialGradient(-rad*.35,-rad*.4,1,-rad*.2,-rad*.2,rad*1.1);hg.addColorStop(0,'rgba(255,255,255,.55)');hg.addColorStop(.45,'rgba(255,255,255,.08)');hg.addColorStop(1,'rgba(0,0,0,.16)');ctx.fillStyle=hg;blob(p,rad);ctx.fill();
+    ctx.restore()}
+  ctx.restore();
+  /* rim highlight */
+  ctx.lineWidth=3;ctx.strokeStyle='rgba(255,255,255,.7)';ctx.beginPath();ctx.arc(0,0,486,Math.PI*1.05,Math.PI*1.6);ctx.stroke()}
+const T3=[ /* per stage: gone pieces state, others mix */
+  {gs:1,gr:0,gm:0,om:0},{gs:0,gr:1,gm:1,om:1},{gs:1,gr:0,gm:0,om:0},{gs:0,gr:.8,gm:1,om:1}];
+let stage=-1,anim=null;
+function setStage(s){if(s===stage)return;const prev=stage;stage=s;
+  $('#yr').textContent=['2015','2016','2017','2026'][s];
+  $$('.note').forEach(n=>n.classList.toggle('on',+n.dataset.n===s));
+  $$('.lrow').forEach((r,i)=>{r.classList.toggle('on',i<=s);r.classList.toggle('cur',i===s)});
+  const t=T3[s],from=P.map(p=>({s:p.s,dy:p.dy,ring:p.ring,mix:p.mix})),rain=s===2&&prev===1&&!RM;
+  if(rain)P.forEach(p=>{if(GONE(p.c)){p.s=1;p.dy=-1300-p.del*700}});
+  const start=performance.now(),DUR=rain?1700:900;cancelAnimationFrame(anim);
+  const ease=u=>1-Math.pow(1-u,3),bounce=u=>{const n=7.5625,d=2.75;if(u<1/d)return n*u*u;if(u<2/d)return n*(u-=1.5/d)*u+.75;if(u<2.5/d)return n*(u-=2.25/d)*u+.9375;return n*(u-=2.625/d)*u+.984375};
+  const f0=P.map(p=>({s:p.s,dy:p.dy,ring:p.ring,mix:p.mix}));
+  (function tick(now){const u=RM?1:clamp((now-start)/DUR);
+    P.forEach((p,i)=>{const g=GONE(p.c),o=f0[i];
+      const ts=g?t.gs:1,tr=g?t.gr:0,tm=g?t.gm:t.om;
+      if(rain&&g){const d=clamp((u-p.del*.35)/.65);p.dy=o.dy*(1-bounce(d));p.ring=o.ring*(1-d)}
+      else{const e=ease(clamp((u-(g?p.del*.25:0))/.75));p.s=o.s+(ts-o.s)*e;p.dy=o.dy*(1-e);p.ring=o.ring+(tr-o.ring)*e}
+      const e2=ease(u);p.mix=o.mix+(tm-o.mix)*e2});
+    drawBowl();if(u<1)anim=requestAnimationFrame(tick)})(start)}
+/* ledger */
+const LED=[['2015',[0,0,0,0,0,0]],['2016',[1,1,1,2,2,1]],['2017',[0,0,0,0,0,0]],['2026',[1,1,1,3,3,1]]];
+$('#ledger').innerHTML=LED.map(([y,st])=>`<div class="lrow"><span class="y">${y}</span><span class="dots">${st.map((v,c)=>v===2?'<i class="miss"></i>':v===3?'<i class="q"></i>':`<i style="background:${v?PLC[c]:SYNC[c]}"></i>`).join('')}</span></div>`).join('');
+
+/* ================= scroll wiring ================= */
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;
+  if(el.closest('#g2steps'))setG2(+el.dataset.s);else setStage(+el.dataset.s)})},{rootMargin:'-45% 0px -45% 0px'});
+$$('#g2steps .st, .g3-steps .s').forEach(e=>io.observe(e));
+let ticking=false;addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(()=>{heroDraw();ticking=false})}},{passive:true});
+addEventListener('resize',()=>{sizeCanvas();heroDraw()});
+sizeCanvas();setStage(0);heroDraw();
+})();
+</script>
+</body>
+</html>
