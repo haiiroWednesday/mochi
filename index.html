@@ -3,6 +3,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght,BNCE,INFM,SPAC@0,300..800,-100..100,0..100,0..100;1,300..800,-100..100,0..100,0..100&display=swap">
 <style>
 /* Layout: mochi., a one-person visual news desk. Centered newspaper column in a reading serif; graphics sit centered behind cards that scroll over them; every label is handwritten like a margin note. Single light look on purpose. */
@@ -11,6 +12,7 @@
   --mint-old:#34C77B; --mint-new:#A9D4B5; --shadow-green:#34C77B;
   --display:"Fraunces","Iowan Old Style","Palatino Linotype",Georgia,serif;
   --body:"Newsreader","Iowan Old Style","Charter","Georgia",serif;
+  --title:"Instrument Serif",Georgia,serif;--mono:"Space Mono",ui-monospace,Menlo,monospace;
   --hand:"Shantell Sans","Segoe Print","Bradley Hand","Comic Neue",system-ui,sans-serif;
   --disp-axes:"SOFT" 100,"WONK" 0;
   --hand-axes:"BNCE" 45,"INFM" 70,"SPAC" 0;
@@ -40,7 +42,7 @@ button{font:inherit;color:inherit}
 @media (max-width:420px){.edition .mid{display:none}}
 
 /* mosaic band */
-.band{position:relative;height:clamp(150px,22vw,230px);background:var(--mint-new);overflow:hidden;margin-top:10px}
+.band{position:relative;flex:none;height:clamp(108px,15vw,190px);background:var(--mint-new);overflow:hidden;margin-top:10px}
 .mosaic{position:absolute;left:0;top:0;transform-origin:50% 50%}
 .tile{position:absolute}
 .tile.target{box-shadow:0 0 0 3px var(--mint-new),0 0 0 5.5px var(--ink)}
@@ -49,19 +51,37 @@ button{font:inherit;color:inherit}
 .band-tag span{font-size:.8rem;color:var(--ink-2)}
 .band-note{position:absolute;left:12px;bottom:10px;font-size:.74rem;color:var(--paper);background:rgba(30,28,37,.8);padding:2px 9px 3px;border-radius:8px;z-index:2}
 
-/* headline block */
-.head{max-width:54rem;margin:0 auto;text-align:center;padding:clamp(26px,5vh,52px) 16px clamp(6px,2vh,14px)}
-.kick{font-size:.92rem;color:var(--ink-2)}
-.hed{font-family:var(--display);font-variation-settings:var(--disp-axes);font-weight:800;font-size:clamp(2.6rem,8.6vw,5.6rem);line-height:.95;letter-spacing:-.025em;margin:.18em auto .3em;text-wrap:balance;text-shadow:-.04em .035em 0 var(--shadow-green)}
-.dek{display:inline-block;padding:.32em .8em .4em;background:var(--ink);color:var(--paper);border-radius:12px 8px 13px 9px;font-family:var(--display);font-variation-settings:var(--disp-axes);font-weight:700;font-size:clamp(1.1rem,3.4vw,1.55rem);line-height:1.15;letter-spacing:-.005em;transform:rotate(-1deg)}
+/* hero: masthead, mosaic and a mint field that drains as you scroll */
+.hero{position:relative;height:185vh}
+.hero-pin{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;background:var(--paper);overflow:hidden}
+.field{position:relative;flex:1;min-height:0;background:var(--mint-old);color:#141510;display:flex;align-items:center;justify-content:center}
+.head{max-width:60rem;margin:0 auto;text-align:center;padding:0 16px 64px}
+.kick{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}
+.hed{font-family:var(--title);font-weight:400;font-size:clamp(46px,min(8.6vw,12vh),118px);line-height:.9;letter-spacing:-.01em;margin:.16em auto .26em;max-width:11ch;text-wrap:balance}
+.hed em{font-style:italic}
+.dek{margin:0;font-family:var(--mono);font-weight:700;font-size:clamp(12.5px,1.6vw,17px);letter-spacing:.13em;text-transform:uppercase;line-height:1.9}
+.dek #cc{background:#141510;padding:3px 9px 2px;border-radius:3px;white-space:pre}
 .dek i{font-style:normal}
-.byline{margin-top:1.2em;font-size:.9rem;color:var(--ink-2);display:flex;justify-content:center;flex-wrap:wrap;gap:2px 18px}
-.byline b{font-weight:650;color:var(--ink)}
+.byline{margin-top:.9em;font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;display:flex;justify-content:center;flex-wrap:wrap;gap:2px 16px}
+.byline b{font-weight:700}
+.byline span+span::before{content:"·";margin-right:16px}
+.readout{position:absolute;left:clamp(16px,4vw,40px);bottom:18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;width:min(280px,calc(100% - 32px))}
+.readout .hex{font-size:20px;font-weight:700;letter-spacing:.02em;display:flex;align-items:center;gap:9px;margin:2px 0 7px}
+.readout .hex i{width:20px;height:20px;border-radius:50%;border:2px solid #141510;display:inline-block}
+.readout .bar{position:relative;height:2px;background:rgba(20,21,16,.3)}
+.readout .bar b{position:absolute;left:0;top:-3px;height:8px;width:8px;border-radius:50%;background:#141510;transform:translateX(-50%)}
+.readout .ends{display:flex;justify-content:space-between;margin-top:5px;opacity:.75}
+.scrollcue{position:absolute;right:clamp(16px,4vw,40px);bottom:18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.scrollcue svg{animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(5px)}}
+.drip{position:absolute;left:0;right:0;bottom:-58px;width:100%;height:60px;display:block;z-index:2;pointer-events:none}
+@media (max-width:560px){.scrollcue{display:none}.head{padding-bottom:84px}.hed{font-size:clamp(50px,15.5vw,76px)}.band{height:128px}.band-note{top:8px;bottom:auto}}
+@media (prefers-reduced-motion:reduce){.scrollcue svg{animation:none}}
 
 /* article */
 .story{padding-inline:16px}
 .col{max-width:34rem;margin:0 auto}
-.lede{padding-top:clamp(22px,5vh,48px)}
+.lede{padding-top:clamp(70px,10vh,96px)}
 .col p{margin:0 0 1em}
 .dateline{font-weight:700;font-size:.78em;letter-spacing:.08em;text-transform:uppercase;margin-right:.4em}
 .drop::first-letter{font-family:var(--display);font-variation-settings:var(--disp-axes);font-weight:900;float:left;font-size:3.6em;line-height:.8;padding:.07em .08em 0 0;color:var(--mint-old)}
@@ -73,8 +93,8 @@ button{font:inherit;color:inherit}
 .stage{position:sticky;top:env(safe-area-inset-top,0px);height:100vh;height:100svh;overflow:hidden;z-index:1;display:flex;flex-direction:column;align-items:center;padding:10px 12px 0}
 .ghead{width:100%;max-width:780px;display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-top:2px solid var(--ink);padding-top:6px;font-size:.8rem;color:var(--ink-2)}
 .ghead span{white-space:nowrap}
-.gsub{width:100%;max-width:780px;margin:3px 0 0;font-size:.88rem;line-height:1.35;color:var(--ink-2)}
-.ghead b{font-family:var(--display);font-variation-settings:var(--disp-axes);font-weight:700;font-size:1.12rem;letter-spacing:-.01em;color:var(--ink)}
+.gsub{width:100%;max-width:780px;margin:5px 0 0;font-family:var(--mono);font-size:.66rem;letter-spacing:.02em;line-height:1.5;color:var(--ink-2)}
+.ghead b{font-family:var(--title);font-weight:400;font-size:clamp(1.5rem,3.4vw,1.9rem);line-height:1.05;letter-spacing:-.005em;color:var(--ink)}
 .stage svg{flex:1;width:100%;max-width:780px;min-height:0;display:block}
 .steps{position:relative;z-index:2;margin-top:-100vh;margin-top:-100svh;padding-bottom:30vh;pointer-events:none}
 .step{min-height:78vh;min-height:78svh;display:flex;align-items:flex-end;justify-content:center;padding:0 16px 5svh}
@@ -99,7 +119,8 @@ button{font:inherit;color:inherit}
 .gsrc{max-width:780px;margin:-2.2em auto 2.4em;padding:6px 16px 0;font-size:.74rem;color:var(--ink-3);line-height:1.4}
 .g3wrap .lgw{background-image:none;background-color:var(--card);border:1px solid var(--rule);--display:"Fraunces","Iowan Old Style",Georgia,serif;--body:"Newsreader","Iowan Old Style",Georgia,serif;--mono:"Shantell Sans","Segoe Print",system-ui,sans-serif;--ink2:#4D4A55;--ink3:#827F89}
 .g3wrap .lgw .lg-kick,.g3wrap .lgw .lg-replay,.g3wrap .lgw .lg-note,.g3wrap .lgw .lg-src,.g3wrap .lgw .lg3-svg .mo,.g3wrap .lgw .lg3-svg .cap,.g3wrap .lgw .lg3-svg .br,.g3wrap .lgw .lg3-svg .tl{font-variation-settings:var(--hand-axes);font-stretch:100%;letter-spacing:0;text-transform:none}
-.g3wrap .lgw .lg-sub{font-family:var(--body);font-size:1rem}
+.g3wrap .lgw .lg-sub{font-family:"Space Mono",ui-monospace,monospace;font-size:.7rem;letter-spacing:.02em}
+.g3wrap .lgw .lg-h{font-family:"Instrument Serif",Georgia,serif!important;font-weight:400!important;font-variation-settings:normal!important;font-size:clamp(30px,5.4vw,42px);line-height:1}
 .g3wrap .lgw .lg-kick{font-family:var(--hand);font-size:.85rem;font-weight:500}
 .g3wrap .lgw .lg-replay{font-size:.82rem}
 .g3wrap .lgw .lg-note{font-size:.82rem;line-height:1.45;margin-top:6px}
@@ -209,26 +230,37 @@ button{font:inherit;color:inherit}
 </svg>
 <div class="grain" aria-hidden="true"></div>
 
-<header>
-  <div class="mast">
-    <span class="l hand">Visual stories in small bites</span>
-    <a class="logo" href="#top" aria-label="mochi. home">mochi<span>.</span></a>
-    <nav class="hand" aria-label="Site"><a href="#story">Story</a><a href="#about">About</a></nav>
-  </div>
-  <div class="rules"><hr><hr>
-    <div class="edition hand"><span>Vol. 1 · No. 1</span><span>Friday, Oct. 2, 2026</span></div>
-  </div>
-</header>
-
 <main id="top">
-  <section aria-label="Headline">
-    <div class="band" id="band" role="img" aria-label="A wall of food colors, each tile a product moving off synthetic dyes. One pale jade tile, outlined, is the 2026 It’s-It."><div class="mosaic" id="mosaic"></div><div class="band-tag" id="bandTag"><b>2026 It’s-It</b><span class="hand">#A9D4B5</span></div><div class="band-note hand">Tile colors are for illustration</div></div>
-    <div class="head">
-      <div class="kick hand">Bay Area · Food · Color</div>
-      <h1 class="hed">Why Is My Mint Ice Cream Less Green?</h1>
-      <p class="dek"><span>America’s Food Is </span><span id="cc">Changing Color</span></p>
-      <div class="byline hand"><span>By <b>Cynthia</b></span><span>2 min read</span></div>
+  <section class="hero" id="hero" aria-label="Headline">
+    <div class="hero-pin" id="heroPin">
+      <header>
+        <div class="mast">
+          <span class="l hand">Visual stories in small bites</span>
+          <a class="logo" href="#top" aria-label="mochi. home">mochi<span>.</span></a>
+          <nav class="hand" aria-label="Site"><a href="#story">Story</a><a href="#about">About</a></nav>
+        </div>
+        <div class="rules"><hr><hr>
+          <div class="edition hand"><span>Vol. 1 · No. 1</span><span>Friday, Oct. 2, 2026</span></div>
+        </div>
+      </header>
+      <div class="band" id="band" role="img" aria-label="A wall of food colors, each tile a product moving off synthetic dyes. One pale jade tile, outlined, is the 2026 It’s-It."><div class="mosaic" id="mosaic"></div><div class="band-tag" id="bandTag"><b>2026 It’s-It</b><span class="hand">#A9D4B5</span></div><div class="band-note hand">Tile colors are for illustration</div></div>
+      <div class="field" id="field">
+        <div class="head">
+          <div class="kick">Bay Area · Food · Color</div>
+          <h1 class="hed">Why Is My Mint Ice Cream <em>Less Green?</em></h1>
+          <p class="dek">America’s Food Is <span id="cc">Changing Color</span></p>
+          <div class="byline"><span>By <b>Cynthia</b></span><span>2 min read</span></div>
+        </div>
+        <div class="readout" aria-hidden="true">
+          <div>It’s-It mint filling</div>
+          <div class="hex"><i id="hexDot"></i><span id="hexTxt">#34C77B</span></div>
+          <div class="bar"><b id="hexKnob"></b></div>
+          <div class="ends"><span>Official image</span><span>2026</span></div>
+        </div>
+        <div class="scrollcue" aria-hidden="true">Scroll to drain<svg width="14" height="20" viewBox="0 0 14 20"><path d="M7 1v17M1 12l6 6 6-6" fill="none" stroke="#141510" stroke-width="1.8"/></svg></div>
+      </div>
     </div>
+    <svg class="drip" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><path fill="#A9D4B5" d="M0 0H1200V10C1180 10 1176 24 1166 24S1152 10 1130 10 1100 12 1092 30 1078 50 1066 50 1052 32 1048 18 1034 10 1000 10 952 10 944 20 936 34 926 34 916 18 900 10H780C764 10 760 16 756 26S746 58 732 58 718 36 714 22 700 10 680 10H560C548 10 544 18 540 24S530 36 522 36 512 26 508 18 498 10 480 10H330C316 10 312 22 308 34S296 54 284 54 270 38 266 26 252 10 236 10H120C106 10 102 16 98 22S88 30 80 30 70 20 64 14 50 10 30 10H0Z"/></svg>
   </section>
 
   <article class="story" id="story">
@@ -380,7 +412,7 @@ addEventListener('scroll',req,{passive:true});addEventListener('resize',req);
 /* ===== HEADER: a wall of food colors, pulling back from the 2026 jade on load ===== */
 (function header(){
   const band=$('#band'),mo=$('#mosaic'),tag=$('#bandTag'),cc=$('#cc');
-  const DY=['#D7261E','#F28C1E','#F6D200','#0FA37F','#1A5BD6','#2B2A8F'],PL=['#B3204A','#DD6F33','#E6B52C','#6DA56B','#3E86B8','#3C55A5'];
+  const DY=['#E2382F','#F08A24','#F5CF2B','#3DAE4A','#4A8FE0','#9B6BD0'],PL=['#C65447','#DD9750','#E3C664','#86A46F','#7390B5','#86679C'];
   const PAL=['#D7261E','#E8473B','#B3204A','#F28C1E','#F5A13A','#F6D200','#EFC646','#E6B52C','#8FBF5A','#2EC27E','#6DA56B','#3E86B8','#1A5BD6','#7B4BB0','#C64B8C','#F08AA6','#6B3E26','#A9744F','#C9A27A','#E9D6B0','#F4B6C2','#9AD33A','#FF7F50','#4F9C86','#E2382F','#F5CF2B'];
   const txt=cc.textContent;cc.textContent='';const letters=[];let k=0;
   for(const ch of txt){const i=document.createElement('i');i.textContent=ch;i.setAttribute('aria-hidden','true');cc.appendChild(i);if(ch!==' ')letters.push([i,k++])}
@@ -402,7 +434,14 @@ addEventListener('scroll',req,{passive:true});addEventListener('resize',req);
       tween({dur:1800,delay:350,ease:E.inOut,update:e=>{mo.style.transform=`scale(${Math.exp(Math.log(S0)*(1-e)).toFixed(4)})`},done:()=>{mo.style.transform='none';tag.style.opacity=1}})}
     else{mo.style.transform='none';tag.style.opacity=1}}
   build();new ResizeObserver(()=>{if(Math.abs(band.clientWidth-lastW)>4)build()}).observe(band);
-  function upd(){const e=E.inOut(clamp(scrollY/(innerHeight*.9)));document.documentElement.style.setProperty('--shadow-green',mix(MINT_OLD,MINT_NEW,e));letters.forEach(([el,n])=>{el.style.color=mix(DY[n%6],PL[n%6],e)})}
+  const hero=$('#hero'),field=$('#field'),hexTxt=$('#hexTxt'),hexDot=$('#hexDot'),knob=$('#hexKnob');
+  const lin=c=>{c/=255;return c<=.04045?c/12.92:Math.pow((c+.055)/1.055,2.4)},gam=c=>255*(c<=.0031308?12.92*c:1.055*Math.pow(c,1/2.4)-.055);
+  const lab=h=>{const [r,g,b]=hexRgb(h).map(lin);let x=(r*.4124+g*.3576+b*.1805)/.95047,y=r*.2126+g*.7152+b*.0722,z=(r*.0193+g*.1192+b*.9505)/1.08883;const f=t=>t>.008856?Math.cbrt(t):7.787*t+16/116;x=f(x);y=f(y);z=f(z);return[116*y-16,500*(x-y),200*(y-z)]};
+  const unlab=([L,A,B])=>{let y=(L+16)/116,x=A/500+y,z=y-B/200;const f=t=>t*t*t>.008856?t*t*t:(t-16/116)/7.787;x=f(x)*.95047;y=f(y);z=f(z)*1.08883;return rgbHex([gam(x*3.2406+y*-1.5372+z*-.4986),gam(x*-.9689+y*1.8758+z*.0415),gam(x*.0557+y*-.204+z*1.057)])};
+  const mixLab=(a,b,t)=>{const A=lab(a),B=lab(b);return unlab(A.map((v,i)=>v+(B[i]-v)*t))};
+  function upd(){const r=hero.getBoundingClientRect();const p=clamp(-r.top/Math.max(1,r.height-innerHeight));const e=p<.06?0:clamp((p-.06)/.82);
+    const col=mixLab(MINT_OLD,MINT_NEW,e);field.style.background=col;hexTxt.textContent=col;hexDot.style.background=col;knob.style.left=(e*100)+'%';
+    letters.forEach(([el,n])=>{el.style.color=mix(DY[n%6],PL[n%6],e)})}
   scrollFns.push(upd);upd();
 })();
 
