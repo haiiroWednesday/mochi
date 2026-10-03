@@ -73,6 +73,7 @@ button{font:inherit;color:inherit}
 .stage{position:sticky;top:env(safe-area-inset-top,0px);height:100vh;height:100svh;overflow:hidden;z-index:1;display:flex;flex-direction:column;align-items:center;padding:10px 12px 0}
 .ghead{width:100%;max-width:780px;display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-top:2px solid var(--ink);padding-top:6px;font-size:.8rem;color:var(--ink-2)}
 .ghead span{white-space:nowrap}
+.gsub{width:100%;max-width:780px;margin:3px 0 0;font-size:.88rem;line-height:1.35;color:var(--ink-2)}
 .ghead b{font-family:var(--display);font-variation-settings:var(--disp-axes);font-weight:700;font-size:1.12rem;letter-spacing:-.01em;color:var(--ink)}
 .stage svg{flex:1;width:100%;max-width:780px;min-height:0;display:block}
 .steps{position:relative;z-index:2;margin-top:-100vh;margin-top:-100svh;padding-bottom:30vh;pointer-events:none}
@@ -98,6 +99,7 @@ button{font:inherit;color:inherit}
 .gsrc{max-width:780px;margin:-2.2em auto 2.4em;padding:6px 16px 0;font-size:.74rem;color:var(--ink-3);line-height:1.4}
 .g3wrap .lgw{background-image:none;background-color:var(--card);border:1px solid var(--rule);--display:"Fraunces","Iowan Old Style",Georgia,serif;--body:"Newsreader","Iowan Old Style",Georgia,serif;--mono:"Shantell Sans","Segoe Print",system-ui,sans-serif;--ink2:#4D4A55;--ink3:#827F89}
 .g3wrap .lgw .lg-kick,.g3wrap .lgw .lg-replay,.g3wrap .lgw .lg-note,.g3wrap .lgw .lg-src,.g3wrap .lgw .lg3-svg .mo,.g3wrap .lgw .lg3-svg .cap,.g3wrap .lgw .lg3-svg .br,.g3wrap .lgw .lg3-svg .tl{font-variation-settings:var(--hand-axes);font-stretch:100%;letter-spacing:0;text-transform:none}
+.g3wrap .lgw .lg-sub{font-family:var(--body);font-size:1rem}
 .g3wrap .lgw .lg-kick{font-family:var(--hand);font-size:.85rem;font-weight:500}
 .g3wrap .lgw .lg-replay{font-size:.82rem}
 .g3wrap .lgw .lg-note{font-size:.82rem;line-height:1.45;margin-top:6px}
@@ -180,6 +182,8 @@ button{font:inherit;color:inherit}
 .lg3 .lg3-svg .anl{fill:none;stroke:#8B8891;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
 
 .lg3 .lg3-svg .an .k{font-weight:700;fill:#1E1C25}
+.lg3 .lg-sub{font-size:15px;color:var(--ink2);margin:6px 0 0}
+.lg3 .lg3-svg .tk{font-weight:700}
 
 </style>
 
@@ -232,16 +236,17 @@ button{font:inherit;color:inherit}
   <section class="scrolly" id="machine" aria-label="Graphic 1: the color machine">
     <div class="stage">
       <div class="ghead hand"><b>Six dyes ran the grocery aisle</b><span>1 of 3</span></div>
+      <p class="gsub">Each jar is one synthetic dye. The pipes lead to foods FDA lets it color.</p>
       <svg id="machineSvg" viewBox="0 0 400 560" preserveAspectRatio="xMidYMin meet" role="img" aria-label="Six synthetic dye vats pour into labeled foods. In 2026 the machine cracks, each vat splits into plant sources, and the blue candy shells receive no color."></svg>
     </div>
     <div class="steps">
       <div class="step"><div class="card"><span class="stamp" style="--c:#1B57C9">Spread</span><p>The orange box marks the blue that left the It’s-It. FDA lets Blue No. 1 color candy, drinks, cereal, ice cream and frosting, and because each of the six dyes came in one fixed shade, a factory could pour it into all of them and get the same color every time.</p><button class="btn" id="pourAgain" type="button">Pour again</button></div></div>
       <div class="step"><div class="card"><span class="stamp" style="--c:#1E1C25;--r:3deg">2026</span><p>This year the machine cracked. All six dyes are still legal nationwide, yet companies are dropping them anyway, pushed by federal health officials and by a California law that keeps them out of school meals from the end of 2027.</p></div></div>
-      <div class="step"><div class="card"><span class="stamp" style="--c:#A97F00">Split</span><p>Below the crack each dye breaks into a handful of plant recipes, every food lands a little off from where it used to sit, and the candy shells that leaned on the two blues have nothing to catch yet.</p><p class="note">Offset outlines mark each food’s old color.</p></div></div>
+      <div class="step"><div class="card"><span class="stamp" style="--c:#A97F00">Split</span><p>Below the crack each dye breaks into a handful of plant recipes, every food lands a little off from where it used to sit, and the candy shells that leaned on the two blues have nothing to catch yet.</p><p class="note">The thin outline shows each food’s old color.</p></div></div>
       <div class="step"><div class="card"><span class="stamp" style="--c:#E0702E;--r:2deg">Look</span><p>Compare the two halves of the machine. Above the crack one blue fed every pipe, and below it each food is waiting on a recipe of its own, which is why the It’s-It could change color while its peppermint stayed exactly the same.</p></div></div>
     </div>
   </section>
-  <p class="gsrc hand">Sources: FDA; San Francisco Chronicle, 2026; Mars, 2026. Food shades are illustrative.</p>
+  <p class="gsrc hand">Sources: FDA; San Francisco Chronicle, 2026; Mars, 2026. Food colors are illustrative.</p>
 
   <article class="story">
     <div class="col">
@@ -252,16 +257,17 @@ button{font:inherit;color:inherit}
   <section class="scrolly" id="lab" aria-label="Graphic 2: how to make mint green">
     <div class="stage">
       <div class="ghead hand"><b>How do you make mint green?</b><span>2 of 3</span></div>
+      <p class="gsub">Lay a blue over a yellow-orange. Then change the blue.</p>
       <svg id="labSvg" viewBox="0 0 400 560" preserveAspectRatio="xMidYMin meet" role="img" aria-label="A blue disc and a yellow-orange annatto disc overlap to color an ice cream sandwich filling. With Blue No. 1 the filling is electric mint. With spirulina it turns pale jade, and heat and acid dull spirulina further."></svg>
     </div>
     <div class="steps">
       <div class="step"><div class="card"><p>Ice cream starts out white, so a manufacturer who wants mint has to build the green the way a child mixes paint, laying a blue over a yellow-orange until the overlap turns.</p></div></div>
       <div class="step"><div class="card"><span class="stamp" style="--c:#1B57C9">Overlap</span><p>Until this year the blue was Blue No. 1 and the yellow-orange was annatto, a seed extract, and their overlap kept Bay Area freezer cases stocked with electric mint for about forty years.</p></div></div>
       <div class="step"><div class="card"><span class="stamp" style="--c:#C8231B">Swap</span><p>Pull out Blue No. 1, slide in spirulina, and the overlap comes out pale. It’s-It hasn’t said what else is in the new blend, so the annatto circle fades to a question. Tap the sandwich, which still tastes like peppermint.</p></div></div>
-      <div class="step"><div class="card"><span class="stamp" style="--c:#C9620F">Stress test</span><p>Spirulina’s blue is a protein, and heat in a factory or acid in a recipe wears it down. Butterfly pea, one of two newer blues FDA cleared for cereal in 2025, holds up better in heat tests, so replacing Blue No. 1 is a different engineering problem for every food.</p><p class="note">This shows why plant blues are harder to formulate, not what happened inside It’s-It’s factory.</p></div></div>
+      <div class="step"><div class="card"><span class="stamp" style="--c:#C9620F">Stress test</span><p>Spirulina’s blue is a protein, and heat in a factory or acid in a recipe wears it down. Butterfly pea, one of two newer blues FDA cleared for cereal in 2025, holds up better in heat tests, so replacing Blue No. 1 is a different engineering problem for every food.</p><p class="note">This explains why plant blues are hard to work with. It doesn’t show what happened at It’s-It.</p></div></div>
     </div>
   </section>
-  <p class="gsrc hand">Sources: San Francisco Chronicle, 2026; Food Research International, 2021. Filling colors are sampled from photos, overlaps are illustrative.</p>
+  <p class="gsrc hand">Sources: San Francisco Chronicle, 2026; Food Research International, 2021. Filling colors come from photos. The circles are illustrative.</p>
 
   <article class="story">
     <div class="col">
@@ -283,11 +289,12 @@ button{font:inherit;color:inherit}
 <div class="lgw lg3" data-lg="trix-timeline" data-trix-photo="">
   <div class="lg-kick">3 of 3 · Trix, twice</div>
   <p class="lg-h">We've lost colors before.</p>
+  <p class="lg-sub">Which colors came in a bowl of Trix, 2015 to 2026</p>
   <div class="lg3-bar">
     <button class="lg-replay" type="button">↻ Replay</button>
   </div>
   <div class="lg3-chart"><svg class="lg3-svg" role="img" aria-label="Trix timeline. 2015: six colors. January 2016: blue and green disappear when General Mills switches to colors from fruit, vegetables and spices. October 2017: Classic Trix returns with all six while the four-color version stays on sale. August 2026: General Mills says all its U.S. cereals are made without synthetic certified dyes; which Trix colors survived is not yet public."></svg></div>
-  <p class="lg-note">Each line follows one color through the bowl, and a dotted gray stretch means it went missing. The 2016 bowl comes from General Mills’ own fact sheet, and the 2026 bowl from today’s ingredient list, which names juice, annatto and turmeric but no blue. The faint blue and green after 2026 stay unconfirmed until someone photographs a bowl.</p>
+  <p class="lg-note">Each line is a color in the bowl. A gap means that color was gone. General Mills hasn’t confirmed blue or green for 2026, so they’re faint.</p>
   <p class="lg-src">Sources: Food Dive and Food Business News, 2016 (reformulated Trix, quote from General Mills technology director Erika Smith); CNBC and CNN, 2017 (Classic Trix returns); General Mills, Aug. 26, 2026, and its current Trix ingredient list; HHS and FDA, May 9, 2025; Food Dive, 2026.</p>
 </div>
 
@@ -411,7 +418,7 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   const vatG=S('g',{filter:'url(#wob)'},gVats);
   DYES.forEach((d,i)=>{vat(vatG,cxs[i],60,144,26,d.c,'jar'+i);S('text',{x:cxs[i],y:42,'text-anchor':'middle',class:'svg-mono'},gVats).textContent=d.name});
   S('rect',{x:cxs[4]-34,y:30,width:68,height:122,rx:8,fill:'none',stroke:'#E0702E','stroke-width':1.6,'stroke-dasharray':'5 4'},gVats);
-  S('rect',{x:cxs[4]-50,y:6,width:100,height:20,rx:6,fill:'#FAFAF6',stroke:'#E0702E','stroke-width':1.4,'stroke-dasharray':'5 4'},gVats);
+  S('rect',{x:cxs[4]-58,y:6,width:116,height:20,rx:6,fill:'#FAFAF6',stroke:'#E0702E','stroke-width':1.4,'stroke-dasharray':'5 4'},gVats);
   S('text',{x:cxs[4],y:20,'text-anchor':'middle',class:'svg-mono',style:'fill:#B4521A;font-weight:600'},gVats).textContent='It’s-It’s old blue';
   const splitG=S('g',{filter:'url(#wob)'},gSplit);
   DYES.forEach((d,i)=>{vat(splitG,cxs[i]-13,74,144,11,d.sc[0],'sj'+i+'a');vat(splitG,cxs[i]+13,86,144,11,d.sc[1],'sj'+i+'b');S('text',{x:cxs[i],y:40,'text-anchor':'middle',class:'svg-mono',style:'font-size:10.5px'},gSplit).textContent=d.src[0];S('text',{x:cxs[i],y:52,'text-anchor':'middle',class:'svg-mono',style:'font-size:10.5px'},gSplit).textContent=d.src[1]});
@@ -526,7 +533,7 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   const roH=S('text',{x:200,y:548,'text-anchor':'middle',class:'svg-tiny'},svg);
   const DULL='#BAC2B1';
   const cmp=S('g',{},svg);cmp.style.opacity=0;
-  S('text',{x:200,y:240,'text-anchor':'middle',class:'svg-tiny'},cmp).textContent='three blues after the same heating';
+  S('text',{x:200,y:240,'text-anchor':'middle',class:'svg-tiny'},cmp).textContent='Same heat, three blues';
   [[90,'#1A5BD6','Blue No. 1','holds'],[200,'#4E62A6','butterfly pea','mostly holds'],[310,'#A3B6BC','spirulina','fades']].forEach(([x,c,t,v])=>{S('rect',{x:x-42,y:246,width:84,height:18,rx:10,fill:c,stroke:'rgba(0,0,0,.12)'},cmp);S('text',{x,y:278,'text-anchor':'middle',class:'svg-tiny'},cmp).textContent=t+' · '+v});
   let n=0;function bite(){if(n>=5){bites.innerHTML='';n=0;roH.textContent='tap the sandwich to take a bite';return}
     const cx=380-n*48,cy=30+(n%2)*8;const g=S('g',{},bites);
@@ -603,6 +610,7 @@ LessGreen.each('.lg3',function(root){
     {y:'2017',mo:'Oct.',u:2.75,p:[1,1,1,1,1,1],st:'full',n:[['Classic Trix returns.',1],['The four-color',0],['version stays too.',0]]},
     {y:'2026',mo:'Aug.',u:4.75,p:[1,1,1,0,0,1],st:'likely',n:[['Synthetic dyes out',1],['again. The label lists',0],['juice, annatto, turmeric.',0]]}];
   var MQ=[0,2,4,6];
+  var ROW=[0,1,2,4,5,3];var STORY=function(c){return c===3||c===4};
   var photo=root.getAttribute('data-trix-photo')||'';
   var R=LG.rng(91),puffs=[],tries=0;
   while(puffs.length<18&&tries<4000){tries++;var a=R()*Math.PI*2,d=Math.sqrt(R())*.72,x=Math.cos(a)*d,y=Math.sin(a)*d;if(puffs.every(function(p){return(p.x-x)*(p.x-x)+(p.y-y)*(p.y-y)>.1})){var pts=[];for(var i=0;i<8;i++){var an=i/8*Math.PI*2,rr=1+(R()*2-1)*.16;pts.push([Math.cos(an)*rr,Math.sin(an)*rr])}puffs.push({x:x,y:y,pts:pts})}}
@@ -620,7 +628,7 @@ LessGreen.each('.lg3',function(root){
     return s+'</g>'}
   function notes(x,y,lines,anchor,lh){var s='<text class="nt" text-anchor="'+anchor+'">';lines.forEach(function(l,i){s+='<tspan x="'+x+'" y="'+(y+i*lh)+'"'+(l[1]?' class="b"':'')+'>'+esc(l[0])+'</tspan>'});return s+'</text>'}
   function seg(x1,y1,x2,y2,c,kind,q){
-    var col=kind==='gone'?'#A39D8F':kind==='unk'?LG.mix(C[c],'#ECEDE7',.45):C[c],w=kind==='gone'?1.3:3.2,dash=kind==='gone'?' stroke-dasharray="1.5 4"':kind==='unk'?' stroke-dasharray="2 5"':'';
+    var base=STORY(c)?C[c]:LG.mix(C[c],'#ECEDE7',.55);var col=kind==='gone'?'#A39D8F':kind==='unk'?LG.mix(C[c],'#ECEDE7',.5):base,w=kind==='gone'?1.4:(STORY(c)?3.6:2.2),dash=kind==='gone'?' stroke-dasharray="1.5 4"':kind==='unk'?' stroke-dasharray="2 5"':'';
     return '<path data-c="'+c+'" data-dq="'+q+'" class="'+(kind==='solid'?'lg3-draw':'')+'" d="M'+x1.toFixed(1)+' '+y1.toFixed(1)+'L'+x2.toFixed(1)+' '+y2.toFixed(1)+'" stroke="'+col+'" stroke-width="'+w+'" stroke-linecap="round" fill="none"'+dash+'/>'}
   function chev(x,y,dir){return dir==='h'?'<path d="M'+(x-3)+' '+(y-4)+'L'+(x+2)+' '+y+'L'+(x-3)+' '+(y+4)+'" stroke="#1E1C25" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>':'<path d="M'+(x-4)+' '+(y-3)+'L'+x+' '+(y+2)+'L'+(x+4)+' '+(y-3)+'" stroke="#1E1C25" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'}
   function line(x1,y1,x2,y2,q){return '<path data-q="'+q+'" class="lg3-draw" data-dq="'+q+'" d="M'+x1+' '+y1+'L'+x2+' '+y2+'" stroke="#1E1C25" stroke-width="2" fill="none"/>'}
@@ -631,11 +639,12 @@ LessGreen.each('.lg3',function(root){
     s+='<g data-q="6"><path d="M690 '+(ly-6)+'L700 '+ly+'L690 '+(ly+6)+'" stroke="#1E1C25" stroke-width="2" fill="none" stroke-linejoin="round"/></g>';
     s+='<g data-q="1">'+chev((xs[0]+xs[1])/2,ly,'h')+'</g><g data-q="3">'+chev((xs[1]+xs[2])/2,ly,'h')+'</g><g data-q="5">'+chev((xs[2]+bx)/2,ly,'h')+chev((bx+xs[3])/2,ly,'h')+'</g>';
     s+='<g data-q="5"><path d="M'+(bx-8)+' 76L'+(bx-2)+' 56M'+(bx+2)+' 76L'+(bx+8)+' 56" stroke="#1E1C25" stroke-width="1.6"/><text class="mo" x="'+bx+'" y="94" text-anchor="middle">8 years</text></g>';
-    for(var c=0;c<6;c++){var ty=252+c*11;s+='<g data-q="1"><text class="tl" data-c="'+c+'" x="4" y="'+(ty+3)+'">'+CN[c]+'</text>'+seg(48,ty,xs[1],ty,c,'solid',1)+'</g>';
+    s+='<g data-q="1"><text class="tl" x="4" y="263">other</text><text class="tl" x="4" y="274">colors</text><text class="tl tk" x="4" y="299" style="fill:#2E8A3A">green</text><text class="tl tk" x="4" y="310" style="fill:#2F7FD1">blue</text></g>';
+    for(var c=0;c<6;c++){var ty=252+ROW[c]*11;s+='<g data-q="1">'+seg(48,ty,xs[1],ty,c,'solid',1)+'</g>';
       s+='<g data-q="3">'+seg(xs[1],ty,xs[2],ty,c,M[1].p[c]?'solid':'gone',3)+'</g>';
       s+='<g data-q="5">'+seg(xs[2],ty,bx-6,ty,c,'solid',5)+seg(bx+6,ty,xs[3],ty,c,'solid',5)+'</g>';
       s+='<g data-q="6">'+seg(xs[3],ty,686,ty,c,M[3].p[c]?'solid':'unk',6)+'</g>'}
-    s+='<g data-q="6"><text class="yr" x="704" y="296" text-anchor="middle">?</text></g>';
+    s+='<g data-q="6"><text class="yr" x="704" y="309" text-anchor="middle">?</text></g>';
     M.forEach(function(m,i){var x=xs[i],q=MQ[i];
       s+='<g data-q="'+q+'"><path d="M'+x+' 232V316" stroke="#8B8891" stroke-width="1" stroke-dasharray="2 3"/><circle cx="'+x+'" cy="'+ly+'" r="5.5" fill="#1E1C25"/><text class="yr" x="'+x+'" y="36" text-anchor="middle">'+m.y+'</text>'+(m.mo?'<text class="mo" x="'+x+'" y="52" text-anchor="middle">'+m.mo+'</text>':'')+notes(x,186,m.n,'middle',14)+'</g>';
       s+=bowl(x,130,35,m.st,q,i)});
@@ -654,7 +663,7 @@ LessGreen.each('.lg3',function(root){
     s+='<g data-q="6"><path d="M'+(lx-6)+' '+(end-8)+'L'+lx+' '+(end+2)+'L'+(lx+6)+' '+(end-8)+'" stroke="#1E1C25" stroke-width="2" fill="none" stroke-linejoin="round"/></g>';
     s+='<g data-q="1">'+chev(lx,(ys[0]+ys[1])/2,'v')+'</g><g data-q="3">'+chev(lx,(ys[1]+ys[2])/2,'v')+'</g><g data-q="5">'+chev(lx,(ys[2]+by)/2,'v')+chev(lx,(by+ys[3])/2,'v')+'</g>';
     s+='<g data-q="5"><path d="M'+(lx-8)+' '+(by+2)+'L'+(lx+8)+' '+(by-6)+'M'+(lx-8)+' '+(by+8)+'L'+(lx+8)+' '+by+'" stroke="#1E1C25" stroke-width="1.6"/><text class="mo" x="44" y="'+(by+4)+'" text-anchor="end">8 yrs</text></g>';
-    for(var c=0;c<6;c++){var tx=68+c*6.6;
+    for(var c=0;c<6;c++){var tx=68+ROW[c]*6.6;
       s+='<g data-q="1">'+seg(tx,10,tx,ys[1],c,'solid',1)+'</g>';
       s+='<g data-q="3">'+seg(tx,ys[1],tx,ys[2],c,M[1].p[c]?'solid':'gone',3)+'</g>';
       s+='<g data-q="5">'+seg(tx,ys[2],tx,by-6,c,'solid',5)+seg(tx,by+6,tx,ys[3],c,'solid',5)+'</g>';
