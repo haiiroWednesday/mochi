@@ -3,7 +3,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght,BNCE,INFM,SPAC@0,300..800,-100..100,0..100,0..100;1,300..800,-100..100,0..100,0..100&display=swap">
 <style>
 /* Layout: mochi., a one-person visual news desk. Centered newspaper column in a reading serif; graphics sit centered behind cards that scroll over them; every label is handwritten like a margin note. Single light look on purpose. */
@@ -12,7 +12,7 @@
   --mint-old:#34C77B; --mint-new:#D2D7C6; --shadow-green:#34C77B;
   --display:"Fraunces","Iowan Old Style","Palatino Linotype",Georgia,serif;
   --body:"Newsreader","Iowan Old Style","Charter","Georgia",serif;
-  --title:"Instrument Serif",Georgia,serif;--mono:"Space Mono",ui-monospace,Menlo,monospace;
+  --title:"Instrument Serif",Georgia,serif;
   --hand:"Shantell Sans","Segoe Print","Bradley Hand","Comic Neue",system-ui,sans-serif;
   --disp-axes:"SOFT" 100,"WONK" 0;
   --hand-axes:"BNCE" 45,"INFM" 70,"SPAC" 0;
@@ -41,41 +41,37 @@ button{font:inherit;color:inherit}
 .edition{display:flex;justify-content:space-between;gap:10px;font-size:.78rem;color:var(--ink-2);padding:5px 0 3px}
 @media (max-width:420px){.edition .mid{display:none}}
 
-/* mosaic band */
-.band{position:relative;flex:none;height:clamp(108px,15vw,190px);background:var(--mint-new);overflow:hidden;margin-top:10px}
-.mosaic{position:absolute;left:0;top:0;transform-origin:50% 50%}
-.tile{position:absolute}
-.tile.target{box-shadow:0 0 0 3px var(--mint-new),0 0 0 5.5px var(--ink)}
-.band-tag{position:absolute;transform:translateX(-50%) rotate(-2deg);display:flex;align-items:baseline;gap:8px;background:var(--card);color:var(--ink);padding:4px 12px 5px;border-radius:12px 9px 12px 10px;white-space:nowrap;box-shadow:0 10px 24px -14px rgba(0,0,0,.5);z-index:2;transition:opacity .5s}
-.band-tag b{font-family:var(--display);font-variation-settings:var(--disp-axes);font-weight:700;font-size:.95rem}
-.band-tag span{font-size:.8rem;color:var(--ink-2)}
-.band-note{position:absolute;left:12px;bottom:10px;font-size:.74rem;color:var(--paper);background:rgba(30,28,37,.8);padding:2px 9px 3px;border-radius:8px;z-index:2}
+/* header dots: food colors scattered over the draining field, leaving as you scroll */
+.dots{position:absolute;inset:0;pointer-events:none;z-index:0}
+.dot{position:absolute;transform:rotate(var(--r,0deg)) scale(var(--s,1));transition:transform .55s cubic-bezier(.34,1.5,.5,1),opacity .35s;box-shadow:0 6px 14px -8px rgba(20,21,16,.45)}
+.dot.out{--s:0;opacity:0;transition:transform .45s cubic-bezier(.5,0,.7,.4),opacity .45s}
+.dot.pre{--s:0;opacity:0}
 
 /* hero: masthead, mosaic and a mint field that drains as you scroll */
 .hero{position:relative;height:185vh}
 .hero-pin{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;background:var(--paper);overflow:hidden}
-.field{position:relative;flex:1;min-height:0;background:var(--mint-old);color:#141510;display:flex;align-items:center;justify-content:center}
-.head{max-width:60rem;margin:0 auto;text-align:center;padding:0 16px 64px}
-.kick{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}
+.field{position:relative;flex:1;min-height:0;margin-top:10px;background:var(--mint-old);color:#141510;display:flex;align-items:center;justify-content:center}
+.head{position:relative;z-index:1;max-width:60rem;margin:0 auto;text-align:center;padding:0 16px 56px}
+.kick{font-family:var(--hand);font-variation-settings:var(--hand-axes);font-size:.95rem;font-weight:500}
 .hed{font-family:var(--title);font-weight:400;font-size:clamp(46px,min(8.6vw,12vh),118px);line-height:.9;letter-spacing:-.01em;margin:.16em auto .26em;max-width:11ch;text-wrap:balance}
 .hed em{font-style:italic}
-.dek{margin:0;font-family:var(--mono);font-weight:700;font-size:clamp(12.5px,1.6vw,17px);letter-spacing:.13em;text-transform:uppercase;line-height:1.9}
-.dek #cc{background:#141510;padding:3px 9px 2px;border-radius:3px;white-space:pre}
+.dek{display:inline-block;margin:0;padding:.3em .8em .38em;background:#141510;color:#F4F3EC;border-radius:12px 8px 13px 9px;transform:rotate(-1.2deg);font-family:var(--hand);font-variation-settings:var(--hand-axes);font-weight:620;font-size:clamp(1.12rem,2.5vw,1.6rem);line-height:1.2}
+.dek #cc{white-space:pre}
 .dek i{font-style:normal}
-.byline{margin-top:.9em;font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;display:flex;justify-content:center;flex-wrap:wrap;gap:2px 16px}
+.byline{margin-top:1em;font-family:var(--hand);font-variation-settings:var(--hand-axes);font-size:.95rem;display:flex;justify-content:center;flex-wrap:wrap;gap:2px 16px}
 .byline b{font-weight:700}
 .byline span+span::before{content:"·";margin-right:16px}
-.readout{position:absolute;left:clamp(16px,4vw,40px);bottom:18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;width:min(280px,calc(100% - 32px))}
-.readout .hex{font-size:20px;font-weight:700;letter-spacing:.02em;display:flex;align-items:center;gap:9px;margin:2px 0 7px}
+.readout{position:absolute;left:clamp(16px,4vw,40px);bottom:18px;font-family:var(--hand);font-variation-settings:var(--hand-axes);font-size:.8rem;z-index:1;width:min(280px,calc(100% - 32px))}
+.readout .hex{font-size:1.3rem;font-weight:700;display:flex;align-items:center;gap:9px;margin:2px 0 7px}
 .readout .hex i{width:20px;height:20px;border-radius:50%;border:2px solid #141510;display:inline-block}
 .readout .bar{position:relative;height:2px;background:rgba(20,21,16,.3)}
 .readout .bar b{position:absolute;left:0;top:-3px;height:8px;width:8px;border-radius:50%;background:#141510;transform:translateX(-50%)}
 .readout .ends{display:flex;justify-content:space-between;margin-top:5px;opacity:.75}
-.scrollcue{position:absolute;right:clamp(16px,4vw,40px);bottom:18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.scrollcue{position:absolute;right:clamp(16px,4vw,40px);bottom:18px;font-family:var(--hand);font-variation-settings:var(--hand-axes);font-size:.85rem;z-index:1;display:flex;align-items:center;gap:8px}
 .scrollcue svg{animation:bob 1.6s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(5px)}}
 .drip{position:absolute;left:0;right:0;bottom:-58px;width:100%;height:60px;display:block;z-index:2;pointer-events:none}
-@media (max-width:560px){.scrollcue{display:none}.head{padding-bottom:84px}.hed{font-size:clamp(50px,15.5vw,76px)}.band{height:128px}.band-note{top:8px;bottom:auto}}
+@media (max-width:560px){.scrollcue{display:none}.head{padding-bottom:70px}.hed{font-size:clamp(50px,15.5vw,76px)}}
 @media (prefers-reduced-motion:reduce){.scrollcue svg{animation:none}}
 
 /* article */
@@ -93,7 +89,7 @@ button{font:inherit;color:inherit}
 .stage{position:sticky;top:env(safe-area-inset-top,0px);height:100vh;height:100svh;overflow:hidden;z-index:1;display:flex;flex-direction:column;align-items:center;padding:10px 12px 0}
 .ghead{width:100%;max-width:780px;display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-top:2px solid var(--ink);padding-top:6px;font-size:.8rem;color:var(--ink-2)}
 .ghead span{white-space:nowrap}
-.gsub{width:100%;max-width:780px;margin:5px 0 0;font-family:var(--mono);font-size:.66rem;letter-spacing:.02em;line-height:1.5;color:var(--ink-2)}
+.gsub{width:100%;max-width:780px;margin:4px 0 0;font-size:.88rem;line-height:1.35;color:var(--ink-2)}
 .ghead b{font-family:var(--title);font-weight:400;font-size:clamp(1.5rem,3.4vw,1.9rem);line-height:1.05;letter-spacing:-.005em;color:var(--ink)}
 .stage svg{flex:1;width:100%;max-width:780px;min-height:0;display:block}
 .steps{position:relative;z-index:2;margin-top:-100vh;margin-top:-100svh;padding-bottom:30vh;pointer-events:none}
@@ -119,7 +115,7 @@ button{font:inherit;color:inherit}
 .gsrc{max-width:780px;margin:-2.2em auto 2.4em;padding:6px 16px 0;font-size:.74rem;color:var(--ink-3);line-height:1.4}
 .g3wrap .lgw{background-image:none;background-color:var(--card);border:1px solid var(--rule);--display:"Fraunces","Iowan Old Style",Georgia,serif;--body:"Newsreader","Iowan Old Style",Georgia,serif;--mono:"Shantell Sans","Segoe Print",system-ui,sans-serif;--ink2:#4D4A55;--ink3:#827F89}
 .g3wrap .lgw .lg-kick,.g3wrap .lgw .lg-replay,.g3wrap .lgw .lg-note,.g3wrap .lgw .lg-src,.g3wrap .lgw .lg3-svg .mo,.g3wrap .lgw .lg3-svg .cap,.g3wrap .lgw .lg3-svg .br,.g3wrap .lgw .lg3-svg .tl{font-variation-settings:var(--hand-axes);font-stretch:100%;letter-spacing:0;text-transform:none}
-.g3wrap .lgw .lg-sub{font-family:"Space Mono",ui-monospace,monospace;font-size:.7rem;letter-spacing:.02em}
+.g3wrap .lgw .lg-sub{font-family:var(--body);font-size:1rem}
 .g3wrap .lgw .lg-h{font-family:"Instrument Serif",Georgia,serif!important;font-weight:400!important;font-variation-settings:normal!important;font-size:clamp(30px,5.4vw,42px);line-height:1}
 .g3wrap .lgw .lg-kick{font-family:var(--hand);font-size:.85rem;font-weight:500}
 .g3wrap .lgw .lg-replay{font-size:.82rem}
@@ -243,8 +239,8 @@ button{font:inherit;color:inherit}
           <div class="edition hand"><span>Vol. 1 · No. 1</span><span>Friday, Oct. 2, 2026</span></div>
         </div>
       </header>
-      <div class="band" id="band" role="img" aria-label="A wall of food colors, each tile a product moving off synthetic dyes. One pale jade tile, outlined, is the 2026 It’s-It."><div class="mosaic" id="mosaic"></div><div class="band-tag" id="bandTag"><b>2026 It’s-It</b><span class="hand">#D2D7C6</span></div><div class="band-note hand">Tile colors are for illustration</div></div>
       <div class="field" id="field">
+        <div class="dots" id="dots" aria-hidden="true"></div>
         <div class="head">
           <div class="kick">Bay Area · Food · Color</div>
           <h1 class="hed">Why Is My Mint Ice Cream <em>Less Green?</em></h1>
@@ -265,7 +261,7 @@ button{font:inherit;color:inherit}
 
   <article class="story" id="story">
     <div class="col lede">
-      <p class="drop"><span class="dateline">SAN FRANCISCO</span>In 2018, Chronicle staff building a papier-mâché It’s-It matched paint chips to its mint. This May the green faded so far that one teenager, his parent wrote on Reddit, took his mint sandwich for vanilla.</p>
+      <p class="drop"><span class="dateline">SAN FRANCISCO</span>In 2018, Chronicle staff matched paint chips to the mint in a papier-mâché It’s-It. This May the green faded so far that one teenager took his for vanilla, his parent wrote on Reddit.</p>
     </div>
   </article>
   <figure class="photo">
@@ -274,7 +270,7 @@ button{font:inherit;color:inherit}
   </figure>
   <article class="story">
     <div class="col">
-      <p>The company’s president told the Chronicle the peppermint is untouched, and that his technicians, checking “which one would give color without an aftertaste,” swapped FD&amp;C Blue No. 1 for spirulina, an algae pigment.</p>
+      <p>The company’s president told the Chronicle the switch followed Health Secretary Robert F. Kennedy Jr.’s push against synthetic dyes. His technicians, looking for color “without an aftertaste,” swapped FD&amp;C Blue No. 1 for spirulina, an algae pigment.</p>
     </div>
   </article>
 
@@ -286,15 +282,15 @@ button{font:inherit;color:inherit}
     </div>
     <div class="steps">
       <div class="step"><div class="card"><span class="stamp" style="--c:#1B57C9">Spread</span><p>FDA lets <span class="chip" style="--c:#1A5BD6">Blue No. 1</span> color candy, drinks, cereal, ice cream and frosting. Each of the six dyes came in one fixed shade, so a cereal plant in Minnesota and an ice cream plant near San Francisco could pour from the same jar and get the same color every time.</p><button class="btn" id="pourAgain" type="button">Pour again</button></div></div>
-      <div class="step"><div class="card"><span class="stamp" style="--c:#1E1C25;--r:3deg">2026</span><p>This year the machine cracked. All six dyes are still legal nationwide, yet companies are dropping them anyway, pushed by federal health officials and by a California law that keeps them out of school meals from the end of 2027.</p></div></div>
-      <div class="step"><div class="card"><span class="stamp" style="--c:#A97F00">Split</span><p>Below the crack each dye breaks into a handful of plant recipes, every food lands a little off from where it used to sit, and the candy shells that leaned on the two blues have nothing to catch yet.</p><p class="note">The <span class="chip thin" style="--c:#1A5BD6">thin outline</span> around each food is its old color.</p></div></div>
+      <div class="step"><div class="card"><span class="stamp" style="--c:#1E1C25;--r:3deg">2026</span><p>This year the machine cracked. All six dyes are still legal, yet companies are dropping them anyway after the Trump administration’s health secretary, Robert F. Kennedy Jr., asked food makers to phase them out by the end of 2027. A California law keeps them out of school meals from that date too.</p></div></div>
+      <div class="step"><div class="card"><span class="stamp" style="--c:#A97F00">Split</span><p>Below the crack each dye breaks into a handful of plant recipes, every food lands a little off from where it used to sit, and the candy shells that leaned on the two blues have nothing to catch yet. Plant colors are weaker, too. One frosted cookie, food makers told NPR, needed thirty times more of them to look as bright.</p><p class="note">The <span class="chip thin" style="--c:#1A5BD6">thin outline</span> around each food is its old color.</p></div></div>
     </div>
   </section>
   <p class="gsrc hand"><b>Note:</b> food colors are drawn, not measured. <b>Sources:</b> FDA color additive rules; San Francisco Chronicle, 2026; Mars, 2026.</p>
 
   <article class="story">
     <div class="col">
-      <p>One frosted cookie, food makers told NPR, needed thirty times more natural color just to look as bright.</p>
+      <p>It’s-It is one of many. Makers of 90 percent of U.S. grocery-store ice cream have pledged to drop synthetic dyes by 2028.</p>
     </div>
   </article>
 
@@ -314,7 +310,7 @@ button{font:inherit;color:inherit}
 
   <article class="story">
     <div class="col">
-      <p>A few aisles over, Mars spent more than a decade on M&amp;M’s without synthetic dyes and launched them missing blue and brown.</p>
+      <p>In the candy aisle, Mars spent more than a decade on dye-free M&amp;M’s and launched them missing blue and brown.</p>
       
     </div>
   </article>
@@ -363,8 +359,9 @@ button{font:inherit;color:inherit}
     <div>
       <h3>Sources</h3>
       <ul>
-        <li><a href="https://www.sfchronicle.com/food/article/its-it-mint-ice-cream-22448058.php">San Francisco Chronicle, 2026: the It’s-It mint recipe change, Blue No. 1 with annatto, spirulina, sales and complaints</a></li>
+        <li><a href="https://www.sfchronicle.com/food/article/its-it-mint-ice-cream-22448058.php">San Francisco Chronicle, Tara Duggan, Sept. 30, 2026: the It’s-It mint recipe change, Blue No. 1 with annatto, spirulina, sales and complaints</a></li>
         <li><a href="https://www.fda.gov/food/color-additives-information-consumers/color-additives-questions-and-answers-consumers">FDA: certified (synthetic) colors versus colors exempt from certification</a></li>
+        <li><a href="https://www.agri-pulse.com/articles/23199-ice-cream-makers-pledge-to-eliminate-artificial-dyes-by-2028">International Dairy Foods Association, July 2025: ice cream makers behind 90 percent of grocery-store sales pledge to drop synthetic dyes by 2028</a></li>
         <li><a href="https://www.npr.org/2025/09/08/nx-s1-5529276/sams-club-food-dye-taste-history">NPR, 2025: food makers phasing out dyes, and why blue is hard</a></li>
         <li><a href="https://www.sciencedirect.com/science/article/pii/S0963996921002131">Food Research International, 2021: phycocyanin from spirulina, extraction and stability</a></li>
         <li><a href="https://www.mars.com/news-and-stories/press-releases-statements/mars-snacking-us-releases-new-product-options-made">Mars Snacking U.S., 2026: M&amp;M’s made without FD&amp;C colors</a></li>
@@ -409,31 +406,34 @@ function onScroll(){ticking=false;scrollFns.forEach(f=>f());const vh=innerHeight
 const req=()=>{if(!ticking){ticking=true;requestAnimationFrame(onScroll)}};
 addEventListener('scroll',req,{passive:true});addEventListener('resize',req);
 
-/* ===== HEADER: a wall of food colors, pulling back from the 2026 jade on load ===== */
+/* ===== HEADER: food-color dots scattered over the draining mint, leaving one by one as you scroll ===== */
 (function header(){
-  const band=$('#band'),mo=$('#mosaic'),tag=$('#bandTag'),cc=$('#cc');
+  const cc=$('#cc'),dotsEl=$('#dots');
   const DY=['#E2382F','#F08A24','#F5CF2B','#3DAE4A','#4A8FE0','#9B6BD0'],PL=['#C65447','#DD9750','#E3C664','#86A46F','#7390B5','#86679C'];
-  const PAL=['#D7261E','#E8473B','#B3204A','#F28C1E','#F5A13A','#F6D200','#EFC646','#E6B52C','#8FBF5A','#2EC27E','#6DA56B','#3E86B8','#1A5BD6','#7B4BB0','#C64B8C','#F08AA6','#6B3E26','#A9744F','#C9A27A','#E9D6B0','#F4B6C2','#9AD33A','#FF7F50','#4F9C86','#E2382F','#F5CF2B'];
+  const PAL=['#D7261E','#E8473B','#B3204A','#F28C1E','#F5A13A','#F6D200','#EFC646','#8FBF5A','#1F9E6E','#3E86B8','#1A5BD6','#2B2A8F','#7B4BB0','#C64B8C','#F08AA6','#6B3E26','#A9744F','#E9D6B0','#F4B6C2','#9AD33A','#FF7F50','#E2382F','#F5CF2B','#2F7FD1'];
   const txt=cc.textContent;cc.textContent='';const letters=[];let k=0;
   for(const ch of txt){const i=document.createElement('i');i.textContent=ch;i.setAttribute('aria-hidden','true');cc.appendChild(i);if(ch!==' ')letters.push([i,k++])}
   cc.setAttribute('aria-label',txt);
-  const orad=R=>{const v=()=>Math.round(36+R()*28);const a=v(),b=v();return `${a}% ${100-a}% ${b}% ${100-b}% / ${v()}% ${v()}% ${v()}% ${v()}%`};
-  let lastW=0,played=false;
-  function build(){const W=band.clientWidth,H=band.clientHeight;if(!W||!H)return;lastW=W;
-    const t=Math.round(Math.max(H/3.2,Math.min(W/9,74)));const cols=Math.ceil(W/t)+2,rows=Math.ceil(H/t)+2;
-    mo.innerHTML='';mo.style.width=cols*t+'px';mo.style.height=rows*t+'px';
-    const ox=Math.round((W-cols*t)/2),oy=Math.round((H-rows*t)/2)-Math.round(t*.18);mo.style.left=ox+'px';mo.style.top=oy+'px';
-    const tc=Math.floor(cols/2),tr=Math.max(0,Math.round((H*.42-oy-t/2)/t));const R=rng(42);const frag=document.createDocumentFragment();
-    for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){const d=document.createElement('div');d.className='tile';const isT=r===tr&&c===tc;const col=isT?MINT_NEW:mix(PAL[Math.floor(R()*PAL.length)],'#8A8A80',R()*.16);const j=R()*4-2;
-      d.style.cssText=`left:${c*t+4+j}px;top:${r*t+4-j}px;width:${t-8}px;height:${t-8}px;background:${col};border-radius:${orad(R)};transform:rotate(${(R()*10-5).toFixed(1)}deg)`;
-      if(isT){d.classList.add('target');d.style.transform='none'}frag.appendChild(d)}
-    mo.appendChild(frag);
-    const tx=tc*t+t/2,ty=tr*t+t/2;mo.style.transformOrigin=`${tx}px ${ty}px`;
-    tag.style.left=(ox+tx)+'px';tag.style.top=(oy+ty+t/2+2)+'px';
-    if(!played&&!RM){played=true;const S0=W/(t-8)*1.1;tag.style.opacity=0;mo.style.transform=`scale(${S0})`;
-      tween({dur:1800,delay:350,ease:E.inOut,update:e=>{mo.style.transform=`scale(${Math.exp(Math.log(S0)*(1-e)).toFixed(4)})`},done:()=>{mo.style.transform='none';tag.style.opacity=1}})}
-    else{mo.style.transform='none';tag.style.opacity=1}}
-  build();new ResizeObserver(()=>{if(Math.abs(band.clientWidth-lastW)>4)build()}).observe(band);
+  const orad=R=>{const v=()=>Math.round(40+R()*20);const a=v(),b=v();return `${a}% ${100-a}% ${b}% ${100-b}% / ${v()}% ${v()}% ${v()}% ${v()}%`};
+  const hueOf=h=>{const [r,g,b]=hexRgb(h).map(v=>v/255),M=Math.max(r,g,b),m=Math.min(r,g,b),d=M-m;if(!d)return 0;let H=M===r?((g-b)/d)%6:M===g?(b-r)/d+2:(r-g)/d+4;return (H*60+360)%360};
+  let dots=[],lastW=0,first=true;
+  function build(){const field=$('#field');const fr=field.getBoundingClientRect();const W=fr.width,H=fr.height;if(!W||!H)return;lastW=W;
+    const rel=el=>{const r=el.getBoundingClientRect();return{l:r.left-fr.left,t:r.top-fr.top,r:r.right-fr.left,b:r.bottom-fr.top}};
+    const obs=[...$$('.head > *'),$('.readout'),$('.scrollcue')].filter(e=>e&&e.offsetParent!==null).map(rel);
+    const narrow=W<560,rMin=narrow?10:13,rMax=narrow?21:29,n=Math.round(clamp(W*H/(narrow?15000:17000),14,48));
+    const R=rng(17+Math.round(W/50));const out=[];let tries=0;
+    while(out.length<n&&tries<6000){tries++;const r=rMin+Math.pow(R(),1.6)*(rMax-rMin);const x=r+10+R()*(W-2*r-20),y=r+10+R()*(H-2*r-20);
+      if(obs.some(o=>x+r+12>o.l&&x-r-12<o.r&&y+r+10>o.t&&y-r-10<o.b))continue;
+      if(out.some(d=>Math.hypot(d.x-x,d.y-y)<d.r+r+16))continue;
+      out.push({x,y,r})}
+    dotsEl.innerHTML='';
+    dots=out.map((d,i)=>{const el=document.createElement('div');el.className='dot'+(first&&!RM?' pre':'');const c=mix(PAL[Math.floor(R()*PAL.length)],'#8A8A80',R()*.1);
+      el.style.cssText=`left:${(d.x-d.r).toFixed(1)}px;top:${(d.y-d.r).toFixed(1)}px;width:${(2*d.r).toFixed(1)}px;height:${(2*d.r*(.92+R()*.14)).toFixed(1)}px;background:${c};border-radius:${orad(R)};--r:${(R()*40-20).toFixed(1)}deg`;
+      const h=hueOf(c),cool=h>95&&h<265;const th=cool?.03+R()*.32:.22+R()*.7;dotsEl.appendChild(el);return{el,th}});
+    if(first&&!RM){const order=dots.map((d,i)=>i).sort(()=>R()-.5);order.forEach((i,j)=>setTimeout(()=>dots[i].el.classList.remove('pre'),250+j*38))}
+    first=false;upd()}
+  addEventListener('load',build);(document.fonts&&document.fonts.ready||Promise.resolve()).then(build);
+  let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(Math.abs($('#field').clientWidth-lastW)>30)build()},200)});
   const hero=$('#hero'),field=$('#field'),hexTxt=$('#hexTxt'),hexDot=$('#hexDot'),knob=$('#hexKnob');
   const lin=c=>{c/=255;return c<=.04045?c/12.92:Math.pow((c+.055)/1.055,2.4)},gam=c=>255*(c<=.0031308?12.92*c:1.055*Math.pow(c,1/2.4)-.055);
   const lab=h=>{const [r,g,b]=hexRgb(h).map(lin);let x=(r*.4124+g*.3576+b*.1805)/.95047,y=r*.2126+g*.7152+b*.0722,z=(r*.0193+g*.1192+b*.9505)/1.08883;const f=t=>t>.008856?Math.cbrt(t):7.787*t+16/116;x=f(x);y=f(y);z=f(z);return[116*y-16,500*(x-y),200*(y-z)]};
@@ -441,7 +441,8 @@ addEventListener('scroll',req,{passive:true});addEventListener('resize',req);
   const mixLab=(a,b,t)=>{const A=lab(a),B=lab(b);return unlab(A.map((v,i)=>v+(B[i]-v)*t))};
   function upd(){const r=hero.getBoundingClientRect();const p=clamp(-r.top/Math.max(1,r.height-innerHeight));const e=p<.06?0:clamp((p-.06)/.82);
     const col=mixLab(MINT_OLD,MINT_NEW,e);field.style.background=col;hexTxt.textContent=col;hexDot.style.background=col;knob.style.left=(e*100)+'%';
-    letters.forEach(([el,n])=>{el.style.color=mix(DY[n%6],PL[n%6],e)})}
+    letters.forEach(([el,n])=>{el.style.color=mix(DY[n%6],PL[n%6],e)});
+    dots.forEach(d=>{if(!d.el.classList.contains('pre'))d.el.classList.toggle('out',e>d.th)})}
   scrollFns.push(upd);upd();
 })();
 
