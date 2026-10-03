@@ -1,0 +1,666 @@
+<title>Why Is My Mint Ice Cream Less Green?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght,BNCE,INFM,SPAC@0,300..800,-100..100,0..100,0..100;1,300..800,-100..100,0..100,0..100&display=swap">
+<style>
+/* Layout: mochi., a one-person visual news desk. Centered newspaper column in a reading serif; graphics sit centered behind cards that scroll over them; every label is handwritten like a margin note. Single light look on purpose. */
+:root{
+  --paper:#EEEFE9; --paper-2:#E3E4DC; --card:#FAFAF6; --ink:#1E1C25; --ink-2:#4D4A55; --ink-3:#827F89; --rule:#CBCBC2;
+  --mint-old:#34C77B; --mint-new:#A9D4B5; --shadow-green:#34C77B;
+  --display:"Fraunces","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --body:"Newsreader","Iowan Old Style","Charter","Georgia",serif;
+  --hand:"Shantell Sans","Segoe Print","Bradley Hand","Comic Neue",system-ui,sans-serif;
+  --disp-axes:"SOFT" 100,"WONK" 0;
+  --hand-axes:"BNCE" 45,"INFM" 70,"SPAC" 0;
+  color-scheme:light}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:20px;line-height:1.58;margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-optical-sizing:auto;font-kerning:normal}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:90;background-image:var(--grain-img);background-size:180px 180px;opacity:.45;mix-blend-mode:multiply}
+.hand{font-family:var(--hand);font-variation-settings:var(--hand-axes);font-weight:450;letter-spacing:0;text-transform:none}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.18em}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2.5px solid #1B57C9;outline-offset:3px}
+.stamp{display:inline-block;font-family:var(--display);font-variation-settings:var(--disp-axes);font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--c,var(--ink));border:2.5px solid currentColor;border-radius:7px 5px 8px 6px;padding:3px 10px 2px;transform:rotate(var(--r,-4deg));filter:url(#rough);margin:0 6px 8px 0;line-height:1.3}
+
+/* masthead */
+.mast{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;padding:12px clamp(16px,4vw,40px) 8px;max-width:1180px;margin:0 auto}
+.mast .l{font-size:.8rem;color:var(--ink-3)}
+.logo{font-family:var(--display);font-variation-settings:var(--disp-axes);font-weight:800;font-size:clamp(2rem,5.4vw,2.7rem);line-height:1;text-decoration:none;letter-spacing:-.03em;text-align:center}
+.logo span{color:var(--mint-old)}
+.mast nav{display:flex;justify-content:flex-end;gap:16px;font-size:.84rem}
+.mast nav a{text-decoration:none;color:var(--ink-2)}
+.mast nav a:hover{color:var(--ink);text-decoration:underline}
+@media (max-width:560px){.mast .l{visibility:hidden}.mast nav{gap:12px}}
+.rules{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+.rules hr{border:0;border-top:2px solid var(--ink);margin:0}
+.rules hr+hr{border-top-width:1px;margin-top:3px}
+.edition{display:flex;justify-content:space-between;gap:10px;font-size:.78rem;color:var(--ink-2);padding:5px 0 3px}
+@media (max-width:420px){.edition .mid{display:none}}
+
+/* mosaic band */
+.band{position:relative;height:clamp(150px,22vw,230px);background:var(--mint-new);overflow:hidden;margin-top:10px}
+.mosaic{position:absolute;left:0;top:0;transform-origin:50% 50%}
+.tile{position:absolute}
+.tile.target{box-shadow:0 0 0 3px var(--mint-new),0 0 0 5.5px var(--ink)}
+.band-tag{position:absolute;transform:translateX(-50%) rotate(-2deg);display:flex;align-items:baseline;gap:8px;background:var(--card);color:var(--ink);padding:4px 12px 5px;border-radius:12px 9px 12px 10px;white-space:nowrap;box-shadow:0 10px 24px -14px rgba(0,0,0,.5);z-index:2;transition:opacity .5s}
+.band-tag b{font-family:var(--display);font-variation-settings:var(--disp-axes);font-weight:700;font-size:.95rem}
+.band-tag span{font-size:.8rem;color:var(--ink-2)}
+.band-note{position:absolute;left:12px;bottom:10px;font-size:.74rem;color:var(--paper);background:rgba(30,28,37,.8);padding:2px 9px 3px;border-radius:8px;z-index:2}
+
+/* headline block */
+.head{max-width:54rem;margin:0 auto;text-align:center;padding:clamp(26px,5vh,52px) 16px clamp(6px,2vh,14px)}
+.kick{font-size:.92rem;color:var(--ink-2)}
+.hed{font-family:var(--display);font-variation-settings:var(--disp-axes);font-weight:800;font-size:clamp(2.6rem,8.6vw,5.6rem);line-height:.95;letter-spacing:-.025em;margin:.18em auto .3em;text-wrap:balance;text-shadow:-.04em .035em 0 var(--shadow-green)}
+.dek{display:inline-block;padding:.32em .8em .4em;background:var(--ink);color:var(--paper);border-radius:12px 8px 13px 9px;font-family:var(--display);font-variation-settings:var(--disp-axes);font-weight:700;font-size:clamp(1.1rem,3.4vw,1.55rem);line-height:1.15;letter-spacing:-.005em;transform:rotate(-1deg)}
+.dek i{font-style:normal}
+.byline{margin-top:1.2em;font-size:.9rem;color:var(--ink-2);display:flex;justify-content:center;flex-wrap:wrap;gap:2px 18px}
+.byline b{font-weight:650;color:var(--ink)}
+
+/* article */
+.story{padding-inline:16px}
+.col{max-width:34rem;margin:0 auto}
+.lede{padding-top:clamp(22px,5vh,48px)}
+.col p{margin:0 0 1em}
+.dateline{font-weight:700;font-size:.78em;letter-spacing:.08em;text-transform:uppercase;margin-right:.4em}
+.drop::first-letter{font-family:var(--display);font-variation-settings:var(--disp-axes);font-weight:900;float:left;font-size:3.6em;line-height:.8;padding:.07em .08em 0 0;color:var(--mint-old)}
+.closer{font-family:var(--display);font-variation-settings:var(--disp-axes);font-weight:700;font-size:clamp(1.7rem,5.2vw,2.5rem);line-height:1.08;letter-spacing:-.015em;margin:1.3em auto 0;text-wrap:balance;text-align:center}
+@media (max-width:480px){body{font-size:19px}}
+
+/* scrolly: graphic centered, text cards scroll up the center over it */
+.scrolly{position:relative;margin-block:clamp(28px,6vh,64px)}
+.stage{position:sticky;top:env(safe-area-inset-top,0px);height:100vh;height:100svh;overflow:hidden;z-index:1;display:flex;flex-direction:column;align-items:center;padding:10px 12px 0}
+.ghead{width:100%;max-width:780px;display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-top:2px solid var(--ink);padding-top:6px;font-size:.8rem;color:var(--ink-2)}
+.ghead span{white-space:nowrap}
+.ghead b{font-family:var(--display);font-variation-settings:var(--disp-axes);font-weight:700;font-size:1.12rem;letter-spacing:-.01em;color:var(--ink)}
+.stage svg{flex:1;width:100%;max-width:780px;min-height:0;display:block}
+.steps{position:relative;z-index:2;margin-top:-100vh;margin-top:-100svh;padding-bottom:30vh;pointer-events:none}
+.step{min-height:78vh;min-height:78svh;display:flex;align-items:flex-end;justify-content:center;padding:0 16px 5svh}
+.step:first-child{min-height:72svh}
+.card{pointer-events:auto;width:min(100%,30rem);background:var(--card);background:color-mix(in srgb,var(--card) 95%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--rule);border-radius:20px 15px 22px 16px;padding:14px 18px 12px;box-shadow:0 22px 44px -28px rgba(30,28,37,.4);font-size:1.02rem;line-height:1.5}
+.card p{margin:.25em 0}
+.card .note{font-family:var(--hand);font-variation-settings:var(--hand-axes);font-size:.8rem;color:var(--ink-3);line-height:1.4;margin-top:.5em}
+.card.big p{font-family:var(--display);font-variation-settings:var(--disp-axes);font-weight:700;font-size:clamp(1.45rem,4.4vw,2rem);line-height:1.1;letter-spacing:-.015em;text-align:center}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);border:0;border-radius:13px 10px 14px 9px;padding:6px 14px 7px;font-family:var(--hand);font-variation-settings:var(--hand-axes);font-weight:600;cursor:pointer;font-size:.88rem;margin-top:6px}
+.svg-mono{font-family:var(--hand);font-variation-settings:var(--hand-axes);font-weight:500;font-size:11.5px;fill:var(--ink-2)}
+.svg-tiny{font-family:var(--hand);font-variation-settings:var(--hand-axes);font-weight:450;font-size:9.5px;fill:var(--ink-2)}
+.svg-display{font-family:var(--display);font-variation-settings:var(--disp-axes);font-weight:700;fill:var(--ink)}
+#machineSvg > g,#labSvg > g{transition:opacity .55s}
+.vat{transition:transform .5s}
+.shake .vat{animation:shake .5s 3}
+@keyframes shake{0%,100%{transform:rotate(0)}25%{transform:rotate(-3deg)}75%{transform:rotate(3deg)}}
+.m-lower{transition:transform .55s cubic-bezier(.3,1.6,.5,1),opacity .55s}
+#labSvg .sandwich{cursor:pointer}
+
+/* trix wrapper, with its type brought into the page system */
+.g3wrap{padding-inline:16px}
+.gsrc{max-width:780px;margin:-2.2em auto 2.4em;padding:6px 16px 0;font-size:.74rem;color:var(--ink-3);line-height:1.4}
+.g3wrap .lgw{background-image:none;background-color:var(--card);border:1px solid var(--rule);--display:"Fraunces","Iowan Old Style",Georgia,serif;--body:"Newsreader","Iowan Old Style",Georgia,serif;--mono:"Shantell Sans","Segoe Print",system-ui,sans-serif;--ink2:#4D4A55;--ink3:#827F89}
+.g3wrap .lgw .lg-kick,.g3wrap .lgw .lg-replay,.g3wrap .lgw .lg-note,.g3wrap .lgw .lg-src,.g3wrap .lgw .lg3-svg .mo,.g3wrap .lgw .lg3-svg .cap,.g3wrap .lgw .lg3-svg .br,.g3wrap .lgw .lg3-svg .tl{font-variation-settings:var(--hand-axes);font-stretch:100%;letter-spacing:0;text-transform:none}
+.g3wrap .lgw .lg-kick{font-family:var(--hand);font-size:.85rem;font-weight:500}
+.g3wrap .lgw .lg-replay{font-size:.82rem}
+.g3wrap .lgw .lg-note{font-size:.82rem;line-height:1.45;margin-top:6px}
+.g3wrap .lgw .lg-src{font-size:.74rem;line-height:1.45}
+.g3wrap .lgw .lg-h,.g3wrap .lgw .lg3-svg .yr,.g3wrap .lgw .lg3-svg .qt{font-variation-settings:var(--disp-axes);font-weight:700;letter-spacing:-.015em}
+.g3wrap .lgw .lg3-svg .nt{font-family:var(--body)}
+.g3wrap .lgw .lg3-svg .mo{font-size:11px}
+.g3wrap .lgw .lg3-svg .tl{font-size:10.5px}
+.g3wrap .lgw .lg3-svg .qt{font-size:11px}
+.g3wrap .lgw .lg3-svg .an{font-variation-settings:var(--hand-axes);font-size:10.5px}
+.g3wrap .lgw .lg3-svg .br{font-size:12.5px;font-weight:600}
+
+
+/* photos */
+.photo{max-width:820px;margin:clamp(22px,5vh,48px) auto;padding-inline:16px}
+.ph{position:relative;aspect-ratio:3/2;border-radius:6px;overflow:hidden;display:grid;place-items:center;background:repeating-linear-gradient(135deg,var(--paper-2) 0 12px,var(--paper) 12px 24px);border:1px solid var(--rule)}
+.ph1{background:linear-gradient(100deg,var(--mint-old) 0 48%,var(--mint-new) 52% 100%)}
+.ph-in{max-width:26rem;margin:16px;background:var(--card);border-radius:14px 10px 16px 10px;padding:12px 16px;box-shadow:0 18px 40px -24px rgba(0,0,0,.45);font-size:.95rem;line-height:1.45}
+.ph-in .hand{font-size:.8rem;color:var(--ink-2);display:block;margin-bottom:4px}
+.photo figcaption{max-width:34rem;margin:10px auto 0;font-size:.9rem;line-height:1.45;color:var(--ink-2)}
+.photo .credit{font-family:var(--hand);font-variation-settings:var(--hand-axes);font-size:.78rem;color:var(--ink-3);margin-left:6px}
+/* footer */
+.foot{margin-top:clamp(48px,10vh,96px);padding:0 clamp(16px,4vw,40px) 48px;max-width:1180px;margin-inline:auto}
+.foot-in{border-top:2px solid var(--ink);padding-top:24px;display:grid;gap:22px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:820px){.foot-in{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}}
+.foot h3{font-family:var(--display);font-variation-settings:var(--disp-axes);font-weight:700;font-size:1.4rem;margin:0 0 .3em}
+.foot p,.foot li{font-size:.95rem;color:var(--ink-2);line-height:1.5}
+.foot ul{margin:0;padding-left:1.1em}
+.foot li{margin:.35em 0}
+.foot a{text-decoration-color:#B9B8AF}
+.foot a:hover{text-decoration-color:currentColor}
+.foot .fine{font-size:.8rem;color:var(--ink-3);margin-top:1em}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}}
+.lgw{--paper:#ECEDE7;--paper2:#E1E2DA;--card:#F8F8F4;--ink:#1E1C25;--ink2:#55525E;--ink3:#8B8891;--rule:#CBCBC2;--blue:#1B57C9;--display:"Bagel Fat One","Arial Rounded MT Bold","Arial Black",system-ui,sans-serif;--body:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--mono:"Martian Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  box-sizing:border-box;position:relative;display:block;width:100%;max-width:760px;margin:2.4em auto;padding:clamp(16px,3.6vw,30px);background-color:var(--paper);background-image:var(--lg-grain,none);background-size:180px 180px;color:var(--ink);font-family:var(--body);font-size:16px;font-weight:400;line-height:1.5;letter-spacing:normal;text-align:left;border-radius:30px 22px 32px 24px;-webkit-font-smoothing:antialiased;overflow:hidden}
+.lgw *,.lgw *::before,.lgw *::after{box-sizing:border-box}
+.lgw p,.lgw figure,.lgw h2,.lgw h3{margin:0;padding:0}
+.lgw img{max-width:100%;display:block}
+.lgw button{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:pointer;text-transform:none;letter-spacing:normal;box-shadow:none;-webkit-tap-highlight-color:transparent}
+.lgw button:focus-visible{outline:2.5px solid var(--blue);outline-offset:3px}
+.lgw .lg-kick{font-family:var(--mono);font-stretch:85%;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.lgw .lg-h{font-family:var(--display);font-weight:400;font-size:clamp(25px,5.6vw,38px);line-height:1.02;margin:.18em 0 0;text-wrap:balance;color:var(--ink)}
+.lgw .lg-steps{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:14px 0 16px}
+.lgw .lg-step{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-stretch:85%;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:6px 11px 6px 6px;border-radius:999px;border:1.5px solid var(--rule);background:var(--card);color:var(--ink2);transition:background .25s,color .25s,border-color .25s}
+.lgw .lg-step i{font-style:normal;display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--paper2);color:var(--ink);font-size:10px}
+.lgw .lg-step[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.lgw .lg-step[aria-pressed="true"] i{background:var(--paper);color:var(--ink)}
+.lgw .lg-replay{font-family:var(--mono);font-stretch:85%;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);padding:6px 8px;margin-left:auto;border-radius:8px}
+.lgw .lg-replay:hover{color:var(--ink)}
+.lgw .lg-note{font-family:var(--mono);font-stretch:85%;font-size:10.5px;letter-spacing:.03em;line-height:1.55;color:var(--ink3)}
+.lgw .lg-src{font-family:var(--mono);font-stretch:85%;font-size:10px;letter-spacing:.03em;line-height:1.55;color:var(--ink3);margin-top:16px;padding-top:10px;border-top:1.5px dashed var(--rule)}
+.lgw .lg-say{font-family:var(--display);font-weight:400;font-size:clamp(18px,3.6vw,23px);line-height:1.12;color:var(--ink);text-wrap:balance}
+.lgw .lg-stamp{display:inline-block;font-family:var(--mono);font-stretch:90%;font-weight:700;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--c,var(--ink));border:2.2px solid currentColor;border-radius:6px 4px 7px 5px;padding:3px 7px 2px;transform:rotate(var(--r,-4deg));filter:url(#lg-rough);line-height:1.3;white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.lgw *{transition:none!important;animation:none!important}}
+.lg3 .lg3-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0 10px}
+.lg3 .lg3-legend{display:flex;flex-wrap:wrap;gap:6px}
+.lg3 .lg3-legend button{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-stretch:85%;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;padding:5px 10px 5px 7px;border-radius:999px;border:1.5px solid var(--rule);background:var(--card);color:var(--ink2);transition:background .2s,color .2s,border-color .2s}
+.lg3 .lg3-legend button i{width:13px;height:11px;border-radius:50%;display:inline-block}
+.lg3 .lg3-legend .lg3-all{padding-left:10px}
+.lg3 .lg3-legend button[aria-pressed="true"]{border-color:var(--ink);color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.lg3 .lg3-chart{width:100%}
+.lg3 .lg3-svg{width:100%;height:auto;display:block;overflow:visible}
+.lg3 .lg3-svg text{font-family:var(--body);fill:var(--ink)}
+.lg3 .lg3-svg .yr{font-family:var(--display);font-size:21px}
+.lg3 .lg3-svg .mo{font-family:var(--mono);font-stretch:85%;font-size:9.5px;letter-spacing:.08em;fill:var(--ink2)}
+.lg3 .lg3-svg .nt{font-size:11.5px;fill:var(--ink2)}
+.lg3 .lg3-svg .nt tspan.b{font-weight:700;fill:var(--ink)}
+.lg3 .lg3-svg .qt{font-family:var(--display);font-size:12.5px}
+.lg3 .lg3-svg .cap{font-family:var(--mono);font-stretch:85%;font-size:8.5px;letter-spacing:.04em;fill:var(--ink3)}
+.lg3 .lg3-svg .br{font-family:var(--mono);font-stretch:85%;font-size:10px;font-weight:700;letter-spacing:.1em;fill:var(--ink)}
+.lg3 .lg3-svg .tl{font-family:var(--mono);font-stretch:85%;font-size:9px;letter-spacing:.04em;fill:var(--ink3)}
+.lg3 .lg3-svg [data-c]{transition:opacity .35s}
+.lg3 .lg3-svg [data-q]{transition:opacity .45s}
+.lg3 .lg3-svg .lg3-draw{transition:stroke-dashoffset .55s linear}
+.lg3 .lg3-vert .yr{font-size:18px}
+.lg3 .lg3-vert .nt{font-size:12px}
+@media (max-width:480px){.lg3 .lg3-legend{gap:4px}.lg3 .lg3-legend button{font-size:9.5px;padding:4px 8px 4px 6px;gap:4px}.lg3 .lg3-legend button i{width:10px;height:9px}.lg3 .lg3-bar{gap:6px}}
+
+.lg3 .lg3-svg .an{font-family:var(--mono);font-size:10.5px;fill:#6B6873}
+.lg3 .lg3-svg .anl{fill:none;stroke:#8B8891;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
+
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="wob" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter>
+    <filter id="rough" x="-10%" y="-25%" width="120%" height="150%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G" result="d"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.4 1.85" result="m"/><feComposite in="d" in2="m" operator="in"/></filter>
+    <filter id="goo" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur in="SourceGraphic" stdDeviation="2.6" result="b"/><feColorMatrix in="b" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"/></filter>
+  </defs>
+</svg>
+<div class="grain" aria-hidden="true"></div>
+
+<header>
+  <div class="mast">
+    <span class="l hand">Visual stories in small bites</span>
+    <a class="logo" href="#top" aria-label="mochi. home">mochi<span>.</span></a>
+    <nav class="hand" aria-label="Site"><a href="#story">Story</a><a href="#about">About</a></nav>
+  </div>
+  <div class="rules"><hr><hr>
+    <div class="edition hand"><span>Vol. 1 · No. 1</span><span class="mid">Food &amp; Color</span><span>Friday, Oct. 2, 2026</span></div>
+  </div>
+</header>
+
+<main id="top">
+  <section aria-label="Headline">
+    <div class="band" id="band" role="img" aria-label="A wall of food colors, each tile a product moving off synthetic dyes. One pale jade tile, outlined, is the 2026 It’s-It."><div class="mosaic" id="mosaic"></div><div class="band-tag" id="bandTag"><b>2026 It’s-It</b><span class="hand">#A9D4B5</span></div><div class="band-note hand">Tile colors are illustrative</div></div>
+    <div class="head">
+      <div class="kick hand">Bay Area · Food · Color</div>
+      <h1 class="hed">Why Is My Mint Ice Cream Less Green?</h1>
+      <p class="dek"><span>America’s Food Is </span><span id="cc">Changing Color</span></p>
+      <div class="byline hand"><span>By <b>Cynthia</b></span><span>Oct. 2, 2026</span><span>2 min read</span></div>
+    </div>
+  </section>
+
+  <figure class="photo">
+    <div class="ph ph1"><div class="ph-in"><span class="hand">Photo 1 · to shoot</span>Mid-bite in front of the freezer case: the pale sandwich held up against the box or poster that still shows the old bright green.</div></div>
+    <figcaption>A 2026 mint It’s-It against its own packaging, which still remembers the old green.<span class="credit">Photo: Cynthia</span></figcaption>
+  </figure>
+  <article class="story" id="story">
+    <div class="col lede">
+      <p class="drop"><span class="dateline">SAN FRANCISCO</span>In 2018, Chronicle staff built a papier-mâché It’s-It and matched paint chips to its mint. This spring that green vanished, and the filling now comes out of the wrapper a pale, milky jade while the company website still shows the old color.</p>
+      <p>The peppermint never changed. It’s-It had traded FD&amp;C Blue No. 1, a synthetic dye that is still legal, for spirulina, an extract of blue-green algae.</p>
+    </div>
+  </article>
+
+  <section class="scrolly" id="machine" aria-label="Graphic 1: the color machine">
+    <div class="stage">
+      <div class="ghead hand"><b>Six dyes ran the grocery aisle</b><span>1 of 3</span></div>
+      <svg id="machineSvg" viewBox="0 0 400 560" preserveAspectRatio="xMidYMin meet" role="img" aria-label="Six synthetic dye vats pour into labeled foods. In 2026 the machine cracks, each vat splits into plant sources, and the blue candy shells receive no color."></svg>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="card"><span class="stamp" style="--c:#1B57C9">Spread</span><p>For decades six synthetic dyes did much of the coloring in the American grocery aisle, and because each came in a single fixed shade, a factory could pour it into cereal, soda and candy shells and get the same color every time.</p><button class="btn" id="pourAgain" type="button">Pour again</button></div></div>
+      <div class="step"><div class="card"><span class="stamp" style="--c:#1E1C25;--r:3deg">2026</span><p>This year the machine began to crack. All six dyes are still legal nationwide, yet companies are dropping them anyway, pushed by federal health officials and by a California law that keeps them out of school meals from the end of 2027.</p></div></div>
+      <div class="step"><div class="card"><span class="stamp" style="--c:#A97F00">Split</span><p>Each dye now breaks into a handful of plant recipes, and every food lands somewhere slightly off from where it used to sit, while the candy shells that depended on the two blues are still waiting for a recipe that works.</p><p class="note">Offset outlines mark each food’s old color.</p></div></div>
+      <div class="step"><div class="card big"><p>Removing a dye is easy. Reproducing a memory is harder.</p></div></div>
+    </div>
+  </section>
+  <p class="gsrc hand">Sources: FDA; San Francisco Chronicle, 2026; Mars, 2026. Food shades are illustrative.</p>
+
+  <article class="story">
+    <div class="col">
+      <p>Spirulina fades as it cooks and dulls as it sours, which is why one frosted cookie, food makers told NPR, needed thirty times more natural color just to look as bright.</p>
+    </div>
+  </article>
+
+  <section class="scrolly" id="lab" aria-label="Graphic 2: how to make mint green">
+    <div class="stage">
+      <div class="ghead hand"><b>How do you make mint green?</b><span>2 of 3</span></div>
+      <svg id="labSvg" viewBox="0 0 400 560" preserveAspectRatio="xMidYMin meet" role="img" aria-label="A blue disc and a yellow-orange annatto disc overlap to color an ice cream sandwich filling. With Blue No. 1 the filling is electric mint. With spirulina it turns pale jade, and heat and acid dull spirulina further."></svg>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="card"><p>Ice cream starts out white, so a manufacturer who wants mint has to build the green the way a child mixes paint, laying a blue over a yellow-orange until the overlap turns.</p></div></div>
+      <div class="step"><div class="card"><span class="stamp" style="--c:#1B57C9">Overlap</span><p>Until this year the blue was Blue No. 1 and the yellow-orange was annatto, a seed extract, and their overlap kept Bay Area freezer cases stocked with electric mint for about forty years.</p></div></div>
+      <div class="step"><div class="card"><span class="stamp" style="--c:#C8231B">Swap</span><p>Pull out Blue No. 1, slide in spirulina, and the same overlap comes out pale, though if you tap the sandwich you will find it still tastes like peppermint.</p><p class="note">Annatto in the 2026 recipe is assumed until the label is checked.</p></div></div>
+      <div class="step"><div class="card"><span class="stamp" style="--c:#C9620F">Stress test</span><p>The trouble sits on the blue side. Heat in the factory and acid in the recipe both wear down spirulina’s pigment and drag the green toward gray, while a green built on Blue No. 1 would have come through the same treatment almost unchanged.</p><p class="note">The fading is drawn to show the effect, not measured.</p></div></div>
+    </div>
+  </section>
+  <p class="gsrc hand">Sources: San Francisco Chronicle, 2026; Food Research International, 2021. Filling colors are sampled from photos, overlaps are illustrative.</p>
+
+  <figure class="photo">
+    <div class="ph "><div class="ph-in"><span class="hand">Photo 2 · to shoot</span>Overhead, mid-pour: the new M&amp;M’s tumbling into a six-cup muffin tin sorted by color, with the blue and brown cups left empty.</div></div>
+    <figcaption>Sorting the new M&amp;M’s by color leaves two cups with nothing to hold.<span class="credit">Photo: Cynthia</span></figcaption>
+  </figure>
+  <article class="story">
+    <div class="col">
+      <p>Mars spent more than a decade on M&amp;M’s without synthetic dyes and still launched them missing blue and brown. General Mills has been here before.</p>
+      
+    </div>
+  </article>
+
+  <div class="g3wrap">
+<div class="lgw lg3" data-lg="trix-timeline" data-trix-photo="">
+  <div class="lg-kick">3 of 3 · Trix, twice</div>
+  <p class="lg-h">We've lost colors before.</p>
+  <div class="lg3-bar">
+    <button class="lg-replay" type="button">↻ Replay</button>
+  </div>
+  <div class="lg3-chart"><svg class="lg3-svg" role="img" aria-label="Trix timeline. 2015: six colors. January 2016: blue and green disappear when General Mills switches to colors from fruit, vegetables and spices. October 2017: Classic Trix returns with all six while the four-color version stays on sale. August 2026: General Mills says all its U.S. cereals are made without synthetic certified dyes; which Trix colors survived is not yet public."></svg></div>
+  <p class="lg-note">Each line follows one color through the bowl, and a dotted gray stretch means it went missing. After 2026 the lines fade to faint dashes, because General Mills has not said which colors survived, and the last bowl stays empty until someone photographs it.</p>
+  <p class="lg-src">Sources: Food Dive and Food Business News, 2016 (reformulated Trix, quote from General Mills technology director Erika Smith); CNBC and CNN, 2017 (Classic Trix returns); General Mills, Aug. 26, 2026; FDA on certified versus exempt colors.</p>
+</div>
+
+  </div>
+
+  <figure class="photo">
+    <div class="ph "><div class="ph-in"><span class="hand">Photo 3 · to shoot</span>Overhead, milk splashing into a bowl of 2026 Trix, the bowl the timeline above could not show.</div></div>
+    <figcaption>Trix in 2026, the bowl General Mills has not described.<span class="credit">Photo: Cynthia</span></figcaption>
+  </figure>
+  <article class="story">
+    <div class="col">
+      <p>“Like the La Croix version of mint,” one taster said of the new filling.</p>
+      <p class="closer">This time, can food change color without feeling like it changed?</p>
+    </div>
+  </article>
+</main>
+
+<footer class="foot" id="about">
+  <div class="foot-in">
+    <div>
+      <h3>mochi<span style="color:var(--mint-old)">.</span></h3>
+      <p>A one-person visual desk by Cynthia, telling small stories about how ordinary things look and why they look that way.</p>
+      <p class="fine hand">© 2026 mochi. Draft edition. Swatch colors are placeholders until sampled from photographs.</p>
+    </div>
+    <div>
+      <h3>Sources</h3>
+      <ul>
+        <li><a href="https://www.sfchronicle.com/food/article/its-it-mint-ice-cream-22448058.php">San Francisco Chronicle, 2026: the It’s-It mint recipe change, Blue No. 1 with annatto, spirulina, sales and complaints</a></li>
+        <li><a href="https://www.fda.gov/food/color-additives-information-consumers/color-additives-questions-and-answers-consumers">FDA: certified (synthetic) colors versus colors exempt from certification</a></li>
+        <li><a href="https://www.npr.org/2025/09/08/nx-s1-5529276/sams-club-food-dye-taste-history">NPR, 2025: food makers phasing out dyes, and why blue is hard</a></li>
+        <li><a href="https://www.sciencedirect.com/science/article/pii/S0963996921002131">Food Research International, 2021: phycocyanin from spirulina, extraction and stability</a></li>
+        <li><a href="https://www.mars.com/news-and-stories/press-releases-statements/mars-snacking-us-releases-new-product-options-made">Mars Snacking U.S., 2026: M&amp;M’s made without FD&amp;C colors</a></li>
+        <li><a href="https://www.fooddive.com/news/reformulated-trix-still-for-kids-but-missing-blue-and-green/423006/">Food Dive, 2016: reformulated Trix missing blue and green</a></li>
+        <li><a href="https://www.foodbusinessnews.net/articles/8327-trix-s-switch-in-colors-exceeds-sales-expectations">Food Business News, 2016: General Mills’ Erika Smith on kids asking about blue and green</a></li>
+        <li><a href="https://www.cnbc.com/2017/09/21/trix-bringing-back-to-artificial-colors-after-customers-complained.html">CNBC, 2017: Classic Trix returns</a></li>
+        <li><a href="https://www.nasdaq.com/press-release/general-mills-completes-removal-certified-colors-us-cereal-portfolio-2026-08-26">General Mills, Aug. 26, 2026: certified colors removed from U.S. cereals</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+(()=>{
+'use strict';
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const NS='http://www.w3.org/2000/svg';
+function S(tag,attrs,parent){const e=document.createElementNS(NS,tag);if(attrs)for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e}
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+const lerp=(a,b,t)=>a+(b-a)*t;
+const hexRgb=h=>{h=h.replace('#','');return[parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)]};
+const rgbHex=a=>'#'+a.map(v=>Math.round(clamp(v,0,255)).toString(16).padStart(2,'0')).join('').toUpperCase();
+const mix=(a,b,t)=>{const A=hexRgb(a),B=hexRgb(b);return rgbHex(A.map((v,i)=>v+(B[i]-v)*t))};
+const shade=(h,t)=>t>0?mix(h,'#FFFFFF',t):mix(h,'#000000',-t);
+function rng(seed){let a=seed|0;return()=>{a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const E={out:t=>1-Math.pow(1-t,3),inOut:t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2,back:t=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(t-1,3)+c1*Math.pow(t-1,2)},lin:t=>t};
+function tween(o){const dur=o.dur==null?600:o.dur,delay=o.delay||0,ease=o.ease||E.inOut;if(RM){o.update(1,1);o.done&&o.done();return()=>{}}let id,dead=false;const t0=performance.now()+delay;const f=now=>{if(dead)return;const t=clamp((now-t0)/dur);o.update(ease(t),t);if(t<1)id=requestAnimationFrame(f);else o.done&&o.done()};id=requestAnimationFrame(f);return()=>{dead=true;cancelAnimationFrame(id)}}
+function smoothClosed(p){const n=p.length;let d=`M${p[0][0].toFixed(2)},${p[0][1].toFixed(2)}`;for(let i=0;i<n;i++){const p0=p[(i-1+n)%n],p1=p[i],p2=p[(i+1)%n],p3=p[(i+2)%n];d+=`C${(p1[0]+(p2[0]-p0[0])/6).toFixed(2)},${(p1[1]+(p2[1]-p0[1])/6).toFixed(2)} ${(p2[0]-(p3[0]-p1[0])/6).toFixed(2)},${(p2[1]-(p3[1]-p1[1])/6).toFixed(2)} ${p2[0].toFixed(2)},${p2[1].toFixed(2)}`}return d+'Z'}
+function blobD(cx,cy,r,seed,amp=.12,n=10){const R=rng(seed);const pts=[];for(let i=0;i<n;i++){const a=i/n*Math.PI*2;const rr=r*(1+(R()*2-1)*amp);pts.push([cx+Math.cos(a)*rr,cy+Math.sin(a)*rr])}return smoothClosed(pts)}
+const MINT_OLD='#34C77B',MINT_NEW='#A9D4B5';
+
+/* grain */
+try{const c=document.createElement('canvas');c.width=c.height=180;const x=c.getContext('2d');const img=x.createImageData(180,180);const R=rng(3);for(let i=0;i<img.data.length;i+=4){img.data[i]=img.data[i+1]=img.data[i+2]=20;img.data[i+3]=Math.floor(Math.pow(R(),3.2)*100)}x.putImageData(img,0,0);document.documentElement.style.setProperty('--grain-img',`url(${c.toDataURL('image/png')})`)}catch(e){}
+
+/* scroll engine: a step turns on once its card crosses the reading line; -1 means before the first card */
+const scrollies=[];
+function registerScrolly(el,h){const steps=$$('.step',el);const cards=steps.map(st=>st.querySelector('.card')||st);const s=Object.assign({el,steps,cards,cur:-2},h);scrollies.push(s);return s}
+const scrollFns=[];
+let ticking=false;
+function onScroll(){ticking=false;scrollFns.forEach(f=>f());const vh=innerHeight,line=vh*.78;for(const s of scrollies){const tops=s.cards.map(c=>c.getBoundingClientRect().top);let idx=-1;tops.forEach((t,i)=>{if(t<line)idx=i});if(idx!==s.cur){const dir=idx>s.cur?1:-1;const first=s.cur===-2;s.cur=idx;s.onStep&&s.onStep(idx,first?0:dir)}}}
+const req=()=>{if(!ticking){ticking=true;requestAnimationFrame(onScroll)}};
+addEventListener('scroll',req,{passive:true});addEventListener('resize',req);
+
+/* ===== HEADER: a wall of food colors, pulling back from the 2026 jade on load ===== */
+(function header(){
+  const band=$('#band'),mo=$('#mosaic'),tag=$('#bandTag'),cc=$('#cc');
+  const DY=['#D7261E','#F28C1E','#F6D200','#0FA37F','#1A5BD6','#2B2A8F'],PL=['#B3204A','#DD6F33','#E6B52C','#6DA56B','#3E86B8','#3C55A5'];
+  const PAL=['#D7261E','#E8473B','#B3204A','#F28C1E','#F5A13A','#F6D200','#EFC646','#E6B52C','#8FBF5A','#2EC27E','#6DA56B','#3E86B8','#1A5BD6','#7B4BB0','#C64B8C','#F08AA6','#6B3E26','#A9744F','#C9A27A','#E9D6B0','#F4B6C2','#9AD33A','#FF7F50','#4F9C86','#E2382F','#F5CF2B'];
+  const txt=cc.textContent;cc.textContent='';const letters=[];let k=0;
+  for(const ch of txt){const i=document.createElement('i');i.textContent=ch;i.setAttribute('aria-hidden','true');cc.appendChild(i);if(ch!==' ')letters.push([i,k++])}
+  cc.setAttribute('aria-label',txt);
+  const orad=R=>{const v=()=>Math.round(36+R()*28);const a=v(),b=v();return `${a}% ${100-a}% ${b}% ${100-b}% / ${v()}% ${v()}% ${v()}% ${v()}%`};
+  let lastW=0,played=false;
+  function build(){const W=band.clientWidth,H=band.clientHeight;if(!W||!H)return;lastW=W;
+    const t=Math.round(Math.max(H/3.2,Math.min(W/9,74)));const cols=Math.ceil(W/t)+2,rows=Math.ceil(H/t)+2;
+    mo.innerHTML='';mo.style.width=cols*t+'px';mo.style.height=rows*t+'px';
+    const ox=Math.round((W-cols*t)/2),oy=Math.round((H-rows*t)/2)-Math.round(t*.18);mo.style.left=ox+'px';mo.style.top=oy+'px';
+    const tc=Math.floor(cols/2),tr=Math.max(0,Math.round((H*.42-oy-t/2)/t));const R=rng(42);const frag=document.createDocumentFragment();
+    for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){const d=document.createElement('div');d.className='tile';const isT=r===tr&&c===tc;const col=isT?MINT_NEW:mix(PAL[Math.floor(R()*PAL.length)],'#8A8A80',R()*.16);const j=R()*4-2;
+      d.style.cssText=`left:${c*t+4+j}px;top:${r*t+4-j}px;width:${t-8}px;height:${t-8}px;background:${col};border-radius:${orad(R)};transform:rotate(${(R()*10-5).toFixed(1)}deg)`;
+      if(isT){d.classList.add('target');d.style.transform='none'}frag.appendChild(d)}
+    mo.appendChild(frag);
+    const tx=tc*t+t/2,ty=tr*t+t/2;mo.style.transformOrigin=`${tx}px ${ty}px`;
+    tag.style.left=(ox+tx)+'px';tag.style.top=(oy+ty+t/2+2)+'px';
+    if(!played&&!RM){played=true;const S0=W/(t-8)*1.1;tag.style.opacity=0;mo.style.transform=`scale(${S0})`;
+      tween({dur:1800,delay:350,ease:E.inOut,update:e=>{mo.style.transform=`scale(${Math.exp(Math.log(S0)*(1-e)).toFixed(4)})`},done:()=>{mo.style.transform='none';tag.style.opacity=1}})}
+    else{mo.style.transform='none';tag.style.opacity=1}}
+  build();new ResizeObserver(()=>{if(Math.abs(band.clientWidth-lastW)>4)build()}).observe(band);
+  function upd(){const e=E.inOut(clamp(scrollY/(innerHeight*.9)));document.documentElement.style.setProperty('--shadow-green',mix(MINT_OLD,MINT_NEW,e));letters.forEach(([el,n])=>{el.style.color=mix(DY[n%6],PL[n%6],e)})}
+  scrollFns.push(upd);upd();
+})();
+
+/* ===== GRAPHIC 1: THE COLOR MACHINE ===== */
+const DYES=[
+ {name:'Red 40',c:'#D7261E',src:['beet','carrot'],sc:['#B3204A','#C2324F']},
+ {name:'Yellow 6',c:'#F28C1E',src:['paprika','annatto'],sc:['#DD6F33','#E8822E']},
+ {name:'Yellow 5',c:'#F6D200',src:['turmeric','safflower'],sc:['#E6B52C','#EFC646']},
+ {name:'Green 3',c:'#0FA37F',src:['spirulina','+ turmeric'],sc:['#4F9C86','#8DB05A']},
+ {name:'Blue 1',c:'#1A5BD6',src:['spirulina','pea flower'],sc:['#3E86B8','#4F6FC0']},
+ {name:'Blue 2',c:'#2B2A8F',src:['gardenia','galdieria'],sc:['#3C55A5','#3F6FB8']}];
+const MM_OLD=['#C8102E','#F26F22','#FFC72C','#2F9B47','#1F6FD1','#5A3A22'],MM_NEW=['#C22A37','#E8752E','#F2C343','#5F9E4E'];
+const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
+(function machine(){
+  const svg=$('#machineSvg');const defs=S('defs',{},svg);
+  const G=cls=>S('g',{class:cls},svg);
+  const gUpper=G('m-upper'),gVats=G('m-vats'),gSplit=G('m-split'),gLower=G('m-lower'),gCrack=G('m-crack');
+  gLower.style.transformOrigin='200px 202px';
+  const cxs=DYES.map((d,i)=>40+i*64);
+  function jarD(cx,top,bot,hw){const r=Math.min(12,hw*.6);return `M${cx-hw+3} ${top}Q${cx-hw} ${top} ${cx-hw} ${top+6}V${bot-r}Q${cx-hw} ${bot} ${cx-hw+r} ${bot}H${cx+hw-r}Q${cx+hw} ${bot} ${cx+hw} ${bot-r}V${top+6}Q${cx+hw} ${top} ${cx+hw-3} ${top}Z`}
+  function waveD(x0,x1,y,bot){let d=`M${x0} ${y}`;let up=true;for(let x=x0;x<x1;x+=12){d+=`Q${x+6} ${y+(up?-3:3)} ${x+12} ${y}`;up=!up}return d+`V${bot}H${x0}Z`}
+  function vat(parent,cx,top,bot,hw,color,id){const g=S('g',{class:'vat'},parent);g.style.transformOrigin=`${cx}px ${bot}px`;const d=jarD(cx,top,bot,hw);const cp=S('clipPath',{id},defs);S('path',{d},cp);S('path',{d,fill:'#F9F9F5'},g);const liq=S('g',{'clip-path':`url(#${id})`},g);S('path',{d:waveD(cx-hw-14,cx+hw+14,top+16,bot+4),fill:color},liq);S('path',{d,fill:'none',stroke:'#55525E','stroke-width':1.4},g);S('rect',{x:cx-hw+2,y:top-7,width:hw*2-4,height:7,rx:3,fill:'#55525E'},g);S('path',{d:`M${cx-hw+7} ${top+16}V${bot-14}`,stroke:'#fff','stroke-opacity':.5,'stroke-width':2.5,'stroke-linecap':'round'},g);return g}
+  const vatG=S('g',{filter:'url(#wob)'},gVats);
+  DYES.forEach((d,i)=>{vat(vatG,cxs[i],60,144,26,d.c,'jar'+i);S('text',{x:cxs[i],y:42,'text-anchor':'middle',class:'svg-mono'},gVats).textContent=d.name});
+  const splitG=S('g',{filter:'url(#wob)'},gSplit);
+  DYES.forEach((d,i)=>{vat(splitG,cxs[i]-13,74,144,11,d.sc[0],'sj'+i+'a');vat(splitG,cxs[i]+13,86,144,11,d.sc[1],'sj'+i+'b');S('text',{x:cxs[i],y:40,'text-anchor':'middle',class:'svg-mono',style:'font-size:10.5px'},gSplit).textContent=d.src[0];S('text',{x:cxs[i],y:52,'text-anchor':'middle',class:'svg-mono',style:'font-size:10.5px'},gSplit).textContent=d.src[1]});
+  const flows=[];
+  DYES.forEach((d,i)=>{const cx=cxs[i];const up=`M${cx} 144V168Q${cx} 178 ${cx-10} 178H${cx-12}Q${cx-22} 178 ${cx-22} 188V202`,lo=`M${cx-22} 202V452`;
+    S('path',{d:up,fill:'none',stroke:'#CBCBC2','stroke-width':7,'stroke-linecap':'round'},gUpper);const fu=S('path',{d:up,fill:'none',stroke:d.c,'stroke-width':3.4,'stroke-linecap':'round'},gUpper);
+    S('path',{d:lo,fill:'none',stroke:'#CBCBC2','stroke-width':7,'stroke-linecap':'round'},gLower);const fl=S('path',{d:lo,fill:'none',stroke:d.c,'stroke-width':3.4,'stroke-linecap':'round'},gLower);
+    flows.push({fu,fl})});
+  const LABELS=[['candy','sports drink','cereal'],['cheese puff','soda','candy'],['cupcake','lemonade','cereal'],['mint scoop','candy','lollipop'],['mint scoop','sports drink','candy shell'],['icing','cereal','candy shell']];
+  const TYPES=[['lentil','bottle','ring'],['puff','bottle','lentil'],['cupcake','glass','puff'],['scoop','lentil','lolly'],['scoop','bottle','lentil'],['cupcake','puff','lentil']];
+  const LEVELS=[250,340,430];
+  function foodD(type,x,y,seed){switch(type){
+    case 'lentil':return `M${x-18} ${y}A18 13 0 1 0 ${x+18} ${y}A18 13 0 1 0 ${x-18} ${y}Z`;
+    case 'bottle':return `M${x-5} ${y-22}H${x+5}V${y-15}Q${x+13} ${y-13} ${x+13} ${y-5}V${y+17}Q${x+13} ${y+22} ${x+8} ${y+22}H${x-8}Q${x-13} ${y+22} ${x-13} ${y+17}V${y-5}Q${x-13} ${y-13} ${x-5} ${y-15}Z`;
+    case 'ring':return `M${x-16} ${y}a16 16 0 1 0 32 0a16 16 0 1 0 -32 0ZM${x-6} ${y}a6 6 0 1 1 12 0a6 6 0 1 1 -12 0Z`;
+    case 'puff':return blobD(x,y,15,seed,.2,9);
+    case 'scoop':return blobD(x,y-2,16,seed,.12,11);
+    case 'cupcake':return `M${x-17} ${y+2}Q${x-18} ${y-12} ${x-8} ${y-16}Q${x-2} ${y-24} ${x+6} ${y-18}Q${x+18} ${y-14} ${x+17} ${y+2}Z`;
+    case 'glass':return `M${x-13} ${y-18}H${x+13}L${x+9} ${y+20}H${x-9}Z`;
+    case 'lolly':return `M${x-13} ${y-6}a13 13 0 1 0 26 0a13 13 0 1 0 -26 0Z`;}}
+  const foods=[];
+  const outG=S('g',{filter:'url(#wob)'},gLower),ghostG=S('g',{},gLower),fillG=S('g',{},gLower),dropG=S('g',{filter:'url(#goo)'},gLower),splatG=S('g',{},gLower);
+  DYES.forEach((d,i)=>{const cx=cxs[i],fx=cx+8;TYPES[i].forEach((type,j)=>{const fy=LEVELS[j],dd=foodD(type,fx,fy,i*10+j+3);
+    S('path',{d:`M${cx-22} ${fy-28}H${cx-3}`,stroke:'#CBCBC2','stroke-width':5,'stroke-linecap':'round'},gLower);
+    if(type==='cupcake')S('path',{d:`M${fx-14} ${fy+4}L${fx-10} ${fy+21}H${fx+10}L${fx+14} ${fy+4}Z`,fill:'none',stroke:'#8B8891','stroke-width':1.3},outG);
+    if(type==='lolly')S('path',{d:`M${fx} ${fy+7}V${fy+24}`,stroke:'#8B8891','stroke-width':2.4,'stroke-linecap':'round'},outG);
+    S('path',{d:dd,fill:'none',stroke:'#8B8891','stroke-width':1.3,'fill-rule':'evenodd'},outG);
+    S('text',{x:fx,y:fy+(type==='lolly'?36:33),'text-anchor':'middle',class:'svg-tiny'},gLower).textContent=LABELS[i][j];
+    const ghost=S('path',{d:dd,fill:'none',stroke:d.c,'stroke-width':1.6,'fill-rule':'evenodd',transform:'translate(3,-3)',opacity:0},ghostG);
+    const cp=S('clipPath',{id:`fc${i}${j}`},defs);const rect=S('rect',{x:fx-26,y:fy+26,width:52,height:0},cp);
+    const fp=S('path',{d:dd,fill:d.c,'fill-rule':'evenodd','clip-path':`url(#fc${i}${j})`},fillG);
+    foods.push({i,j,cx,fx,fy,rect,fp,ghost})})});
+  const byIJ=(i,j)=>foods[i*3+j];
+  const setLevel=(f,v)=>{f.rect.setAttribute('y',(f.fy+26-52*v).toFixed(1));f.rect.setAttribute('height',(52*v).toFixed(1))};
+  const CR=rng(11);const cpts=[];for(let x=-10;x<=414;x+=14)cpts.push([x,196+(CR()*2-1)*7]);
+  const cd='M'+cpts.map(p=>p[0].toFixed(1)+','+p[1].toFixed(1)).join('L');
+  const crackLines=[S('path',{d:cd,fill:'none',stroke:'#EEEFE9','stroke-width':11,'stroke-linejoin':'round'},gCrack),S('path',{d:cd,fill:'none',stroke:'#1E1C25','stroke-width':1.6,'stroke-linejoin':'round',transform:'translate(0,-5)'},gCrack),S('path',{d:cd,fill:'none',stroke:'#1E1C25','stroke-width':1.6,'stroke-linejoin':'round',transform:'translate(0,6)'},gCrack)];
+  const pill=S('g',{},gCrack);S('rect',{x:166,y:181,width:68,height:28,rx:14,fill:'#1E1C25'},pill);S('text',{x:200,y:201,'text-anchor':'middle',class:'svg-display',style:'font-size:17px;fill:#EEEFE9'},pill).textContent='2026';
+
+  let jobs=[];const job=c=>jobs.push(c);const kill=()=>{jobs.forEach(c=>c());jobs=[];dropG.innerHTML=''};
+  const vis=(g,on)=>{g.style.opacity=on?1:0;g.style.pointerEvents=on?'auto':'none'};
+  function flowSet(i,u,l){const f=flows[i];[[f.fu,u],[f.fl,l]].forEach(([p,v])=>{const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L*(1-v)})}
+  function colorFor(i,j,mode){const d=DYES[i];if(mode==='old')return d.c;return shade(mix(d.sc[0],d.sc[1],[.15,.5,.85][j]),[.06,-.04,.1][j])}
+  const misses=(i,j,mode)=>mode==='new'&&i>=4&&j===2;
+  function splats(on,instant){splatG.innerHTML='';if(!on)return;[4,5].forEach(i=>{const f=byIJ(i,2);const g=S('g',{},splatG);S('path',{d:blobD(f.fx,500,9,90+i,.35,9),fill:DYES[i].sc[0],opacity:.85},g);S('text',{x:f.fx,y:528,'text-anchor':'middle',class:'svg-mono'},g).textContent='?';if(!instant){g.style.opacity=0;job(tween({dur:300,delay:1400+i*140,update:t=>g.style.opacity=t}))}})}
+  function fillInstant(mode){foods.forEach(f=>{f.fp.setAttribute('fill',colorFor(f.i,f.j,mode));setLevel(f,misses(f.i,f.j,mode)?0:1);f.ghost.setAttribute('opacity',mode==='new'?.95:0)});DYES.forEach((d,i)=>{flows[i].fu.setAttribute('stroke',mode==='old'?d.c:d.sc[0]);flows[i].fl.setAttribute('stroke',mode==='old'?d.c:d.sc[1]);flowSet(i,1,1)});splats(mode==='new',true)}
+  function pour(mode){kill();foods.forEach(f=>{setLevel(f,0);f.ghost.setAttribute('opacity',mode==='new'?.95:0)});splatG.innerHTML='';
+    if(RM){fillInstant(mode);return}
+    DYES.forEach((d,i)=>{const delay=i*140;flows[i].fu.setAttribute('stroke',mode==='old'?d.c:d.sc[0]);flows[i].fl.setAttribute('stroke',mode==='old'?d.c:d.sc[1]);flowSet(i,0,0);
+      job(tween({dur:340,delay,ease:E.lin,update:t=>flowSet(i,t,0)}));job(tween({dur:640,delay:delay+340,ease:E.lin,update:t=>flowSet(i,1,t)}));
+      for(let j=0;j<3;j++){const f=byIJ(i,j);const reach=delay+340+640*((f.fy-28-202)/250);const col=colorFor(i,j,mode);const miss=misses(i,j,mode);
+        const drop=S('circle',{cx:f.cx-3,cy:f.fy-28,r:0,fill:mode==='old'?d.c:(j%2?d.sc[1]:d.sc[0])},dropG);
+        const tx=miss?f.fx+(i===4?-4:4):f.fx-2,ty=miss?500:f.fy-12;
+        job(tween({dur:300,delay:reach,ease:E.lin,update:t=>{drop.setAttribute('r',(5*Math.min(1,t*3)).toFixed(1));drop.setAttribute('cx',lerp(f.cx-3,tx,E.out(t)).toFixed(1));drop.setAttribute('cy',lerp(f.fy-28,ty,t*t).toFixed(1))},done:()=>drop.remove()}));
+        if(!miss){f.fp.setAttribute('fill',col);job(tween({dur:520,delay:reach+240,ease:E.out,update:t=>setLevel(f,t)}))}}});
+    if(mode==='new')splats(true,false)}
+  $('#pourAgain').addEventListener('click',()=>pour('old'));
+  let filled='none';
+  function step(i,dir){kill();
+    vis(gUpper,true);vis(gLower,true);vis(gVats,i<=1);vis(gSplit,i>=2);vis(gCrack,i>=1);
+    gLower.style.transform=i>=1?'translate(0px,8px) rotate(1.4deg)':'none';
+    gVats.classList.toggle('shake',i===1&&dir>0&&!RM);
+    if(i<0){foods.forEach(f=>{setLevel(f,0);f.ghost.setAttribute('opacity',0)});DYES.forEach((d,k)=>flowSet(k,0,0));splatG.innerHTML='';filled='none'}
+    if(i===0){if(dir>0||filled!=='old')pour('old');filled='old'}
+    if(i===1){if(filled!=='old')fillInstant('old');filled='old';crackLines.forEach(p=>{const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=dir>0?L:0;if(dir>0)job(tween({dur:700,ease:E.out,update:t=>p.style.strokeDashoffset=L*(1-t)}))})}
+    if(i>=2){crackLines.forEach(p=>{p.style.strokeDashoffset=0});if((dir>0&&i===2)||filled!=='new'){if(i===2&&dir>0)pour('new');else fillInstant('new')}filled='new'}}
+  step(-1,0);
+  registerScrolly($('#machine'),{onStep:step});
+})();
+
+/* ===== GRAPHIC 2: MIXING MINT, poured into the sandwich ===== */
+(function lab(){
+  const svg=$('#labSvg');const defs=S('defs',{},svg);
+  const BLUE='#1A5BD6',ANN='#F2A33A',SPI='#2FA3C4',PLAIN='#F3EEDF',R=68,CY=118;
+  const cA=S('clipPath',{id:'labA'},defs),cS=S('clipPath',{id:'labS'},defs);
+  const clipA=S('circle',{r:R,cy:CY},cA),clipS=S('circle',{r:R,cy:CY},cS);
+  /* stress icons */
+  const gStress=S('g',{},svg);
+  S('path',{d:'M40 46c-8-11 3-17 2-28 8 6 12 12 9 22 5-2 6-6 6-11 6 8 6 20-3 25-6 3-12 0-14-8z',fill:'#E0702E',filter:'url(#wob)'},gStress);
+  S('text',{x:46,y:90,'text-anchor':'middle',class:'svg-tiny'},gStress).textContent='heat';
+  S('path',{d:'M18 158a18 18 0 0 1 36 0z',fill:'#F2DC4B',stroke:'#C9B21E','stroke-width':1.4},gStress);S('path',{d:'M36 158V142M36 158L25 147M36 158L47 147',stroke:'#C9B21E','stroke-width':1.1},gStress);
+  S('text',{x:36,y:174,'text-anchor':'middle',class:'svg-tiny'},gStress).textContent='acid';
+  [['M62 60C80 62 92 70 102 84','M95 84L103 86L101 78'],['M58 150C74 150 88 148 102 140','M94 139L103 139L99 146']].forEach(([a,h])=>{S('path',{d:a,fill:'none',stroke:'#55525E','stroke-width':1.4,'stroke-dasharray':'3 3'},gStress);S('path',{d:h,fill:'none',stroke:'#55525E','stroke-width':1.4,'stroke-linecap':'round','stroke-linejoin':'round'},gStress)});
+  S('text',{x:12,y:112,class:'svg-tiny'},gStress).textContent='both wear';
+  S('text',{x:12,y:123,class:'svg-tiny'},gStress).textContent='down the blue';
+  /* discs */
+  const gMix=S('g',{filter:'url(#wob)'},svg);
+  const dB=S('circle',{r:R,cy:CY,fill:ANN},gMix),dA=S('circle',{r:R,cy:CY,fill:BLUE},gMix),dS=S('circle',{r:R,cy:CY,fill:SPI},gMix);
+  const iAB=S('circle',{r:R,cy:CY,fill:MINT_OLD,'clip-path':'url(#labA)'},gMix),iSB=S('circle',{r:R,cy:CY,fill:MINT_NEW,'clip-path':'url(#labS)'},gMix);
+  const lA=S('text',{class:'svg-mono','text-anchor':'middle',y:CY+R+18},svg),lB=S('text',{class:'svg-mono','text-anchor':'middle',y:CY+R+18},svg),lS=S('text',{class:'svg-mono','text-anchor':'middle',y:CY+R+18},svg);
+  lA.textContent='Blue No. 1';lB.textContent='annatto';lS.textContent='spirulina';
+  const subA=S('text',{class:'svg-tiny','text-anchor':'middle',y:CY+R+30},svg),subB=S('text',{class:'svg-tiny','text-anchor':'middle',y:CY+R+30},svg),subS=S('text',{class:'svg-tiny','text-anchor':'middle',y:CY+R+30},svg);
+  subA.textContent='synthetic dye';subB.textContent='seed extract';subS.textContent='algae extract';
+  /* pour line */
+  const pourG=S('g',{},svg);
+  const pourP=S('path',{d:'M200 228C200 250 200 262 200 284',fill:'none',stroke:'#55525E','stroke-width':1.6,'stroke-dasharray':'3 4'},pourG);
+  S('path',{d:'M194 278L200 287L206 278',fill:'none',stroke:'#55525E','stroke-width':1.6,'stroke-linecap':'round','stroke-linejoin':'round'},pourG);
+  /* sandwich */
+  const sw=S('g',{class:'sandwich',transform:'translate(50 296) scale(.75)',tabindex:'0',role:'button','aria-label':'Ice cream sandwich. Tap to take a bite.'},svg);
+  const mask=S('mask',{id:'biteMask2',maskUnits:'userSpaceOnUse',x:0,y:0,width:400,height:250},defs);S('rect',{width:400,height:250,fill:'#fff'},mask);const bites=S('g',{},mask);
+  const body=S('g',{mask:'url(#biteMask2)'},sw);const wob=S('g',{filter:'url(#wob)'},body);
+  S('rect',{x:22,y:30,width:356,height:192,rx:44,fill:'#3B2317'},wob);
+  S('rect',{x:36,y:44,width:328,height:50,rx:22,fill:'#C4935C'},wob);
+  const fill=S('path',{d:'M40 94H360C374 104 374 150 360 160H40C26 150 26 104 40 94Z',fill:PLAIN,stroke:'#1E1C25','stroke-opacity':.15,'stroke-width':2},wob);
+  S('rect',{x:36,y:160,width:328,height:48,rx:22,fill:'#C4935C'},wob);
+  const Ro=rng(21);[[44,94],[160,208]].forEach(([y0,y1])=>{for(let i=0;i<40;i++)S('ellipse',{cx:(48+Ro()*304).toFixed(1),cy:(y0+6+Ro()*(y1-y0-12)).toFixed(1),rx:(1.6+Ro()*3).toFixed(1),ry:(1+Ro()*1.6).toFixed(1),fill:Ro()<.5?'#A8763F':'#DDB27E',opacity:.85},wob)});
+  S('path',{d:'M70 222c0 10 6 16 10 16s9-6 9-16M250 222c0 7 5 12 8 12s7-5 7-12',fill:'#3B2317'},body);
+  /* readout */
+  const ro=S('g',{},svg);S('rect',{x:110,y:500,width:180,height:30,rx:15,fill:'#F9F9F5',stroke:'#CBCBC2'},ro);
+  const roDot=S('circle',{cx:128,cy:515,r:9,fill:PLAIN,stroke:'rgba(0,0,0,.12)'},ro);
+  const roT=S('text',{x:144,y:519,class:'svg-mono',style:'font-size:11px;fill:#1E1C25'},ro);
+  const roH=S('text',{x:200,y:548,'text-anchor':'middle',class:'svg-tiny'},svg);
+  const DULL='#BAC2B1';
+  const cmp=S('g',{},svg);cmp.style.opacity=0;
+  [[110,MINT_OLD,'Blue No. 1, heated'],[230,DULL,'spirulina, heated']].forEach(([x,c,t])=>{S('rect',{x:x-46,y:236,width:92,height:22,rx:11,fill:c,stroke:'rgba(0,0,0,.12)'},cmp);S('text',{x,y:272,'text-anchor':'middle',class:'svg-tiny'},cmp).textContent=t});
+  S('text',{x:170,y:251,'text-anchor':'middle',class:'svg-mono'},cmp).textContent='vs';
+  let n=0;function bite(){if(n>=5){bites.innerHTML='';n=0;roH.textContent='tap the sandwich to take a bite';return}
+    const cx=380-n*48,cy=30+(n%2)*8;const g=S('g',{},bites);
+    [[-16,6],[0,16],[16,6],[-6,26],[8,24]].forEach(([dx,dy],k)=>{const c=S('circle',{cx:cx+dx,cy:cy+dy,r:0,fill:'#000'},g);const rr=k<3?24:20;tween({dur:260,delay:k*30,ease:E.back,update:t=>c.setAttribute('r',(rr*t).toFixed(1))})});
+    n++;roH.textContent=n>=5?'all gone. tap for a fresh one':'still tastes like peppermint'}
+  sw.addEventListener('click',bite);sw.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();bite()}});
+  /* states */
+  const T=[
+    {ax:118,bx:282,sx:520,aO:1,sO:0,dim:0,f:0,pour:0,st:0},
+    {ax:166,bx:234,sx:520,aO:1,sO:0,dim:0,f:1,pour:1,st:0},
+    {ax:-130,bx:234,sx:166,aO:0,sO:1,dim:0,f:2,pour:1,st:0},
+    {ax:-130,bx:234,sx:166,aO:0,sO:1,dim:1,f:3,pour:0,st:1}];
+  const LAB=[['plain ice cream',PLAIN,'no color added yet'],['#34C77B · old mint',MINT_OLD,'sampled from the official image'],['#A9D4B5 · 2026 mint',MINT_NEW,'sampled from a 2026 photo · tap to bite'],['after heat and acid',DULL,'the old Blue No. 1 green would barely move']];
+  const FC=[PLAIN,MINT_OLD,MINT_NEW,DULL];
+  const C0=Object.assign({fc:0},T[0]);
+  function render(){const s=C0;
+    dA.setAttribute('cx',s.ax);clipA.setAttribute('cx',s.ax);dB.setAttribute('cx',s.bx);iAB.setAttribute('cx',s.bx);iSB.setAttribute('cx',s.bx);dS.setAttribute('cx',s.sx);clipS.setAttribute('cx',s.sx);
+    dS.setAttribute('fill',mix(SPI,'#9FB4BA',s.dim*.75));iAB.style.opacity=s.aO;iSB.style.opacity=s.sO;iSB.setAttribute('fill',mix(MINT_NEW,DULL,s.dim));cmp.style.opacity=s.st;
+    lA.setAttribute('x',s.ax-18);subA.setAttribute('x',s.ax-18);lA.style.opacity=subA.style.opacity=s.aO;
+    lB.setAttribute('x',s.bx+18);subB.setAttribute('x',s.bx+18);
+    lS.setAttribute('x',s.sx-18);subS.setAttribute('x',s.sx-18);lS.style.opacity=subS.style.opacity=s.sO;
+    pourG.style.opacity=s.pour;gStress.style.opacity=s.st}
+  let stop=null,cur=-9;
+  function step(i){const k=Math.max(0,i);if(k===cur)return;cur=k;if(stop)stop();const from=Object.assign({},C0),to=T[k];
+    const fFrom=fill.getAttribute('fill'),fTo=FC[to.f];
+    roT.textContent=LAB[k][0];roH.textContent=LAB[k][2];roDot.setAttribute('fill',LAB[k][1]);
+    stop=tween({dur:950,update:t=>{for(const key in to)C0[key]=lerp(from[key],to[key],t);fill.setAttribute('fill',mix(fFrom,fTo,clamp((t-.35)/.65)));render()}})}
+  render();step(-1);
+  registerScrolly($('#lab'),{onStep:step});
+})();
+
+onScroll();
+})();
+
+if(!window.LessGreen){window.LessGreen=(function(){
+  var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function rng(seed){var a=seed|0;return function(){a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+  function hexRgb(h){h=String(h).replace('#','');return[parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)]}
+  function mix(a,b,t){var A=hexRgb(a),B=hexRgb(b);return'#'+A.map(function(v,i){return Math.round(Math.max(0,Math.min(255,v+(B[i]-v)*t))).toString(16).padStart(2,'0')}).join('').toUpperCase()}
+  function shade(h,t){return t>0?mix(h,'#FFFFFF',t):mix(h,'#000000',-t)}
+  function validHex(h){return /^#[0-9a-f]{6}$/i.test(String(h||'').trim())}
+  function assets(){
+    try{if(!document.getElementById('lg-fonts')){var l=document.createElement('link');l.id='lg-fonts';l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Figtree:wght@400;500;700&family=Martian+Mono:wdth,wght@75..112.5,400..700&display=swap';document.head.appendChild(l)}}catch(e){}
+    if(!document.getElementById('lg-filters')){var d=document.createElement('div');d.id='lg-filters';d.setAttribute('aria-hidden','true');d.style.cssText='position:absolute;width:0;height:0;overflow:hidden;pointer-events:none';
+      d.innerHTML='<svg width="0" height="0" focusable="false"><defs>'+
+      '<filter id="lg-wob" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="3.2" xChannelSelector="R" yChannelSelector="G"/></filter>'+
+      '<filter id="lg-rough" x="-10%" y="-25%" width="120%" height="150%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G" result="d"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.4 1.85" result="m"/><feComposite in="d" in2="m" operator="in"/></filter>'+
+      '</defs></svg>';(document.body||document.documentElement).appendChild(d)}
+    if(!window.__lgGrain){try{var c=document.createElement('canvas');c.width=c.height=180;var x=c.getContext('2d'),img=x.createImageData(180,180),R=rng(3);for(var i=0;i<img.data.length;i+=4){img.data[i]=img.data[i+1]=img.data[i+2]=24;img.data[i+3]=Math.floor(Math.pow(R(),3.2)*70)}x.putImageData(img,0,0);window.__lgGrain='url('+c.toDataURL('image/png')+')'}catch(e){window.__lgGrain='none'}}
+    return window.__lgGrain}
+  function prep(root){root.style.setProperty('--lg-grain',assets());root.setAttribute('data-ready','1');
+    if(window.parent!==window){var send=function(){try{parent.postMessage({lessGreenHeight:Math.ceil(document.documentElement.scrollHeight),widget:root.getAttribute('data-lg')},'*')}catch(e){}};if(window.ResizeObserver)new ResizeObserver(send).observe(document.documentElement);setTimeout(send,300)}}
+  function stepper(root,n,show,durs){
+    var btns=[].slice.call(root.querySelectorAll('.lg-step')),rep=root.querySelector('.lg-replay'),timer=null,played=false;
+    function go(i,user){btns.forEach(function(b,k){b.setAttribute('aria-pressed',k===i?'true':'false')});show(i,user)}
+    function stop(){clearTimeout(timer);timer=null}
+    function play(){stop();var i=0;go(0);(function next(){if(i>=n-1)return;timer=setTimeout(function(){i++;go(i);next()},durs[i]||3000)})()}
+    btns.forEach(function(b,k){b.addEventListener('click',function(){stop();go(k,true)})});
+    if(rep)rep.addEventListener('click',play);
+    go(n-1);
+    if(!RM&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(es){if(es[0].isIntersecting&&!played){played=true;play();io.disconnect()}},{threshold:.4});io.observe(root)}
+    return{go:go,play:play,stop:stop}}
+  function each(sel,fn){var run=function(){[].slice.call(document.querySelectorAll(sel+':not([data-ready])')).forEach(function(r){LessGreen.prep(r);fn(r)})};if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run()}
+  return{RM:RM,rng:rng,mix:mix,shade:shade,validHex:validHex,prep:prep,stepper:stepper,each:each}})()}
+
+LessGreen.each('.lg3',function(root){
+  var LG=LessGreen,svg=root.querySelector('.lg3-svg'),chart=root.querySelector('.lg3-chart');
+  var uid='lg3'+Math.floor(Math.random()*1e6);
+  var C=['#E2382F','#F08A24','#F5CF2B','#3DAE4A','#2F7FD1','#7B4BB0'],CN=['red','orange','yellow','green','blue','purple'];
+  var M=[
+    {y:'2015',mo:'',u:0,p:[1,1,1,1,1,1],st:'full',n:[['Classic Trix.',1],['Six colors from',0],['synthetic dyes.',0]]},
+    {y:'2016',mo:'Jan.',u:1,p:[1,1,1,0,0,1],st:'four',n:[['Plant colors.',0],['Blue and green',1],['vanish.',1]]},
+    {y:'2017',mo:'Oct.',u:2.75,p:[1,1,1,1,1,1],st:'full',n:[['Classic Trix returns.',1],['The four-color',0],['version stays too.',0]]},
+    {y:'2026',mo:'Aug.',u:4.75,p:null,st:'pending',n:[['Synthetic dyes out,',1],['again. This time in',0],['every U.S. GM cereal.',0]]}];
+  var MQ=[0,2,4,6];
+  var photo=root.getAttribute('data-trix-photo')||'';
+  var R=LG.rng(91),puffs=[],tries=0;
+  while(puffs.length<18&&tries<4000){tries++;var a=R()*Math.PI*2,d=Math.sqrt(R())*.72,x=Math.cos(a)*d,y=Math.sin(a)*d;if(puffs.every(function(p){return(p.x-x)*(p.x-x)+(p.y-y)*(p.y-y)>.1})){var pts=[];for(var i=0;i<8;i++){var an=i/8*Math.PI*2,rr=1+(R()*2-1)*.16;pts.push([Math.cos(an)*rr,Math.sin(an)*rr])}puffs.push({x:x,y:y,pts:pts})}}
+  function smooth(p){var n=p.length,s='M'+p[0][0].toFixed(1)+' '+p[0][1].toFixed(1);for(var i=0;i<n;i++){var p0=p[(i-1+n)%n],p1=p[i],p2=p[(i+1)%n],p3=p[(i+2)%n];s+='C'+(p1[0]+(p2[0]-p0[0])/6).toFixed(1)+' '+(p1[1]+(p2[1]-p0[1])/6).toFixed(1)+' '+(p2[0]-(p3[0]-p1[0])/6).toFixed(1)+' '+(p2[1]-(p3[1]-p1[1])/6).toFixed(1)+' '+p2[0].toFixed(1)+' '+p2[1].toFixed(1)}return s+'Z'}
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+  function bowl(cx,cy,r,st,q,k){
+    var s='<g data-q="'+q+'"><circle cx="'+cx+'" cy="'+cy+'" r="'+(r*1.15).toFixed(1)+'" fill="#FFFFFF" stroke="#D6D1C4" stroke-width="1.2"/><circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="#F2EEE3"/>';
+    if(st==='pending'&&photo){s+='<clipPath id="'+uid+'c'+k+'"><circle cx="'+cx+'" cy="'+cy+'" r="'+r+'"/></clipPath><image href="'+esc(photo)+'" x="'+(cx-r)+'" y="'+(cy-r)+'" width="'+(2*r)+'" height="'+(2*r)+'" preserveAspectRatio="xMidYMid slice" clip-path="url(#'+uid+'c'+k+')"/></g>';return s}
+    puffs.forEach(function(p,j){var c=j%6,px=cx+p.x*r,py=cy+p.y*r,pr=r*.15;
+      if(st==='pending'){s+='<circle data-c="'+c+'" cx="'+px.toFixed(1)+'" cy="'+py.toFixed(1)+'" r="'+(pr*.95).toFixed(1)+'" fill="none" stroke="#A39D8F" stroke-width="1" stroke-dasharray="2.5 2"/>'}
+      else if(st==='four'&&(c===3||c===4)){s+='<circle data-c="'+c+'" cx="'+px.toFixed(1)+'" cy="'+py.toFixed(1)+'" r="'+(pr*.92).toFixed(1)+'" fill="#E4DFD2" stroke="#9E988A" stroke-width="1" stroke-dasharray="2.5 2"/>'}
+      else{var pts=p.pts.map(function(q2){return[px+q2[0]*pr,py+q2[1]*pr]});s+='<g data-c="'+c+'"><path d="'+smooth(pts)+'" fill="'+C[c]+'" stroke="'+LG.shade(C[c],-.25)+'" stroke-width=".8"/><circle cx="'+(px-pr*.3).toFixed(1)+'" cy="'+(py-pr*.32).toFixed(1)+'" r="'+(pr*.28).toFixed(1)+'" fill="#fff" opacity=".45"/></g>'}});
+    if(st==='pending')s+='<text class="yr" x="'+cx+'" y="'+(cy+8)+'" text-anchor="middle">?</text>';
+    return s+'</g>'}
+  function notes(x,y,lines,anchor,lh){var s='<text class="nt" text-anchor="'+anchor+'">';lines.forEach(function(l,i){s+='<tspan x="'+x+'" y="'+(y+i*lh)+'"'+(l[1]?' class="b"':'')+'>'+esc(l[0])+'</tspan>'});return s+'</text>'}
+  function seg(x1,y1,x2,y2,c,kind,q){
+    var col=kind==='gone'?'#A39D8F':kind==='unk'?LG.mix(C[c],'#ECEDE7',.45):C[c],w=kind==='gone'?1.3:3.2,dash=kind==='gone'?' stroke-dasharray="1.5 4"':kind==='unk'?' stroke-dasharray="2 5"':'';
+    return '<path data-c="'+c+'" data-dq="'+q+'" class="'+(kind==='solid'?'lg3-draw':'')+'" d="M'+x1.toFixed(1)+' '+y1.toFixed(1)+'L'+x2.toFixed(1)+' '+y2.toFixed(1)+'" stroke="'+col+'" stroke-width="'+w+'" stroke-linecap="round" fill="none"'+dash+'/>'}
+  function chev(x,y,dir){return dir==='h'?'<path d="M'+(x-3)+' '+(y-4)+'L'+(x+2)+' '+y+'L'+(x-3)+' '+(y+4)+'" stroke="#1E1C25" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>':'<path d="M'+(x-4)+' '+(y-3)+'L'+x+' '+(y+2)+'L'+(x+4)+' '+(y-3)+'" stroke="#1E1C25" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'}
+  function line(x1,y1,x2,y2,q){return '<path data-q="'+q+'" class="lg3-draw" data-dq="'+q+'" d="M'+x1+' '+y1+'L'+x2+' '+y2+'" stroke="#1E1C25" stroke-width="2" fill="none"/>'}
+  function buildH(){
+    var X=function(u){return 96+u*113.3},ly=66,bx=X(3.75),s='';
+    var xs=M.map(function(m){return X(m.u)});
+    s+=line(40,ly,xs[0],ly,0)+line(xs[0],ly,xs[1],ly,1)+line(xs[1],ly,xs[2],ly,3)+line(xs[2],ly,bx-8,ly,5)+line(bx+8,ly,xs[3],ly,5)+line(xs[3],ly,698,ly,6);
+    s+='<g data-q="6"><path d="M690 '+(ly-6)+'L700 '+ly+'L690 '+(ly+6)+'" stroke="#1E1C25" stroke-width="2" fill="none" stroke-linejoin="round"/></g>';
+    s+='<g data-q="1">'+chev((xs[0]+xs[1])/2,ly,'h')+'</g><g data-q="3">'+chev((xs[1]+xs[2])/2,ly,'h')+'</g><g data-q="5">'+chev((xs[2]+bx)/2,ly,'h')+chev((bx+xs[3])/2,ly,'h')+'</g>';
+    s+='<g data-q="5"><path d="M'+(bx-8)+' 76L'+(bx-2)+' 56M'+(bx+2)+' 76L'+(bx+8)+' 56" stroke="#1E1C25" stroke-width="1.6"/><text class="mo" x="'+bx+'" y="94" text-anchor="middle">8 years</text></g>';
+    for(var c=0;c<6;c++){var ty=252+c*11;s+='<g data-q="1"><text class="tl" data-c="'+c+'" x="4" y="'+(ty+3)+'">'+CN[c]+'</text>'+seg(48,ty,xs[1],ty,c,'solid',1)+'</g>';
+      s+='<g data-q="3">'+seg(xs[1],ty,xs[2],ty,c,M[1].p[c]?'solid':'gone',3)+'</g>';
+      s+='<g data-q="5">'+seg(xs[2],ty,bx-6,ty,c,'solid',5)+seg(bx+6,ty,xs[3],ty,c,'solid',5)+'</g>';
+      s+='<g data-q="6">'+seg(xs[3],ty,686,ty,c,'unk',6)+'</g>'}
+    s+='<g data-q="6"><text class="yr" x="702" y="285" text-anchor="middle">?</text></g>';
+    M.forEach(function(m,i){var x=xs[i],q=MQ[i];
+      s+='<g data-q="'+q+'"><path d="M'+x+' 232V316" stroke="#8B8891" stroke-width="1" stroke-dasharray="2 3"/><circle cx="'+x+'" cy="'+ly+'" r="5.5" fill="#1E1C25"/><text class="yr" x="'+x+'" y="36" text-anchor="middle">'+m.y+'</text>'+(m.mo?'<text class="mo" x="'+x+'" y="52" text-anchor="middle">'+m.mo+'</text>':'')+notes(x,186,m.n,'middle',14)+'</g>';
+      s+=bowl(x,130,35,m.st,q,i)});
+    s+='<g data-q="2"><path d="M263 12H358a8 8 0 0 1 8 8V36a8 8 0 0 1-8 8H262L243 55 254 40V20a8 8 0 0 1 9-8Z" fill="#FAFAF6" stroke="#55525E" stroke-width="1.1"/><text class="qt" x="310" y="25.5" text-anchor="middle">“What did you do</text><text class="qt" x="310" y="38.5" text-anchor="middle">with my cereal?”</text><text class="an" x="312" y="57" text-anchor="middle">kids in taste tests, 2016</text></g>';
+    s+='<g data-q="2"><path d="M262 116C256 118 252 122 250 128" class="anl"/><path d="M247 122L250 129L255 124" class="anl"/><text class="an" x="266" y="112">Sales still beat</text><text class="an" x="266" y="125">forecasts anyway,</text><text class="an" x="266" y="138">the company said.</text></g>';
+    s+='<g data-q="4"><path d="M468 118C460 120 455 124 452 130" class="anl"/><path d="M449 124L452 131L457 126" class="anl"/><text class="an" x="472" y="112">Why it came back:</text><text class="an" x="472" y="125">one fan called the</text><text class="an" x="472" y="138">natural version</text><text class="an" x="472" y="151">“basically a salad.”</text></g>';
+    s+='<g data-q="7"><path d="M'+xs[1]+' 326V336H'+xs[3]+'V326" stroke="#1E1C25" stroke-width="1.5" fill="none"/><text class="br" x="'+((xs[1]+xs[3])/2)+'" y="356" text-anchor="middle">two attempts, ten years apart</text></g>';
+    return{vb:'0 0 720 372',s:s}}
+  function buildV(){
+    var Y=function(u){return 40+u*86},lx=56,by=Y(3.75),s='';
+    var ys=M.map(function(m){return Y(m.u)}),end=ys[3]+58;
+    s+=line(lx,10,lx,ys[0],0)+line(lx,ys[0],lx,ys[1],1)+line(lx,ys[1],lx,ys[2],3)+line(lx,ys[2],lx,by-8,5)+line(lx,by+8,lx,ys[3],5)+line(lx,ys[3],lx,end,6);
+    s+='<g data-q="6"><path d="M'+(lx-6)+' '+(end-8)+'L'+lx+' '+(end+2)+'L'+(lx+6)+' '+(end-8)+'" stroke="#1E1C25" stroke-width="2" fill="none" stroke-linejoin="round"/></g>';
+    s+='<g data-q="1">'+chev(lx,(ys[0]+ys[1])/2,'v')+'</g><g data-q="3">'+chev(lx,(ys[1]+ys[2])/2,'v')+'</g><g data-q="5">'+chev(lx,(ys[2]+by)/2,'v')+chev(lx,(by+ys[3])/2,'v')+'</g>';
+    s+='<g data-q="5"><path d="M'+(lx-8)+' '+(by+2)+'L'+(lx+8)+' '+(by-6)+'M'+(lx-8)+' '+(by+8)+'L'+(lx+8)+' '+by+'" stroke="#1E1C25" stroke-width="1.6"/><text class="mo" x="44" y="'+(by+4)+'" text-anchor="end">8 yrs</text></g>';
+    for(var c=0;c<6;c++){var tx=68+c*6.6;
+      s+='<g data-q="1">'+seg(tx,10,tx,ys[1],c,'solid',1)+'</g>';
+      s+='<g data-q="3">'+seg(tx,ys[1],tx,ys[2],c,M[1].p[c]?'solid':'gone',3)+'</g>';
+      s+='<g data-q="5">'+seg(tx,ys[2],tx,by-6,c,'solid',5)+seg(tx,by+6,tx,ys[3],c,'solid',5)+'</g>';
+      s+='<g data-q="6">'+seg(tx,ys[3],tx,end-4,c,'unk',6)+'</g>'}
+    s+='<g data-q="6"><text class="yr" x="84" y="'+(end+22)+'" text-anchor="middle">?</text></g>';
+    M.forEach(function(m,i){var y=ys[i],q=MQ[i];
+      s+='<g data-q="'+q+'"><circle cx="'+lx+'" cy="'+y+'" r="5" fill="#1E1C25"/><text class="yr" x="44" y="'+(y+6)+'" text-anchor="end">'+m.y+'</text>'+(m.mo?'<text class="mo" x="44" y="'+(y+20)+'" text-anchor="end">'+m.mo+'</text>':'')+notes(178,y-10,m.n,'start',14)+'</g>';
+      s+=bowl(143,y,25,m.st,q,i)});
+    s+='<g data-q="2"><path d="M188 '+(ys[1]+40)+'h104a8 8 0 0 1 8 8v18a8 8 0 0 1-8 8H188a8 8 0 0 1-8-8v-18a8 8 0 0 1 3-6l-5-11 12 9z" fill="#FAFAF6" stroke="#55525E" stroke-width="1.1"/><text class="qt" x="240" y="'+(ys[1]+54)+'" text-anchor="middle">“What did you do</text><text class="qt" x="240" y="'+(ys[1]+68)+'" text-anchor="middle">with my cereal?”</text><text class="an" x="182" y="'+(ys[1]+90)+'">kids in taste tests, 2016</text><text class="an" x="182" y="'+(ys[1]+108)+'">Sales still beat forecasts</text><text class="an" x="182" y="'+(ys[1]+121)+'">anyway, the company said.</text></g>';
+    s+='<g data-q="4"><text class="an" x="178" y="'+(ys[2]+36)+'">Why it came back: one fan</text><text class="an" x="178" y="'+(ys[2]+49)+'">called the natural version</text><text class="an" x="178" y="'+(ys[2]+62)+'">“basically a salad.”</text></g>';
+    s+='<g data-q="7"><path d="M326 '+ys[1]+'H334V'+ys[3]+'H326" stroke="#1E1C25" stroke-width="1.5" fill="none"/><text class="br" x="178" y="'+(by-4)+'">two attempts,</text><text class="br" x="178" y="'+(by+11)+'">ten years apart</text></g>';
+    return{vb:'0 0 340 '+(end+34),s:s}}
+  var horiz=null,timers=[],hlC=null;
+  function build(force){var h=chart.clientWidth>=600;if(h===horiz&&!force)return;horiz=h;var b=h?buildH():buildV();svg.setAttribute('viewBox',b.vb);svg.classList.toggle('lg3-vert',!h);svg.innerHTML=b.s}
+  function play(){timers.forEach(clearTimeout);timers=[];if(LG.RM)return;
+    var gs=[].slice.call(svg.querySelectorAll('[data-q]')),ds=[].slice.call(svg.querySelectorAll('.lg3-draw'));
+    gs.forEach(function(g){g.style.transition='none';g.style.opacity=0});
+    ds.forEach(function(d){var L=d.getTotalLength();d.style.transition='none';d.style.strokeDasharray=L;d.style.strokeDashoffset=L});
+    svg.getBoundingClientRect();
+    for(var q=0;q<=7;q++)(function(q){timers.push(setTimeout(function(){gs.forEach(function(g){if(+g.getAttribute('data-q')===q){g.style.transition='';g.style.opacity=1}});ds.forEach(function(d){if(+d.getAttribute('data-dq')===q){d.style.transition='';d.style.strokeDashoffset=0}})},120+q*560))})(q)}
+  root.querySelector('.lg-replay').addEventListener('click',function(){build(true);play()});
+  build(true);
+  if(window.ResizeObserver)new ResizeObserver(function(){build(false)}).observe(chart);
+  if(!LG.RM&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();play()}},{threshold:.35});io.observe(root)}
+});
+
+</script>
