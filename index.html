@@ -55,8 +55,9 @@ button{font:inherit;color:inherit}
 .kick{font-family:var(--body);font-size:.74rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;opacity:.82}
 .hed{font-family:var(--title);font-weight:400;font-size:clamp(46px,min(8.6vw,12vh),118px);line-height:.9;letter-spacing:-.01em;margin:.16em auto .26em;max-width:11ch;text-wrap:balance}
 .hed em{font-style:italic}
-.dek{display:inline-block;margin:0;padding:.22em .9em .3em;background:#141510;color:#F4F3EC;border-radius:999px;font-family:var(--title);font-weight:400;font-size:clamp(1.3rem,2.7vw,1.95rem);line-height:1.15;letter-spacing:.005em}
+.dek{display:inline-block;margin:0;padding:.24em .95em .32em;background:#141510;color:#F4F3EC;border-radius: 20px;font-family:var(--title);font-weight:400;font-size:clamp(1.2rem,2.3vw,1.7rem);line-height:1.15;letter-spacing:.005em}
 .dek #cc{white-space:pre;font-style:italic}
+.dek{max-width:min(92vw,54rem);text-wrap:balance}
 .dek i{font-style:inherit}
 .byline{margin-top:1.1em;font-family:var(--body);font-style:italic;font-size:1rem;display:flex;justify-content:center;flex-wrap:wrap;gap:2px 14px}
 .byline b{font-style:normal;font-weight:600}
@@ -147,6 +148,10 @@ button{font:inherit;color:inherit}
 .chip.thin{background:none;border:1.4px solid var(--c);color:var(--ink);font-weight:500}
 /* graph-paper stage (Sizing Chaos) */
 .stage{background-image:linear-gradient(rgba(30,28,37,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(30,28,37,.05) 1px,transparent 1px);background-size:22px 22px;background-position:center top}
+.dose{display:block;margin:.8em 0 .2em;font-family:var(--hand);font-variation-settings:var(--hand-axes);font-size:.82rem;color:var(--ink-2)}
+.dose input{display:block;width:100%;margin:6px 0 2px;accent-color:#2C8FAD;cursor:pointer}
+.dose .ends{display:flex;justify-content:space-between;font-size:.74rem;color:var(--ink-3)}
+.dose .ends i{font-style:normal}
 .gsrc b{font-weight:700;color:var(--ink-2)}
 .svg-ann{font-family:var(--hand);font-variation-settings:var(--hand-axes);font-size:10.5px;fill:#5B5864}
 .svg-ann .k{font-weight:700;fill:#1E1C25}
@@ -245,14 +250,14 @@ button{font:inherit;color:inherit}
         <div class="head">
           <div class="kick">Bay Area · Food · Color</div>
           <h1 class="hed">Why Is My Mint Ice Cream <em>Less Green?</em></h1>
-          <p class="dek">America’s Food Is <span id="cc">Changing Color</span></p>
+          <p class="dek">Across America, Food Makers Are Rebuilding <span id="cc">Familiar Colors</span></p>
           <div class="byline"><span>By <b>Cynthia</b></span><span>2 min read</span></div>
         </div>
         <div class="readout" aria-hidden="true">
-          <div>It’s-It mint filling</div>
+          <div>It’s-It mint · photo samples</div>
           <div class="hex"><i id="hexDot"></i><span id="hexTxt">#34C77B</span></div>
           <div class="bar"><b id="hexKnob"></b></div>
-          <div class="ends"><span>Website photo</span><span>2026</span></div>
+          <div class="ends"><span>Website photo</span><span>Chronicle, 2026</span></div>
         </div>
         <div class="scrollcue" aria-hidden="true">Scroll to drain<svg width="14" height="20" viewBox="0 0 14 20"><path d="M7 1v17M1 12l6 6 6-6" fill="none" stroke="#141510" stroke-width="1.8"/></svg></div>
       </div>
@@ -284,7 +289,7 @@ button{font:inherit;color:inherit}
     <div class="steps">
       <div class="step"><div class="card"><span class="stamp" style="--c:#1B57C9">Spread</span><p>FDA lets <span class="chip" style="--c:#1A5BD6">Blue No. 1</span> color candy, drinks, cereal, ice cream and frosting. Each of the six dyes came in one fixed shade, so a cereal plant in Minnesota and an ice cream plant near San Francisco could pour from the same jar and get the same color every time.</p><button class="btn" id="pourAgain" type="button">Pour again</button></div></div>
       <div class="step"><div class="card"><span class="stamp" style="--c:#1E1C25;--r:3deg">2026</span><p>This year the machine cracked. All six dyes are still legal, yet companies are dropping them anyway after the Trump administration’s health secretary, Robert F. Kennedy Jr., asked food makers to phase them out by the end of 2027. A California law keeps them out of school meals from that date too.</p></div></div>
-      <div class="step"><div class="card"><span class="stamp" style="--c:#A97F00">Split</span><p>Below the crack each dye breaks into a handful of plant recipes, every food lands a little off from where it used to sit, and the candy shells that leaned on the two blues have nothing to catch yet. Plant colors are weaker, too. One frosted cookie, food makers told NPR, needed thirty times more of them to look as bright.</p><p class="note">The <span class="chip thin" style="--c:#1A5BD6">thin outline</span> around each food is its old color.</p></div></div>
+      <div class="step"><div class="card"><span class="stamp" style="--c:#A97F00">Split</span><p>Below the crack each dye breaks into a handful of plant and algae recipes, and none of them swaps in everywhere. A blue that matches in one food can fade, shift or need far more of itself in another. At Sam’s Club, a frosted cookie needed thirty times more natural color, NPR reported, because of how the color reacted to fat in the icing. The candy shells that leaned on the two blues have nothing to catch yet.</p><p class="note">The <span class="chip thin" style="--c:#1A5BD6">thin outline</span> around each food is its old color.</p></div></div>
     </div>
   </section>
   <p class="gsrc"><b>Note:</b> food colors are drawn, not measured. <b>Sources:</b> FDA color additive rules; San Francisco Chronicle, 2026; Mars, 2026.</p>
@@ -298,20 +303,20 @@ button{font:inherit;color:inherit}
   <section class="scrolly" id="lab" aria-label="Graphic 2: how to make mint green">
     <div class="stage">
       <div class="ghead hand"><b>How do you make mint green?</b></div>
-      <svg id="labSvg" viewBox="0 0 400 560" preserveAspectRatio="xMidYMin meet" role="img" aria-label="A blue disc and a yellow-orange annatto disc overlap to color an ice cream sandwich filling. With Blue No. 1 the filling is electric mint. With spirulina it turns pale jade, and heat and acid dull spirulina further."></svg>
+      <svg id="labSvg" viewBox="0 0 400 560" preserveAspectRatio="xMidYMin meet" role="img" aria-label="A blue disc and a yellow-orange annatto disc overlap to color an ice cream sandwich filling. With Blue No. 1 the filling is electric mint. With spirulina, It’s-It’s filling came out pale jade. A slider shows that more spirulina makes it greener but raises the risk of off-flavors."></svg>
     </div>
     <div class="steps">
       <div class="step"><div class="card"><p>Ice cream starts out white, and nothing in peppermint is green, so mint gets its color the way a kid mixes paint: a blue laid over a yellow-orange until the overlap turns green.</p></div></div>
       <div class="step"><div class="card"><span class="stamp" style="--c:#1B57C9">Overlap</span><p>For decades the blue was <span class="chip" style="--c:#1A5BD6">Blue No. 1</span> and the yellow-orange was <span class="chip lt" style="--c:#F2A33A">annatto</span>, ground from the seeds of the achiote tree and the same color that turns cheddar orange. Where the two circles cross is the bright mint Bay Area freezers knew.</p></div></div>
-      <div class="step"><div class="card"><span class="stamp" style="--c:#C8231B">Swap</span><p>Swap in <span class="chip" style="--c:#2C8FAD">spirulina</span>, a blue pressed out of algae, and the overlap washes pale. It’s-It hasn’t named the rest of its new blend, so the <span class="chip lt" style="--c:#F2A33A">annatto</span> circle gets a question mark. Tap the sandwich and take a bite, since the flavor is the one thing that stayed.</p></div></div>
-      <div class="step"><div class="card"><span class="stamp" style="--c:#C9620F">Stress test</span><p>The blue in <span class="chip" style="--c:#2C8FAD">spirulina</span> is a fragile protein, and a factory’s heat or a recipe’s acid breaks it down. Butterfly pea, a flower FDA cleared for cereal in 2025, held its color better in heat tests, though acid turns it purple. You can watch that happen at home by squeezing lemon into a cup of butterfly pea tea.</p></div></div>
+      <div class="step"><div class="card"><span class="stamp" style="--c:#C8231B">Swap</span><p>Swap in <span class="chip" style="--c:#2C8FAD">spirulina</span>, a blue pressed out of algae, and It’s-It’s overlap came out a pale jade. The company hasn’t named the rest of its new blend, so the <span class="chip lt" style="--c:#F2A33A">annatto</span> circle gets a question mark. Tap the sandwich for a bite. The peppermint is the same.</p></div></div>
+      <div class="step"><div class="card"><span class="stamp" style="--c:#C9620F">Dose</span><p>Spirulina can make bright mint, and color suppliers sell versions made for ice cream. Whipped-in air and fat lighten any color, though, so getting there takes more spirulina, and at high doses it can bring off-flavors. It’s-It’s technicians were after color “without an aftertaste.”</p><label class="dose"><span>Add spirulina</span><input id="dose" type="range" min="0" max="100" value="0" aria-label="Amount of spirulina, illustration"><span class="ends"><i>It’s-It 2026</i><i>bright mint</i></span></label><p class="note">It’s-It hasn’t published its recipe, so the slider shows the trade-off, not the real amounts.</p></div></div>
     </div>
   </section>
-  <p class="gsrc"><b>Note:</b> the old filling color is sampled from It’s-It’s website and the 2026 color from a Chronicle photo. The circles and heat swatches are drawn to show the effect. <b>Sources:</b> San Francisco Chronicle, 2026; Food Research International, 2021; FDA, 2025.</p>
+  <p class="gsrc"><b>Note:</b> the old filling color is sampled from It’s-It’s website and the 2026 color from a Chronicle photo. The circles and the dose meter are drawn to show the effect. <b>Sources:</b> San Francisco Chronicle, 2026; Sensient Colors; Dairy Foods.</p>
 
   <article class="story">
     <div class="col">
-      <p>In the candy aisle, Mars spent more than a decade on dye-free M&amp;M’s and launched them missing blue and brown.</p>
+      <p>Down the candy aisle, spirulina left a goopy foam in Mars’s M&amp;M’s machines, The Wall Street Journal reported, and the dye-free bags launched without blue or brown.</p>
       
     </div>
   </article>
@@ -321,7 +326,7 @@ button{font:inherit;color:inherit}
   </figure>
   <article class="story">
     <div class="col">
-      <p>General Mills has lived through this once before, and the first to notice were children.</p>
+      <p>General Mills has been here before.</p>
     </div>
   </article>
 
@@ -333,8 +338,8 @@ button{font:inherit;color:inherit}
     <button class="lg-replay" type="button">↻ Replay</button>
   </div>
   <div class="lg3-chart"><svg class="lg3-svg" role="img" aria-label="Trix timeline. 2015: six colors. January 2016: blue and green disappear when General Mills switches to colors from fruit, vegetables and spices. October 2017: Classic Trix returns with all six while the four-color version stays on sale. August 2026: General Mills says all its U.S. cereals are made without synthetic certified dyes; which Trix colors survived is not yet public."></svg></div>
-  <p class="lg-note"><b>How to read:</b> Each line is one color. A gap means that color was missing. Plant-based years are drawn a shade duller, since juice and spice colors don’t match the old dyes exactly.</p>
-  <p class="lg-src"><b>Sources:</b> Food Dive and Food Business News, 2016 (reformulated Trix, quote from General Mills technology director Erika Smith); CNBC and CNN, 2017 (Classic Trix returns); General Mills, Aug. 26, 2026, and its current Trix ingredient list; HHS and FDA, May 9, 2025; Food Dive, 2026.</p>
+  <p class="lg-note"><b>How to read:</b> Each line is one color. Line color names the cereal color, not its exact shade. A gap means that color was missing.</p>
+  <p class="lg-src"><b>Sources:</b> Food Dive and Food Business News, 2016 (reformulated Trix, quotes from General Mills technology director Erika Smith); CNBC and CNN, 2017 (Classic Trix returns); General Mills, Aug. 26, 2026, and its current Trix ingredient list; HHS and FDA, May 9, 2025; Food Dive, 2026.</p>
 </div>
 
   </div>
@@ -363,8 +368,10 @@ button{font:inherit;color:inherit}
         <li><a href="https://www.sfchronicle.com/food/article/its-it-mint-ice-cream-22448058.php">San Francisco Chronicle, Tara Duggan, Sept. 30, 2026: the It’s-It mint recipe change, Blue No. 1 with annatto, spirulina, sales and complaints</a></li>
         <li><a href="https://www.fda.gov/food/color-additives-information-consumers/color-additives-questions-and-answers-consumers">FDA: certified (synthetic) colors versus colors exempt from certification</a></li>
         <li><a href="https://www.agri-pulse.com/articles/23199-ice-cream-makers-pledge-to-eliminate-artificial-dyes-by-2028">International Dairy Foods Association, July 2025: ice cream makers behind 90 percent of grocery-store sales pledge to drop synthetic dyes by 2028</a></li>
-        <li><a href="https://www.npr.org/2025/09/08/nx-s1-5529276/sams-club-food-dye-taste-history">NPR, 2025: food makers phasing out dyes, and why blue is hard</a></li>
-        <li><a href="https://www.sciencedirect.com/science/article/pii/S0963996921002131">Food Research International, 2021: phycocyanin from spirulina, extraction and stability</a></li>
+        <li><a href="https://www.npr.org/2025/09/08/nx-s1-5529276/sams-club-food-dye-taste-history">NPR, 2025: the Sam’s Club frosted cookie that needed thirty times more natural color</a></li>
+        <li><a href="https://na.sensientfoodcolors.com/dairy/optimized-spirulina-extract-for-ice-cream-bases/">Sensient Colors: spirulina for ice cream, use rates and off-notes</a></li>
+        <li><a href="https://www.dairyfoods.com/articles/84606-tharp-young-color-in-ice-cream">Dairy Foods: how air and fat lighten the color of ice cream</a></li>
+        <li><a href="https://www.foxbusiness.com/politics/mms-set-august-launch-dye-free-candies-2-colors-absent">The Wall Street Journal, 2026, via Fox Business: spirulina clogging M&amp;M’s equipment</a></li>
         <li><a href="https://www.mars.com/news-and-stories/press-releases-statements/mars-snacking-us-releases-new-product-options-made">Mars Snacking U.S., 2026: M&amp;M’s made without FD&amp;C colors</a></li>
         <li><a href="https://www.fooddive.com/news/reformulated-trix-still-for-kids-but-missing-blue-and-green/423006/">Food Dive, 2016: reformulated Trix missing blue and green</a></li>
         <li><a href="https://www.foodbusinessnews.net/articles/8327-trix-s-switch-in-colors-exceeds-sales-expectations">Food Business News, 2016: General Mills’ Erika Smith on kids asking about blue and green</a></li>
@@ -558,11 +565,6 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   const clipA=S('circle',{r:R,cy:CY},cA),clipS=S('circle',{r:R,cy:CY},cS);
   /* stress icons */
   const gStress=S('g',{},svg);
-  S('path',{d:'M40 46c-8-11 3-17 2-28 8 6 12 12 9 22 5-2 6-6 6-11 6 8 6 20-3 25-6 3-12 0-14-8z',fill:'#E0702E',filter:'url(#wob)'},gStress);
-  S('text',{x:46,y:90,'text-anchor':'middle',class:'svg-tiny'},gStress).textContent='heat';
-  S('path',{d:'M18 158a18 18 0 0 1 36 0z',fill:'#F2DC4B',stroke:'#C9B21E','stroke-width':1.4},gStress);S('path',{d:'M36 158V142M36 158L25 147M36 158L47 147',stroke:'#C9B21E','stroke-width':1.1},gStress);
-  S('text',{x:36,y:174,'text-anchor':'middle',class:'svg-tiny'},gStress).textContent='acid';
-  [['M62 60C80 62 92 70 102 84','M95 84L103 86L101 78'],['M58 150C74 150 88 148 102 140','M94 139L103 139L99 146']].forEach(([a,h])=>{S('path',{d:a,fill:'none',stroke:'#55525E','stroke-width':1.4,'stroke-dasharray':'3 3'},gStress);S('path',{d:h,fill:'none',stroke:'#55525E','stroke-width':1.4,'stroke-linecap':'round','stroke-linejoin':'round'},gStress)});
   /* discs */
   const gMix=S('g',{filter:'url(#wob)'},svg);
   const dB=S('circle',{r:R,cy:CY,fill:ANN},gMix),dA=S('circle',{r:R,cy:CY,fill:BLUE},gMix),dS=S('circle',{r:R,cy:CY,fill:SPI},gMix);
@@ -590,8 +592,17 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   const roH=S('text',{x:200,y:548,'text-anchor':'middle',class:'svg-tiny'},svg);
   const DULL='#C9C6BA';
   const cmp=S('g',{},svg);cmp.style.opacity=0;
-  S('text',{x:200,y:236,'text-anchor':'middle',class:'svg-ann'},cmp).textContent='Three blues, before and after the same heating';
-  [[72,'#1A5BD6','#1D5CD2','Blue No. 1','holds'],[200,'#4E62A6','#5F6A9C','butterfly pea','mostly holds'],[328,'#2FA3C4','#A9B9BD','spirulina','fades']].forEach(([x,c0,c1,t,v])=>{S('rect',{x:x-50,y:244,width:40,height:18,rx:5,fill:c0},cmp);S('path',{d:`M${x-6} 253H${x+4}M${x} 249L${x+4} 253L${x} 257`,class:'ann-line'},cmp);S('rect',{x:x+10,y:244,width:40,height:18,rx:5,fill:c1},cmp);const tt=S('text',{x,y:276,'text-anchor':'middle',class:'svg-ann'},cmp);const a1=S('tspan',{class:'k'},tt);a1.textContent=t;const a2=S('tspan',{},tt);a2.textContent=' '+v});
+  /* dose meter: an illustration of the trade-off, not It's-It's recipe */
+  const MX=150,MW=180;
+  S('text',{x:MX-10,y:247,'text-anchor':'end',class:'svg-ann'},cmp).textContent='green';
+  S('rect',{x:MX,y:239,width:MW,height:9,rx:4.5,fill:'#E6E5DC',stroke:'#CBCBC2'},cmp);
+  const mG=S('rect',{x:MX,y:239,width:0,height:9,rx:4.5,fill:MINT_OLD},cmp);
+  S('text',{x:MX-10,y:267,'text-anchor':'end',class:'svg-ann'},cmp).textContent='off-flavor risk';
+  S('rect',{x:MX,y:259,width:MW,height:9,rx:4.5,fill:'#E6E5DC',stroke:'#CBCBC2'},cmp);
+  const mR=S('rect',{x:MX,y:259,width:0,height:9,rx:4.5,fill:'#C9620F'},cmp);
+  S('text',{x:200,y:288,'text-anchor':'middle',class:'svg-tiny'},cmp).textContent='an illustration of the trade-off, not It’s-It’s recipe';
+  let dose=0;const doseCol=()=>mix(MINT_NEW,MINT_OLD,dose);
+  function paintDose(){const g=.18+.82*dose,r=.06+.94*Math.pow(dose,1.7);mG.setAttribute('width',(MW*g).toFixed(1));mR.setAttribute('width',(MW*r).toFixed(1));mG.setAttribute('fill',doseCol())}
   let n=0;function bite(){if(n>=5){bites.innerHTML='';n=0;roH.textContent='tap the sandwich to take a bite';return}
     const cx=380-n*48,cy=30+(n%2)*8;const g=S('g',{},bites);
     [[-16,6],[0,16],[16,6],[-6,26],[8,24]].forEach(([dx,dy],k)=>{const c=S('circle',{cx:cx+dx,cy:cy+dy,r:0,fill:'#000'},g);const rr=k<3?24:20;tween({dur:260,delay:k*30,ease:E.back,update:t=>c.setAttribute('r',(rr*t).toFixed(1))})});
@@ -603,22 +614,24 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
     {ax:166,bx:234,sx:520,aO:1,sO:0,dim:0,f:1,pour:1,st:0},
     {ax:-130,bx:234,sx:166,aO:0,sO:1,dim:0,f:2,pour:1,st:0},
     {ax:-130,bx:234,sx:166,aO:0,sO:1,dim:1,f:3,pour:0,st:1}];
-  const LAB=[['plain ice cream',PLAIN,'no color added yet'],['#34C77B · old mint',MINT_OLD,'sampled from It’s-It’s website'],['#D2D7C6 · 2026 mint',MINT_NEW,'tap the sandwich to take a bite'],['spirulina, after heat',DULL,'']];
-  const FC=[PLAIN,MINT_OLD,MINT_NEW,DULL];
+  const LAB=[['plain ice cream',PLAIN,'no color added yet'],['#34C77B · old mint',MINT_OLD,'sampled from It’s-It’s website'],['#D2D7C6 · 2026 mint',MINT_NEW,'tap the sandwich to take a bite'],['more spirulina?',MINT_NEW,'drag the slider in the card']];
+  const FC=[PLAIN,MINT_OLD,MINT_NEW,MINT_NEW];
   const C0=Object.assign({fc:0},T[0]);
   function render(){const s=C0;
     dA.setAttribute('cx',s.ax);clipA.setAttribute('cx',s.ax);dB.setAttribute('cx',s.bx);iAB.setAttribute('cx',s.bx);iSB.setAttribute('cx',s.bx);dS.setAttribute('cx',s.sx);clipS.setAttribute('cx',s.sx);
-    dS.setAttribute('fill',mix(SPI,'#9FB4BA',s.dim*.75));iAB.style.opacity=s.aO;dA.style.opacity=s.aO;iSB.style.opacity=s.sO;iSB.setAttribute('fill',mix(MINT_NEW,DULL,s.dim));cmp.style.opacity=s.st;
+    dS.setAttribute('fill',mix(SPI,'#1F7FA8',s.dim*dose*.7));iAB.style.opacity=s.aO;dA.style.opacity=s.aO;iSB.style.opacity=s.sO;iSB.setAttribute('fill',mix(MINT_NEW,doseCol(),s.dim));cmp.style.opacity=s.st;
     lA.setAttribute('x',s.ax-18);lA.style.opacity=s.aO;
     lB.setAttribute('x',s.bx+18);
     lS.setAttribute('x',s.sx-18);lS.style.opacity=s.sO;
     dB.style.opacity=1-.45*s.sO;lB.textContent=s.sO>.5?'annatto ?':'annatto';
-    pourG.style.opacity=s.pour;gStress.style.opacity=s.st}
+    pourG.style.opacity=s.pour}
   let stop=null,cur=-9;
   function step(i){const k=Math.max(0,i);if(k===cur)return;cur=k;if(stop)stop();const from=Object.assign({},C0),to=T[k];
-    const fFrom=fill.getAttribute('fill'),fTo=FC[to.f];
+    const fFrom=fill.getAttribute('fill'),fTo=k===3?doseCol():FC[to.f];paintDose();
     roT.textContent=LAB[k][0];roH.textContent=LAB[k][2];roDot.setAttribute('fill',LAB[k][1]);
     stop=tween({dur:950,update:t=>{for(const key in to)C0[key]=lerp(from[key],to[key],t);fill.setAttribute('fill',mix(fFrom,fTo,clamp((t-.35)/.65)));render()}})}
+  const doseIn=$('#dose');
+  if(doseIn)doseIn.addEventListener('input',()=>{dose=doseIn.value/100;paintDose();if(cur===3){if(stop)stop();C0.dim=1;fill.setAttribute('fill',doseCol());render();const c=doseCol();roT.textContent=c+(dose<.05?' · It’s-It 2026':' · more spirulina');roDot.setAttribute('fill',c);roH.textContent=dose>.6?'brighter, but the flavor may drift':dose>.05?'greener, with more risk of an off-note':'drag the slider in the card'}});
   render();step(-1);
   registerScrolly($('#lab'),{onStep:step});
 })();
@@ -660,7 +673,7 @@ if(!window.LessGreen){window.LessGreen=(function(){
 LessGreen.each('.lg3',function(root){
   var LG=LessGreen,svg=root.querySelector('.lg3-svg'),chart=root.querySelector('.lg3-chart');
   var uid='lg3'+Math.floor(Math.random()*1e6);
-  var C=['#E2382F','#F08A24','#F5CF2B','#3DAE4A','#2F7FD1','#7B4BB0'],PC=['#C24A5E','#DB8A45','#E3C24F','#62A052','#5A88B5','#865A99'],CN=['red','orange','yellow','green','blue','purple'];
+  var C=['#E2382F','#F08A24','#F5CF2B','#3DAE4A','#2F7FD1','#7B4BB0'],PC=['#E2382F','#F08A24','#F5CF2B','#3DAE4A','#2F7FD1','#7B4BB0'],CN=['red','orange','yellow','green','blue','purple'];
   var M=[
     {y:'2015',mo:'',u:0,p:[1,1,1,1,1,1],st:'full',n:[['Classic Trix.',1],['Six colors from',0],['synthetic dyes.',0]]},
     {y:'2016',mo:'Jan.',u:1,p:[1,1,1,0,0,1],st:'four',n:[['Colors from fruit,',0],['vegetables and',0],['spices.',0]]},
@@ -708,7 +721,7 @@ LessGreen.each('.lg3',function(root){
       s+='<g data-q="'+q+'"><path d="M'+x+' 232V316" stroke="#8B8891" stroke-width="1" stroke-dasharray="2 3"/><circle cx="'+x+'" cy="'+ly+'" r="5.5" fill="#1E1C25"/><text class="yr" x="'+x+'" y="36" text-anchor="middle">'+m.y+'</text>'+(m.mo?'<text class="mo" x="'+x+'" y="52" text-anchor="middle">'+m.mo+'</text>':'')+notes(x,186,m.n,'middle',14)+'</g>';
       s+=bowl(x,130,35,m.st,q,i)});
     s+='<g data-q="2"><path d="M263 12H358a8 8 0 0 1 8 8V36a8 8 0 0 1-8 8H262L243 55 254 40V20a8 8 0 0 1 9-8Z" fill="#FAFAF6" stroke="#55525E" stroke-width="1.1"/><text class="qt" x="310" y="25.5" text-anchor="middle">“What did you do</text><text class="qt" x="310" y="38.5" text-anchor="middle">with my cereal?”</text><text class="an" x="318" y="62" text-anchor="middle">kids in 2016 taste tests</text></g>';
-    s+='<g data-q="2"><path d="M262 116C256 118 252 122 250 128" class="anl"/><path d="M247 122L250 129L255 124" class="anl"/><text class="an" x="266" y="112">Sales still beat</text><text class="an" x="266" y="125">expectations,</text><text class="an" x="266" y="138">General Mills said.</text></g>';
+    s+='<g data-q="2"><path d="M262 116C256 118 252 122 250 128" class="anl"/><path d="M247 122L250 129L255 124" class="anl"/><text class="an" x="266" y="112">Plant colors bring</text><text class="an" x="266" y="125">“some off flavors,”</text><text class="an" x="266" y="138">General Mills said.</text></g>';
     s+='<g data-q="4"><path d="M468 118C460 120 455 124 452 130" class="anl"/><path d="M449 124L452 131L457 126" class="anl"/><text class="an" x="472" y="112">It returned after</text><text class="an" x="472" y="125">fans complained. One</text><text class="an" x="472" y="138">called the plant version</text><text class="an" x="472" y="151"><tspan class="k">“basically a salad.”</tspan></text></g>';
     var x25=X(4.25);
     s+='<g data-q="5"><circle cx="'+x25+'" cy="'+ly+'" r="4" fill="#FAFAF6" stroke="#1E1C25" stroke-width="1.6"/><path d="M'+x25+' 58V44" class="anl"/><text class="an" x="'+(x25+18)+'" y="26" text-anchor="end"><tspan class="k">May 2025:</tspan> FDA approves</text><text class="an" x="'+(x25+18)+'" y="38" text-anchor="end">two new blues for cereal</text></g>';
@@ -733,7 +746,7 @@ LessGreen.each('.lg3',function(root){
     M.forEach(function(m,i){var y=ys[i],q=MQ[i];
       s+='<g data-q="'+q+'"><circle cx="'+lx+'" cy="'+y+'" r="5" fill="#1E1C25"/><text class="yr" x="44" y="'+(y+6)+'" text-anchor="end">'+m.y+'</text>'+(m.mo?'<text class="mo" x="44" y="'+(y+20)+'" text-anchor="end">'+m.mo+'</text>':'')+notes(178,y-10,m.n,'start',14)+'</g>';
       s+=bowl(143,y,25,m.st,q,i)});
-    s+='<g data-q="2"><path d="M188 '+(ys[1]+40)+'h104a8 8 0 0 1 8 8v18a8 8 0 0 1-8 8H188a8 8 0 0 1-8-8v-18a8 8 0 0 1 3-6l-5-11 12 9z" fill="#FAFAF6" stroke="#55525E" stroke-width="1.1"/><text class="qt" x="240" y="'+(ys[1]+54)+'" text-anchor="middle">“What did you do</text><text class="qt" x="240" y="'+(ys[1]+68)+'" text-anchor="middle">with my cereal?”</text><text class="an" x="182" y="'+(ys[1]+90)+'">kids in 2016 taste tests</text><text class="an" x="182" y="'+(ys[1]+108)+'">Sales still beat expectations,</text><text class="an" x="182" y="'+(ys[1]+121)+'">General Mills said.</text></g>';
+    s+='<g data-q="2"><path d="M188 '+(ys[1]+40)+'h104a8 8 0 0 1 8 8v18a8 8 0 0 1-8 8H188a8 8 0 0 1-8-8v-18a8 8 0 0 1 3-6l-5-11 12 9z" fill="#FAFAF6" stroke="#55525E" stroke-width="1.1"/><text class="qt" x="240" y="'+(ys[1]+54)+'" text-anchor="middle">“What did you do</text><text class="qt" x="240" y="'+(ys[1]+68)+'" text-anchor="middle">with my cereal?”</text><text class="an" x="182" y="'+(ys[1]+90)+'">kids in 2016 taste tests</text><text class="an" x="182" y="'+(ys[1]+108)+'">Plant colors bring “some off</text><text class="an" x="182" y="'+(ys[1]+121)+'">flavors,” General Mills said.</text></g>';
     s+='<g data-q="4"><text class="an" x="178" y="'+(ys[2]+36)+'">It came back after fans</text><text class="an" x="178" y="'+(ys[2]+49)+'">complained. One called the</text><text class="an" x="178" y="'+(ys[2]+62)+'">plant version <tspan class="k">“basically a salad.”</tspan></text></g>';
     var y25=Y(4.25);
     s+='<g data-q="5"><circle cx="'+lx+'" cy="'+y25+'" r="3.5" fill="#FAFAF6" stroke="#1E1C25" stroke-width="1.5"/><text class="an" x="178" y="'+(y25-6)+'"><tspan class="k">May 2025:</tspan> FDA approves</text><text class="an" x="178" y="'+(y25+7)+'">two new blues for cereal</text></g>';
