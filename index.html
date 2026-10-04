@@ -9,7 +9,7 @@
 /* Layout: mochi., a one-person visual news desk. Centered newspaper column in a reading serif; graphics sit centered behind cards that scroll over them; every label is handwritten like a margin note. Single light look on purpose. */
 :root{
   --paper:#EEEFE9; --paper-2:#E3E4DC; --card:#FAFAF6; --ink:#1E1C25; --ink-2:#4D4A55; --ink-3:#827F89; --rule:#CBCBC2;
-  --mint-old:#34C77B; --mint-new:#D2D7C6; --shadow-green:#34C77B;
+  --mint-old:#4ECCA3; --mint-new:#D2D7C6; --shadow-green:#4ECCA3;
   --display:"Fraunces","Iowan Old Style","Palatino Linotype",Georgia,serif;
   --body:"Newsreader","Iowan Old Style","Charter","Georgia",serif;
   --title:"Instrument Serif",Georgia,serif;
@@ -256,7 +256,7 @@ button{font:inherit;color:inherit}
         </div>
         <div class="readout" aria-hidden="true">
           <div>It’s-It mint · photo samples</div>
-          <div class="hex"><i id="hexDot"></i><span id="hexTxt">#34C77B</span></div>
+          <div class="hex"><i id="hexDot"></i><span id="hexTxt">#4ECCA3</span></div>
           <div class="bar"><b id="hexKnob"></b></div>
           <div class="ends"><span>Website photo</span><span>Chronicle, 2026</span></div>
         </div>
@@ -403,7 +403,7 @@ const E={out:t=>1-Math.pow(1-t,3),inOut:t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2,b
 function tween(o){const dur=o.dur==null?600:o.dur,delay=o.delay||0,ease=o.ease||E.inOut;if(RM){o.update(1,1);o.done&&o.done();return()=>{}}let id,dead=false;const t0=performance.now()+delay;const f=now=>{if(dead)return;const t=clamp((now-t0)/dur);o.update(ease(t),t);if(t<1)id=requestAnimationFrame(f);else o.done&&o.done()};id=requestAnimationFrame(f);return()=>{dead=true;cancelAnimationFrame(id)}}
 function smoothClosed(p){const n=p.length;let d=`M${p[0][0].toFixed(2)},${p[0][1].toFixed(2)}`;for(let i=0;i<n;i++){const p0=p[(i-1+n)%n],p1=p[i],p2=p[(i+1)%n],p3=p[(i+2)%n];d+=`C${(p1[0]+(p2[0]-p0[0])/6).toFixed(2)},${(p1[1]+(p2[1]-p0[1])/6).toFixed(2)} ${(p2[0]-(p3[0]-p1[0])/6).toFixed(2)},${(p2[1]-(p3[1]-p1[1])/6).toFixed(2)} ${p2[0].toFixed(2)},${p2[1].toFixed(2)}`}return d+'Z'}
 function blobD(cx,cy,r,seed,amp=.12,n=10){const R=rng(seed);const pts=[];for(let i=0;i<n;i++){const a=i/n*Math.PI*2;const rr=r*(1+(R()*2-1)*amp);pts.push([cx+Math.cos(a)*rr,cy+Math.sin(a)*rr])}return smoothClosed(pts)}
-const MINT_OLD='#34C77B',MINT_NEW='#D2D7C6';
+const MINT_OLD='#4ECCA3',MINT_NEW='#D2D7C6';
 
 /* grain */
 try{const c=document.createElement('canvas');c.width=c.height=180;const x=c.getContext('2d');const img=x.createImageData(180,180);const R=rng(3);for(let i=0;i<img.data.length;i+=4){img.data[i]=img.data[i+1]=img.data[i+2]=20;img.data[i+3]=Math.floor(Math.pow(R(),3.2)*100)}x.putImageData(img,0,0);document.documentElement.style.setProperty('--grain-img',`url(${c.toDataURL('image/png')})`)}catch(e){}
@@ -579,13 +579,7 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   S('path',{d:'M184 28V66',stroke:'#fff','stroke-opacity':.5,'stroke-width':2.5,'stroke-linecap':'round'},jarG);
   const jarLab=S('text',{x:236,y:40,class:'svg-mono',style:'font-weight:600'},svg);jarLab.textContent='Blue No. 1';
   const jarSub=S('text',{x:236,y:54,class:'svg-tiny'},svg);jarSub.textContent='synthetic dye';
-  /* spirulina's weak spots: shown once, under the jar */
-  const weak=S('g',{},svg);weak.style.transition='opacity .5s';weak.style.opacity=0;
-  S('text',{x:236,y:76,class:'svg-tiny'},weak).textContent='fades in:';
-  S('path',{d:'M281 80c-4-5 1-8 1-13 4 3 6 6 4 10 2-1 3-3 3-5 3 4 3 9-1 11-3 2-6 0-7-3z',fill:'#E0702E'},weak);
-  S('text',{x:296,y:76,class:'svg-tiny',style:'font-weight:700;fill:#1E1C25'},weak).textContent='heat';
-  S('path',{d:'M328 64c-4 6-6 9-6 12a6 6 0 0 0 12 0c0-3-2-6-6-12z',fill:'#E6C531',stroke:'#B89A12','stroke-width':.8},weak);
-  S('text',{x:338,y:76,class:'svg-tiny',style:'font-weight:700;fill:#1E1C25'},weak).textContent='acid';
+
   /* mint is mixed: blue over annatto, top left */
   const mixG=S('g',{},svg);mixG.style.transition='opacity .5s';
   const mcp=S('clipPath',{id:'g2mix'},defs);S('circle',{cx:48,cy:40,r:21},mcp);
@@ -609,8 +603,6 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
     for(let b=0;b<3;b++)S('path',{d:`M${x-56} ${137+b*13}H${x+56}`,stroke:'#E3E1D8','stroke-width':1},g);
     S('text',{x,y:147,'text-anchor':'middle',class:'svg-mono',style:'font-size:12.5px;font-weight:700;fill:#1E1C25'},g).textContent=WALL[k][0];
     S('text',{x,y:164,'text-anchor':'middle',class:'svg-tiny'},g).textContent=WALL[k][1];
-    if(k===0)S('text',{x:x+8,y:192,class:'svg-tiny'},g).textContent='frozen: no heat';
-    if(k===1){S('path',{d:`M${x+12} 196c-4-5 1-8 1-13 4 3 6 6 4 10 2-1 3-3 3-5 3 4 3 9-1 11-3 2-6 0-7-3z`,fill:'#E0702E'},g);S('text',{x:x+24,y:192,class:'svg-tiny'},g).textContent='cooked'}
     return g});
   /* foods */
   const lanes=LX.map(()=>S('g',{},svg));lanes.forEach(g=>g.style.transition='opacity .5s');
@@ -650,7 +642,7 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   function step(i){const k=Math.max(0,i);if(k===cur)return;const prev=cur;cur=k;kill();
     const spi=k>=1;liq.setAttribute('fill',spi?SPI:B1);jarLab.textContent=spi?'spirulina':'Blue No. 1';jarSub.textContent=spi?'and other plant blues':'synthetic dye';
     pipes.forEach(p=>{p.fu.setAttribute('stroke',spi?SPI:B1);p.fl.setAttribute('stroke',spi?SPI:B1)});
-    walls.forEach(w=>w.style.opacity=spi?1:0);weak.style.opacity=spi?1:0;
+    walls.forEach(w=>w.style.opacity=spi?1:0);
     const act=k===0?[0,1,2]:[k-1];
     lanes.forEach((g,j)=>{const on=act.includes(j);g.style.opacity=on?1:.32;pipes[j].g.style.opacity=on?1:.32;walls[j].style.opacity=spi?(on?1:.32):0});
     res.forEach((t,j)=>t.style.opacity=(k>=1&&j<=k-1)?(j===k-1?1:.45):0);
