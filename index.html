@@ -87,13 +87,14 @@ button{font:inherit;color:inherit}
 
 /* scrolly: graphic centered, text cards scroll up the center over it */
 .scrolly{position:relative;margin-block:clamp(28px,6vh,64px)}
-.stage{position:sticky;top:env(safe-area-inset-top,0px);height:100vh;height:100svh;overflow:hidden;z-index:1;display:flex;flex-direction:column;align-items:center;padding:10px 12px 0}
+.scrolly{--stage-h:min(100svh,calc(min(100vw - 24px,780px)*1.4 + 96px))}
+.stage{position:sticky;top:max(0px,calc((100svh - var(--stage-h))/2));height:var(--stage-h);overflow:hidden;z-index:1;display:flex;flex-direction:column;align-items:center;padding:10px 12px 0}
 .ghead{width:100%;max-width:780px;display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-top:2px solid var(--ink);padding-top:6px;font-size:.8rem;color:var(--ink-2)}
 .ghead span{white-space:nowrap}
 .gsub{width:100%;max-width:780px;margin:4px 0 0;font-size:.88rem;line-height:1.35;color:var(--ink-2)}
 .ghead b{font-family:var(--title);font-weight:400;font-size:clamp(1.5rem,3.4vw,1.9rem);line-height:1.05;letter-spacing:-.005em;color:var(--ink)}
 .stage svg{flex:1;width:100%;max-width:780px;min-height:0;display:block}
-.steps{position:relative;z-index:2;margin-top:-100vh;margin-top:-100svh;padding-bottom:30vh;pointer-events:none}
+.steps{position:relative;z-index:2;margin-top:calc(-1 * var(--stage-h));padding-bottom:12vh;pointer-events:none}
 .step{min-height:78vh;min-height:78svh;display:flex;align-items:flex-end;justify-content:center;padding:0 16px 5svh}
 .step:first-child{min-height:72svh}
 .card{pointer-events:auto;width:min(100%,30rem);background:var(--card);background:color-mix(in srgb,var(--card) 95%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--rule);border-radius:20px 15px 22px 16px;padding:14px 18px 12px;box-shadow:0 22px 44px -28px rgba(30,28,37,.4);font-size:1.02rem;line-height:1.5}
