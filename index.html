@@ -9,7 +9,7 @@
 /* Layout: mochi., a one-person visual news desk. Centered newspaper column in a reading serif; graphics sit centered behind cards that scroll over them; every label is handwritten like a margin note. Single light look on purpose. */
 :root{
   --paper:#EEEFE9; --paper-2:#E3E4DC; --card:#FAFAF6; --ink:#1E1C25; --ink-2:#4D4A55; --ink-3:#827F89; --rule:#CBCBC2;
-  --mint-old:#34C77B; --mint-new:#D2D7C6; --shadow-green:#34C77B;
+  --mint-old:#5FA9A4; --mint-new:#D2D7C6; --shadow-green:#5FA9A4;
   --display:"Fraunces","Iowan Old Style","Palatino Linotype",Georgia,serif;
   --body:"Newsreader","Iowan Old Style","Charter","Georgia",serif;
   --title:"Instrument Serif",Georgia,serif;
@@ -256,7 +256,7 @@ button{font:inherit;color:inherit}
         </div>
         <div class="readout" aria-hidden="true">
           <div>It’s-It mint · photo samples</div>
-          <div class="hex"><i id="hexDot"></i><span id="hexTxt">#34C77B</span></div>
+          <div class="hex"><i id="hexDot"></i><span id="hexTxt">#5FA9A4</span></div>
           <div class="bar"><b id="hexKnob"></b></div>
           <div class="ends"><span>Website photo</span><span>Chronicle, 2026</span></div>
         </div>
@@ -309,11 +309,11 @@ button{font:inherit;color:inherit}
     <div class="steps">
       <div class="step"><div class="card"><p>Peppermint has no color, so mint green is mixed: a blue laid over yellow-orange <span class="chip lt" style="--c:#F2A33A">annatto</span>. For decades that blue was <span class="chip" style="--c:#1A5BD6">Blue No. 1</span>, the same dye that went into cereal and candy shells. Its algae replacement, <span class="chip" style="--c:#2C8FAD">spirulina</span>, hits a different wall in each food.</p></div></div>
       <div class="step"><div class="card"><span class="stamp" style="--c:#2C8FAD">Ice cream</span><p>In ice cream the wall is taste. Whipped-in air and fat lighten any color, and enough spirulina to win the green back can bring off-flavors. It’s-It’s technicians wanted color “without an aftertaste,” and the filling came out pale.</p><label class="dose"><span>Add spirulina</span><input id="dose" type="range" min="0" max="100" value="0" aria-label="Amount of spirulina, illustration"><span class="ends"><i>It’s-It 2026</i><i>bright mint</i></span></label><p class="note">It’s-It hasn’t published its recipe, so the slider shows the trade-off, not the real amounts.</p></div></div>
-      <div class="step"><div class="card"><span class="stamp" style="--c:#A97F00">Cereal</span><p>Trix needs color so bright that plant colors had to go in heavy, General Mills said in 2016, and at those levels they “can bring with them some off flavors” and cost more. That year blue and green dropped out of the box.</p></div></div>
+      <div class="step"><div class="card"><span class="stamp" style="--c:#A97F00">Cereal</span><p>Trix needs color so bright that plant colors had to go in heavy, General Mills said in 2016, and at those levels they “can bring with them some off flavors” and cost more. Cereal is cooked, too, and heat fades spirulina’s blue. That year blue and green dropped out of the box.</p></div></div>
       <div class="step"><div class="card"><span class="stamp" style="--c:#C8231B">Candy shell</span><p>M&amp;M’s shells are sprayed on by machine, and spirulina left a goopy foam that was hard to clean out. Mars bought more than 300 new machines and cleaning tools, The Wall Street Journal reported, and its dye-free M&amp;M’s still launched without blue or brown.</p></div></div>
     </div>
   </section>
-  <p class="gsrc"><b>Note:</b> foods are drawn. The 2026 filling color is sampled from a Chronicle photo, and the slider shows a trade-off, not It’s-It’s recipe. <b>Sources:</b> San Francisco Chronicle, 2026; Sensient Colors; Dairy Foods; Food Business News, 2016; The Wall Street Journal and Mars, 2026.</p>
+  <p class="gsrc"><b>Note:</b> foods are drawn. The 2026 filling color is sampled from a Chronicle photo, and the slider shows a trade-off, not It’s-It’s recipe. <b>Sources:</b> San Francisco Chronicle, 2026; Sensient Colors; Dairy Foods; Food Business News, 2016; Food Research International, 2021; The Wall Street Journal and Mars, 2026.</p>
 
   <article class="story">
     <div class="col">
@@ -370,6 +370,7 @@ button{font:inherit;color:inherit}
         <li><a href="https://www.fda.gov/food/color-additives-information-consumers/color-additives-questions-and-answers-consumers">FDA: certified (synthetic) colors versus colors exempt from certification</a></li>
         <li><a href="https://www.agri-pulse.com/articles/23199-ice-cream-makers-pledge-to-eliminate-artificial-dyes-by-2028">International Dairy Foods Association, July 2025: ice cream makers behind 90 percent of grocery-store sales pledge to drop synthetic dyes by 2028</a></li>
         <li><a href="https://www.npr.org/2025/09/08/nx-s1-5529276/sams-club-food-dye-taste-history">NPR, 2025: the Sam’s Club frosted cookie that needed thirty times more natural color</a></li>
+        <li><a href="https://www.sciencedirect.com/science/article/pii/S0963996921002131">Food Research International, 2021: spirulina’s blue (phycocyanin) and heat</a></li>
         <li><a href="https://na.sensientfoodcolors.com/dairy/optimized-spirulina-extract-for-ice-cream-bases/">Sensient Colors: spirulina for ice cream, use rates and off-notes</a></li>
         <li><a href="https://www.dairyfoods.com/articles/84606-tharp-young-color-in-ice-cream">Dairy Foods: how air and fat lighten the color of ice cream</a></li>
         <li><a href="https://moneywise.com/life/food/mars-mms-maha-artificial-colors-natural-dyes">Moneywise, 2026, citing The Wall Street Journal: Mars’s 300-plus new machines and cleaning tools</a></li>
@@ -402,7 +403,7 @@ const E={out:t=>1-Math.pow(1-t,3),inOut:t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2,b
 function tween(o){const dur=o.dur==null?600:o.dur,delay=o.delay||0,ease=o.ease||E.inOut;if(RM){o.update(1,1);o.done&&o.done();return()=>{}}let id,dead=false;const t0=performance.now()+delay;const f=now=>{if(dead)return;const t=clamp((now-t0)/dur);o.update(ease(t),t);if(t<1)id=requestAnimationFrame(f);else o.done&&o.done()};id=requestAnimationFrame(f);return()=>{dead=true;cancelAnimationFrame(id)}}
 function smoothClosed(p){const n=p.length;let d=`M${p[0][0].toFixed(2)},${p[0][1].toFixed(2)}`;for(let i=0;i<n;i++){const p0=p[(i-1+n)%n],p1=p[i],p2=p[(i+1)%n],p3=p[(i+2)%n];d+=`C${(p1[0]+(p2[0]-p0[0])/6).toFixed(2)},${(p1[1]+(p2[1]-p0[1])/6).toFixed(2)} ${(p2[0]-(p3[0]-p1[0])/6).toFixed(2)},${(p2[1]-(p3[1]-p1[1])/6).toFixed(2)} ${p2[0].toFixed(2)},${p2[1].toFixed(2)}`}return d+'Z'}
 function blobD(cx,cy,r,seed,amp=.12,n=10){const R=rng(seed);const pts=[];for(let i=0;i<n;i++){const a=i/n*Math.PI*2;const rr=r*(1+(R()*2-1)*amp);pts.push([cx+Math.cos(a)*rr,cy+Math.sin(a)*rr])}return smoothClosed(pts)}
-const MINT_OLD='#34C77B',MINT_NEW='#D2D7C6';
+const MINT_OLD='#5FA9A4',MINT_NEW='#D2D7C6';
 
 /* grain */
 try{const c=document.createElement('canvas');c.width=c.height=180;const x=c.getContext('2d');const img=x.createImageData(180,180);const R=rng(3);for(let i=0;i<img.data.length;i+=4){img.data[i]=img.data[i+1]=img.data[i+2]=20;img.data[i+3]=Math.floor(Math.pow(R(),3.2)*100)}x.putImageData(img,0,0);document.documentElement.style.setProperty('--grain-img',`url(${c.toDataURL('image/png')})`)}catch(e){}
@@ -513,7 +514,7 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
     if(type==='lolly')S('path',{d:`M${fx} ${fy+7}V${fy+24}`,stroke:'#8B8891','stroke-width':2.4,'stroke-linecap':'round'},outG);
     S('path',{d:dd,fill:'none',stroke:'#8B8891','stroke-width':1.3,'fill-rule':'evenodd'},outG);
     {const lb=LABELS[i][j],tt=S('text',{x:fx,y:fy+(type==='lolly'?35:32),'text-anchor':'middle',class:'svg-tiny'},gLower);const ws=lb.length>8&&lb.includes(' ')?[lb.slice(0,lb.indexOf(' ')),lb.slice(lb.indexOf(' ')+1)]:[lb];ws.forEach((w,k)=>{const sp=S('tspan',{x:fx,dy:k?10:0},tt);sp.textContent=w})}
-    const ghost=S('path',{d:dd,fill:'none',stroke:d.c,'stroke-width':1.6,'fill-rule':'evenodd',transform:'translate(3,-3)',opacity:0},ghostG);
+    const ghost=S('path',{d:dd,fill:'none',stroke:(i===4&&j===0)?MINT_OLD:d.c,'stroke-width':1.6,'fill-rule':'evenodd',transform:'translate(3,-3)',opacity:0},ghostG);
     const cp=S('clipPath',{id:`fc${i}${j}`},defs);const rect=S('rect',{x:fx-26,y:fy+26,width:52,height:0},cp);
     const fp=S('path',{d:dd,fill:d.c,'fill-rule':'evenodd','clip-path':`url(#fc${i}${j})`},fillG);
     foods.push({i,j,cx,fx,fy,rect,fp,ghost})})});
@@ -527,7 +528,7 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   let jobs=[];const job=c=>jobs.push(c);const kill=()=>{jobs.forEach(c=>c());jobs=[];dropG.innerHTML=''};
   const vis=(g,on)=>{g.style.opacity=on?1:0;g.style.pointerEvents=on?'auto':'none'};
   function flowSet(i,u,l){const f=flows[i];[[f.fu,u],[f.fl,l]].forEach(([p,v])=>{const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L*(1-v)})}
-  function colorFor(i,j,mode){const d=DYES[i];if(mode==='old')return d.c;if(i===4&&j===0)return MINT_NEW;if(d.mix)return shade(d.mix,[.04,-.04,.08][j]);return shade(mix(d.sc[0],d.sc[1],[.1,.5,.9][j]),[.05,-.04,.08][j])}
+  function colorFor(i,j,mode){const d=DYES[i];if(mode==='old')return (i===4&&j===0)?MINT_OLD:d.c;if(i===4&&j===0)return MINT_NEW;if(d.mix)return shade(d.mix,[.04,-.04,.08][j]);return shade(mix(d.sc[0],d.sc[1],[.1,.5,.9][j]),[.05,-.04,.08][j])}
   const misses=(i,j,mode)=>mode==='new'&&i>=4&&j===2;
   function splats(on,instant){splatG.innerHTML='';return;if(!on)return;[4,5].forEach(i=>{const f=byIJ(i,2);const g=S('g',{},splatG);S('path',{d:blobD(f.fx,500,9,90+i,.35,9),fill:DYES[i].sc[0],opacity:.85},g);S('text',{x:f.fx,y:528,'text-anchor':'middle',class:'svg-mono'},g).textContent='?';if(!instant){g.style.opacity=0;job(tween({dur:300,delay:1400+i*140,update:t=>g.style.opacity=t}))}})}
   function fillInstant(mode){foods.forEach(f=>{f.fp.setAttribute('fill',colorFor(f.i,f.j,mode));setLevel(f,misses(f.i,f.j,mode)?0:1);f.ghost.setAttribute('opacity',mode==='new'?.95:0)});DYES.forEach((d,i)=>{flows[i].fu.setAttribute('stroke',mode==='old'?d.c:d.sc[0]);flows[i].fl.setAttribute('stroke',mode==='old'?d.c:d.sc[1]);flowSet(i,1,1)});splats(mode==='new',true)}
@@ -546,7 +547,7 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   function note(parent,lines,x,y,anchor){const t=S('text',{class:'svg-ann','text-anchor':anchor||'start'},parent);lines.forEach((ln,k)=>{const ts=S('tspan',{x,y:y+k*13},t);ln.forEach(([w,b,c])=>{const sp=S('tspan',b?{class:'k',style:c?'fill:'+c:''}:{},ts);sp.textContent=w})});return t}
   function arrow(parent,d,hx,hy,ang){S('path',{d,class:'ann-halo'},parent);S('path',{d,class:'ann-line'},parent);const a1=ang+2.6,a2=ang-2.6;S('path',{d:`M${(hx+6*Math.cos(a1)).toFixed(1)} ${(hy+6*Math.sin(a1)).toFixed(1)}L${hx} ${hy}L${(hx+6*Math.cos(a2)).toFixed(1)} ${(hy+6*Math.sin(a2)).toFixed(1)}`,class:'ann-line'},parent)}
   const annOld=S('g',{},gAnn),annNew=S('g',{},gAnn);annOld.style.transition=annNew.style.transition='opacity .5s';
-  note(annOld,[[['One ',0],['Blue No. 1',1,'#1A5BD6'],[' colored',0]],[['all three foods,',0]],[['predictably.',0]]],150,500,'start');
+  note(annOld,[[['One ',0],['Blue No. 1',1,'#1A5BD6'],[' colored',0]],[['all three foods,',0]],[['predictably.',0]]],112,500,'start');
   arrow(annOld,'M252 500C272 496 284 482 290 466',290,466,-1.25);
   note(annNew,[[['No ',0],['green',1,'#2E9A5C'],[' jar: plant green',0]],[['fades and is barely approved,',0]],[['so it’s ',0],['blue',1,'#2A8FB5'],[' + ',0],['yellow',1,'#B8901A'],['.',0]]],20,500,'start');
   note(annNew,[[['Empty shells: Mars’s new',0]],[['M&M’s launched without ',0],['blue',1,'#1A5BD6'],['.',0]]],392,500,'end');
@@ -586,7 +587,7 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   const dMint=S('circle',{cx:80,cy:40,r:21,fill:MINT_OLD,'clip-path':'url(#g2mix)'},mGw);
   const mLabB=S('text',{x:40,y:76,'text-anchor':'middle',class:'svg-tiny'},mixG);mLabB.textContent='Blue No. 1';
   S('text',{x:90,y:76,'text-anchor':'middle',class:'svg-tiny'},mixG).textContent='annatto';
-  const mEq=S('text',{x:64,y:12,'text-anchor':'middle',class:'svg-ann'},mixG);const e1=S('tspan',{class:'k'},mEq);e1.textContent='mint';const e2=S('tspan',{},mEq);e2.textContent=' = blue + yellow';
+  const mEq=S('text',{x:108,y:44,class:'svg-ann'},mixG);const e2=S('tspan',{},mEq);e2.textContent='= ';const e1=S('tspan',{class:'k'},mEq);e1.textContent='mint';
   /* pipes */
   const pipes=LX.map(x=>{const up=`M200 76V88C200 102 ${x} 94 ${x} 110V124`,lo=`M${x} 176V200`;
     const g=S('g',{},svg);
@@ -595,12 +596,13 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
     return{g,fu,fl}});
   function flow(k,u,l){[[pipes[k].fu,u],[pipes[k].fl,l]].forEach(([p,v])=>{const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L*(1-v)})}
   /* walls */
-  const WALL=[['taste','air · fat · flavor'],['brightness','dose · cost · flavor'],['machines','spray · foam · cleanup']];
+  const WALL=[['taste','air · fat · flavor'],['brightness','dose · cost · heat'],['machines','spray · foam · cleanup']];
   const walls=LX.map((x,k)=>{const g=S('g',{},svg);g.style.transition='opacity .5s';
     S('rect',{x:x-56,y:124,width:112,height:52,rx:10,fill:'#FAFAF6',stroke:'#55525E','stroke-width':1.3,filter:'url(#wob)'},g);
     for(let b=0;b<3;b++)S('path',{d:`M${x-56} ${137+b*13}H${x+56}`,stroke:'#E3E1D8','stroke-width':1},g);
     S('text',{x,y:147,'text-anchor':'middle',class:'svg-mono',style:'font-size:12.5px;font-weight:700;fill:#1E1C25'},g).textContent=WALL[k][0];
-    S('text',{x,y:164,'text-anchor':'middle',class:'svg-tiny'},g).textContent=WALL[k][1];return g});
+    S('text',{x,y:164,'text-anchor':'middle',class:'svg-tiny'},g).textContent=WALL[k][1];
+    if(k===1)S('path',{d:`M${x+44} 139c-4-5 1-8 1-13 4 3 6 6 4 10 2-1 3-3 3-5 3 4 3 9-1 11-3 2-6 0-7-3z`,fill:'#E0702E'},g);return g});
   /* foods */
   const lanes=LX.map(()=>S('g',{},svg));lanes.forEach(g=>g.style.transition='opacity .5s');
   /* ice cream sandwich */
@@ -743,7 +745,7 @@ LessGreen.each('.lg3',function(root){
     s+='<g data-q="2"><path d="M262 116C256 118 252 122 250 128" class="anl"/><path d="M247 122L250 129L255 124" class="anl"/><text class="an" x="266" y="112">Plant colors bring</text><text class="an" x="266" y="125">“some off flavors,”</text><text class="an" x="266" y="138">General Mills said.</text></g>';
     s+='<g data-q="4"><path d="M468 118C460 120 455 124 452 130" class="anl"/><path d="M449 124L452 131L457 126" class="anl"/><text class="an" x="472" y="112">It returned after</text><text class="an" x="472" y="125">fans complained. One</text><text class="an" x="472" y="138">called the plant version</text><text class="an" x="472" y="151"><tspan class="k">“basically a salad.”</tspan></text></g>';
     var x25=X(4.25);
-    s+='<g data-q="5"><circle cx="'+x25+'" cy="'+ly+'" r="4" fill="#FAFAF6" stroke="#1E1C25" stroke-width="1.6"/><path d="M'+x25+' 58V46" class="anl"/><text class="an" x="'+(x25+18)+'" y="14" text-anchor="end"><tspan class="k">May 2025:</tspan> new cereal blues</text><text class="an" x="'+(x25+18)+'" y="27" text-anchor="end"><tspan style="fill:#2B8FC9">●</tspan> galdieria, a red alga</text><text class="an" x="'+(x25+18)+'" y="40" text-anchor="end"><tspan style="fill:#4F5FC0">●</tspan> butterfly pea flower</text></g>';
+    s+='<g data-q="5"><circle cx="'+x25+'" cy="'+ly+'" r="4" fill="#FAFAF6" stroke="#1E1C25" stroke-width="1.6"/><path d="M'+x25+' 58V46" class="anl"/><text class="an" x="'+(x25+18)+'" y="14" text-anchor="end"><tspan class="k">May 2025:</tspan> new cereal blues</text><text class="an" x="'+(x25+18)+'" y="27" text-anchor="end"><tspan style="fill:#2B8FC9">●</tspan> galdieria, a red alga</text><text class="an" x="'+(x25+18)+'" y="40" text-anchor="end"><tspan style="fill:#4F5FC0">●</tspan> butterfly pea, purple in acid</text></g>';
     s+='<g data-q="7"><text class="an" x="716" y="358" text-anchor="end">But the 2026 label lists no <tspan class="k" style="fill:#2F7FD1">blue</tspan>.</text><text class="an" x="716" y="371" text-anchor="end">General Mills hasn’t said why.</text></g>';
     var gy={3:307,4:296};
     [3,4].forEach(function(c){var y=gy[c];s+='<g data-q="3"><circle cx="'+xs[1]+'" cy="'+y+'" r="4" fill="#FAFAF6" stroke="'+C[c]+'" stroke-width="2"/></g><g data-q="5"><circle cx="'+xs[2]+'" cy="'+y+'" r="4.2" fill="'+C[c]+'" stroke="#FAFAF6" stroke-width="1.5"/></g>'});
@@ -768,7 +770,7 @@ LessGreen.each('.lg3',function(root){
     s+='<g data-q="2"><path d="M188 '+(ys[1]+40)+'h104a8 8 0 0 1 8 8v18a8 8 0 0 1-8 8H188a8 8 0 0 1-8-8v-18a8 8 0 0 1 3-6l-5-11 12 9z" fill="#FAFAF6" stroke="#55525E" stroke-width="1.1"/><text class="qt" x="240" y="'+(ys[1]+54)+'" text-anchor="middle">“What did you do</text><text class="qt" x="240" y="'+(ys[1]+68)+'" text-anchor="middle">with my cereal?”</text><text class="an" x="182" y="'+(ys[1]+90)+'">kids in 2016 taste tests</text><text class="an" x="182" y="'+(ys[1]+108)+'">Plant colors bring “some off</text><text class="an" x="182" y="'+(ys[1]+121)+'">flavors,” General Mills said.</text></g>';
     s+='<g data-q="4"><text class="an" x="178" y="'+(ys[2]+36)+'">It came back after fans</text><text class="an" x="178" y="'+(ys[2]+49)+'">complained. One called the</text><text class="an" x="178" y="'+(ys[2]+62)+'">plant version <tspan class="k">“basically a salad.”</tspan></text></g>';
     var y25=Y(4.25);
-    s+='<g data-q="5"><circle cx="'+lx+'" cy="'+y25+'" r="3.5" fill="#FAFAF6" stroke="#1E1C25" stroke-width="1.5"/><text class="an" x="178" y="'+(y25-19)+'"><tspan class="k">May 2025:</tspan> new cereal blues</text><text class="an" x="178" y="'+(y25-6)+'"><tspan style="fill:#2B8FC9">●</tspan> galdieria, a red alga</text><text class="an" x="178" y="'+(y25+7)+'"><tspan style="fill:#4F5FC0">●</tspan> butterfly pea flower</text></g>';
+    s+='<g data-q="5"><circle cx="'+lx+'" cy="'+y25+'" r="3.5" fill="#FAFAF6" stroke="#1E1C25" stroke-width="1.5"/><text class="an" x="178" y="'+(y25-19)+'"><tspan class="k">May 2025:</tspan> new cereal blues</text><text class="an" x="178" y="'+(y25-6)+'"><tspan style="fill:#2B8FC9">●</tspan> galdieria, a red alga</text><text class="an" x="178" y="'+(y25+7)+'"><tspan style="fill:#4F5FC0">●</tspan> butterfly pea, purple in acid</text></g>';
     s+='<g data-q="7"><text class="an" x="178" y="'+(ys[3]+44)+'">But the 2026 label lists</text><text class="an" x="178" y="'+(ys[3]+57)+'">no <tspan class="k" style="fill:#2F7FD1">blue</tspan>. General Mills</text><text class="an" x="178" y="'+(ys[3]+70)+'">hasn’t said why.</text></g>';
     return{vb:'0 0 340 '+(end+40),s:s}}
   var horiz=null,timers=[],hlC=null;
