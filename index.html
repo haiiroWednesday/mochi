@@ -292,7 +292,7 @@ button{font:inherit;color:inherit}
     <div class="steps">
       <div class="step"><div class="card"><span class="stamp" style="--c:#1B57C9">Spread</span><p>FDA tests and certifies every batch of these dyes before it can be sold, so a cereal plant in Minnesota and an ice cream plant near San Francisco could count on the same intense, predictable <span class="chip" style="--c:#1A5BD6">Blue No. 1</span>.</p><button class="btn" id="pourAgain" type="button">Pour again</button></div></div>
       <div class="step"><div class="card"><span class="stamp" style="--c:#1E1C25;--r:3deg">2026</span><p>This year the machine cracked. All six dyes are still legal, yet companies are dropping them anyway after the Trump administration’s health secretary, Robert F. Kennedy Jr., asked food makers to phase them out by the end of 2027. A California law keeps them out of school meals from that date too.</p></div></div>
-      <div class="step"><div class="card"><span class="stamp" style="--c:#A97F00">Split</span><p>Below the crack, no plant color swaps in everywhere. At Sam’s Club, a frosted cookie needed thirty times more natural color to look as bright, NPR reported, because of the fat in its icing.</p><p class="note">The <span class="chip thin" style="--c:#1A5BD6">thin outline</span> around each food is its old color.</p></div></div>
+      <div class="step"><div class="card"><span class="stamp" style="--c:#A97F00">Split</span><p>Each old dye was one stable molecule that looked the same in a sour drink or a hot oven. Plant colors react to the food around them, so below the crack every food needs its own recipe. Fat in its icing meant one Sam’s Club cookie needed thirty times more natural color, NPR reported.</p><p class="note">The <span class="chip thin" style="--c:#1A5BD6">thin outline</span> around each food is its old color.</p></div></div>
     </div>
   </section>
   <p class="gsrc"><b>Note:</b> food colors are drawn, not measured. <b>Sources:</b> FDA color additive rules; San Francisco Chronicle, 2026; Mars, 2026; NPR, 2025.</p>
@@ -543,9 +543,19 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   function note(parent,lines,x,y,anchor){const t=S('text',{class:'svg-ann','text-anchor':anchor||'start'},parent);lines.forEach((ln,k)=>{const ts=S('tspan',{x,y:y+k*13},t);ln.forEach(([w,b,c])=>{const sp=S('tspan',b?{class:'k',style:c?'fill:'+c:''}:{},ts);sp.textContent=w})});return t}
   function arrow(parent,d,hx,hy,ang){S('path',{d,class:'ann-halo'},parent);S('path',{d,class:'ann-line'},parent);const a1=ang+2.6,a2=ang-2.6;S('path',{d:`M${(hx+6*Math.cos(a1)).toFixed(1)} ${(hy+6*Math.sin(a1)).toFixed(1)}L${hx} ${hy}L${(hx+6*Math.cos(a2)).toFixed(1)} ${(hy+6*Math.sin(a2)).toFixed(1)}`,class:'ann-line'},parent)}
   const annOld=S('g',{},gAnn),annNew=S('g',{},gAnn);annOld.style.transition=annNew.style.transition='opacity .5s';
-  note(annOld,[[['One ',0],['Blue No. 1',1,'#1A5BD6'],[' colored',0]],[['all three foods,',0]],[['predictably.',0]]],112,500,'start');
+  note(annOld,[[['One ',0],['Blue No. 1',1,'#1A5BD6'],[' looked',0]],[['the same in all three,',0]],[['sour or baked.',0]]],112,500,'start');
   arrow(annOld,'M252 500C272 496 284 482 290 466',290,466,-1.25);
   note(annNew,[[['Empty shells: Mars’s new',0]],[['M&M’s launched without ',0],['blue',1,'#1A5BD6'],['.',0]]],392,500,'end');
+  /* what each food does to a plant color */
+  const ICO={
+    acid:(g,x,y)=>{S('ellipse',{cx:x,cy:y,rx:6.5,ry:4.8,fill:'#F2DC4B',stroke:'#B89A12','stroke-width':1},g);S('path',{d:`M${x+6} ${y-1}l2.5-1.5`,stroke:'#B89A12','stroke-width':1.2,'stroke-linecap':'round'},g)},
+    heat:(g,x,y)=>{S('path',{d:`M${x} ${y+6}c-4.5 0-6.5-3.2-5-6.6 1-2.2 2.6-3.2 2.4-6.2 2.6 1.4 3.8 3.6 3.2 5.8 1.2-.6 1.8-1.6 1.8-3 2.4 2.4 3 6.2 .8 8.2-.9.9-2 1.8-3.2 1.8z`,fill:'#E0702E'},g)},
+    fat:(g,x,y)=>{S('rect',{x:x-6,y:y-4,width:12,height:8,rx:2,fill:'#F7E7A6',stroke:'#C9B060','stroke-width':1},g)}};
+  const gIcon=S('g',{},annNew);
+  const tagFood=(i,j,k)=>{const f=byIJ(i,j);const g=S('g',{},gIcon);S('circle',{cx:f.fx+17,cy:f.fy-19,r:9,fill:'#FAFAF6',stroke:'#CBCBC2','stroke-width':.8},g);ICO[k](g,f.fx+17,f.fy-19)};
+  [[4,1,'acid'],[0,2,'heat'],[5,1,'heat'],[5,0,'fat']].forEach(a=>tagFood(...a));
+  const leg=S('g',{},gIcon);
+  [['acid','acid dulls spirulina’s blue'],['heat','baking fades beet and algae blues'],['fat','fat in frosting mutes color']].forEach(([k,t],n)=>{const y=486+n*15;ICO[k](leg,22,y-3);S('text',{x:34,y,class:'svg-ann'},leg).textContent=t});
   $('#pourAgain').addEventListener('click',()=>pour('old'));
   let filled='none';
   function step(i,dir){kill();
