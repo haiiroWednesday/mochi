@@ -579,6 +579,13 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   S('path',{d:'M184 28V66',stroke:'#fff','stroke-opacity':.5,'stroke-width':2.5,'stroke-linecap':'round'},jarG);
   const jarLab=S('text',{x:236,y:40,class:'svg-mono',style:'font-weight:600'},svg);jarLab.textContent='Blue No. 1';
   const jarSub=S('text',{x:236,y:54,class:'svg-tiny'},svg);jarSub.textContent='synthetic dye';
+  /* spirulina's weak spots: shown once, under the jar */
+  const weak=S('g',{},svg);weak.style.transition='opacity .5s';weak.style.opacity=0;
+  S('text',{x:236,y:76,class:'svg-tiny'},weak).textContent='fades in:';
+  S('path',{d:'M281 80c-4-5 1-8 1-13 4 3 6 6 4 10 2-1 3-3 3-5 3 4 3 9-1 11-3 2-6 0-7-3z',fill:'#E0702E'},weak);
+  S('text',{x:296,y:76,class:'svg-tiny',style:'font-weight:700;fill:#1E1C25'},weak).textContent='heat';
+  S('path',{d:'M328 64c-4 6-6 9-6 12a6 6 0 0 0 12 0c0-3-2-6-6-12z',fill:'#E6C531',stroke:'#B89A12','stroke-width':.8},weak);
+  S('text',{x:338,y:76,class:'svg-tiny',style:'font-weight:700;fill:#1E1C25'},weak).textContent='acid';
   /* mint is mixed: blue over annatto, top left */
   const mixG=S('g',{},svg);mixG.style.transition='opacity .5s';
   const mcp=S('clipPath',{id:'g2mix'},defs);S('circle',{cx:48,cy:40,r:21},mcp);
@@ -596,13 +603,15 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
     return{g,fu,fl}});
   function flow(k,u,l){[[pipes[k].fu,u],[pipes[k].fl,l]].forEach(([p,v])=>{const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L*(1-v)})}
   /* walls */
-  const WALL=[['taste','air · fat · flavor'],['brightness','dose · cost · heat'],['machines','spray · foam · cleanup']];
+  const WALL=[['taste','air · fat · flavor'],['brightness','dose · cost · flavor'],['machines','spray · foam · cleanup']];
   const walls=LX.map((x,k)=>{const g=S('g',{},svg);g.style.transition='opacity .5s';
     S('rect',{x:x-56,y:124,width:112,height:52,rx:10,fill:'#FAFAF6',stroke:'#55525E','stroke-width':1.3,filter:'url(#wob)'},g);
     for(let b=0;b<3;b++)S('path',{d:`M${x-56} ${137+b*13}H${x+56}`,stroke:'#E3E1D8','stroke-width':1},g);
     S('text',{x,y:147,'text-anchor':'middle',class:'svg-mono',style:'font-size:12.5px;font-weight:700;fill:#1E1C25'},g).textContent=WALL[k][0];
     S('text',{x,y:164,'text-anchor':'middle',class:'svg-tiny'},g).textContent=WALL[k][1];
-    if(k===1)S('path',{d:`M${x+44} 139c-4-5 1-8 1-13 4 3 6 6 4 10 2-1 3-3 3-5 3 4 3 9-1 11-3 2-6 0-7-3z`,fill:'#E0702E'},g);return g});
+    if(k===0)S('text',{x:x+8,y:192,class:'svg-tiny'},g).textContent='frozen: no heat';
+    if(k===1){S('path',{d:`M${x+12} 196c-4-5 1-8 1-13 4 3 6 6 4 10 2-1 3-3 3-5 3 4 3 9-1 11-3 2-6 0-7-3z`,fill:'#E0702E'},g);S('text',{x:x+24,y:192,class:'svg-tiny'},g).textContent='cooked'}
+    return g});
   /* foods */
   const lanes=LX.map(()=>S('g',{},svg));lanes.forEach(g=>g.style.transition='opacity .5s');
   /* ice cream sandwich */
@@ -641,7 +650,7 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   function step(i){const k=Math.max(0,i);if(k===cur)return;const prev=cur;cur=k;kill();
     const spi=k>=1;liq.setAttribute('fill',spi?SPI:B1);jarLab.textContent=spi?'spirulina':'Blue No. 1';jarSub.textContent=spi?'and other plant blues':'synthetic dye';
     pipes.forEach(p=>{p.fu.setAttribute('stroke',spi?SPI:B1);p.fl.setAttribute('stroke',spi?SPI:B1)});
-    walls.forEach(w=>w.style.opacity=spi?1:0);
+    walls.forEach(w=>w.style.opacity=spi?1:0);weak.style.opacity=spi?1:0;
     const act=k===0?[0,1,2]:[k-1];
     lanes.forEach((g,j)=>{const on=act.includes(j);g.style.opacity=on?1:.32;pipes[j].g.style.opacity=on?1:.32;walls[j].style.opacity=spi?(on?1:.32):0});
     res.forEach((t,j)=>t.style.opacity=(k>=1&&j<=k-1)?(j===k-1?1:.45):0);
@@ -745,7 +754,7 @@ LessGreen.each('.lg3',function(root){
     s+='<g data-q="2"><path d="M262 116C256 118 252 122 250 128" class="anl"/><path d="M247 122L250 129L255 124" class="anl"/><text class="an" x="266" y="112">Plant colors bring</text><text class="an" x="266" y="125">“some off flavors,”</text><text class="an" x="266" y="138">General Mills said.</text></g>';
     s+='<g data-q="4"><path d="M468 118C460 120 455 124 452 130" class="anl"/><path d="M449 124L452 131L457 126" class="anl"/><text class="an" x="472" y="112">It returned after</text><text class="an" x="472" y="125">fans complained. One</text><text class="an" x="472" y="138">called the plant version</text><text class="an" x="472" y="151"><tspan class="k">“basically a salad.”</tspan></text></g>';
     var x25=X(4.25);
-    s+='<g data-q="5"><circle cx="'+x25+'" cy="'+ly+'" r="4" fill="#FAFAF6" stroke="#1E1C25" stroke-width="1.6"/><path d="M'+x25+' 58V46" class="anl"/><text class="an" x="'+(x25+18)+'" y="14" text-anchor="end"><tspan class="k">May 2025:</tspan> new cereal blues</text><text class="an" x="'+(x25+18)+'" y="27" text-anchor="end"><tspan style="fill:#2B8FC9">●</tspan> galdieria, a red alga</text><text class="an" x="'+(x25+18)+'" y="40" text-anchor="end"><tspan style="fill:#4F5FC0">●</tspan> butterfly pea, purple in acid</text></g>';
+    s+='<g data-q="5"><circle cx="'+x25+'" cy="'+ly+'" r="4" fill="#FAFAF6" stroke="#1E1C25" stroke-width="1.6"/><path d="M'+x25+' 58V46" class="anl"/><text class="an" x="'+(x25+18)+'" y="14" text-anchor="end"><tspan class="k">May 2025:</tspan> new cereal blues</text><text class="an" x="'+(x25+18)+'" y="27" text-anchor="end"><tspan style="fill:#2B8FC9">●</tspan> galdieria, a red alga</text><text class="an" x="'+(x25+18)+'" y="40" text-anchor="end"><tspan style="fill:#4F5FC0">●</tspan> butterfly pea flower</text></g>';
     s+='<g data-q="7"><text class="an" x="716" y="358" text-anchor="end">But the 2026 label lists no <tspan class="k" style="fill:#2F7FD1">blue</tspan>.</text><text class="an" x="716" y="371" text-anchor="end">General Mills hasn’t said why.</text></g>';
     var gy={3:307,4:296};
     [3,4].forEach(function(c){var y=gy[c];s+='<g data-q="3"><circle cx="'+xs[1]+'" cy="'+y+'" r="4" fill="#FAFAF6" stroke="'+C[c]+'" stroke-width="2"/></g><g data-q="5"><circle cx="'+xs[2]+'" cy="'+y+'" r="4.2" fill="'+C[c]+'" stroke="#FAFAF6" stroke-width="1.5"/></g>'});
@@ -770,7 +779,7 @@ LessGreen.each('.lg3',function(root){
     s+='<g data-q="2"><path d="M188 '+(ys[1]+40)+'h104a8 8 0 0 1 8 8v18a8 8 0 0 1-8 8H188a8 8 0 0 1-8-8v-18a8 8 0 0 1 3-6l-5-11 12 9z" fill="#FAFAF6" stroke="#55525E" stroke-width="1.1"/><text class="qt" x="240" y="'+(ys[1]+54)+'" text-anchor="middle">“What did you do</text><text class="qt" x="240" y="'+(ys[1]+68)+'" text-anchor="middle">with my cereal?”</text><text class="an" x="182" y="'+(ys[1]+90)+'">kids in 2016 taste tests</text><text class="an" x="182" y="'+(ys[1]+108)+'">Plant colors bring “some off</text><text class="an" x="182" y="'+(ys[1]+121)+'">flavors,” General Mills said.</text></g>';
     s+='<g data-q="4"><text class="an" x="178" y="'+(ys[2]+36)+'">It came back after fans</text><text class="an" x="178" y="'+(ys[2]+49)+'">complained. One called the</text><text class="an" x="178" y="'+(ys[2]+62)+'">plant version <tspan class="k">“basically a salad.”</tspan></text></g>';
     var y25=Y(4.25);
-    s+='<g data-q="5"><circle cx="'+lx+'" cy="'+y25+'" r="3.5" fill="#FAFAF6" stroke="#1E1C25" stroke-width="1.5"/><text class="an" x="178" y="'+(y25-19)+'"><tspan class="k">May 2025:</tspan> new cereal blues</text><text class="an" x="178" y="'+(y25-6)+'"><tspan style="fill:#2B8FC9">●</tspan> galdieria, a red alga</text><text class="an" x="178" y="'+(y25+7)+'"><tspan style="fill:#4F5FC0">●</tspan> butterfly pea, purple in acid</text></g>';
+    s+='<g data-q="5"><circle cx="'+lx+'" cy="'+y25+'" r="3.5" fill="#FAFAF6" stroke="#1E1C25" stroke-width="1.5"/><text class="an" x="178" y="'+(y25-19)+'"><tspan class="k">May 2025:</tspan> new cereal blues</text><text class="an" x="178" y="'+(y25-6)+'"><tspan style="fill:#2B8FC9">●</tspan> galdieria, a red alga</text><text class="an" x="178" y="'+(y25+7)+'"><tspan style="fill:#4F5FC0">●</tspan> butterfly pea flower</text></g>';
     s+='<g data-q="7"><text class="an" x="178" y="'+(ys[3]+44)+'">But the 2026 label lists</text><text class="an" x="178" y="'+(ys[3]+57)+'">no <tspan class="k" style="fill:#2F7FD1">blue</tspan>. General Mills</text><text class="an" x="178" y="'+(ys[3]+70)+'">hasn’t said why.</text></g>';
     return{vb:'0 0 340 '+(end+40),s:s}}
   var horiz=null,timers=[],hlC=null;
