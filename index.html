@@ -9,7 +9,7 @@
 /* Layout: mochi., a one-person visual news desk. Centered newspaper column in a reading serif; graphics sit centered behind cards that scroll over them; every label is handwritten like a margin note. Single light look on purpose. */
 :root{
   --paper:#EEEFE9; --paper-2:#E3E4DC; --card:#FAFAF6; --ink:#1E1C25; --ink-2:#4D4A55; --ink-3:#827F89; --rule:#CBCBC2;
-  --mint-old:#93E9BE; --mint-new:#D2D7C6; --shadow-green:#93E9BE;
+  --mint-old:#34C77B; --mint-new:#D2D7C6; --shadow-green:#34C77B;
   --display:"Fraunces","Iowan Old Style","Palatino Linotype",Georgia,serif;
   --body:"Newsreader","Iowan Old Style","Charter","Georgia",serif;
   --title:"Instrument Serif",Georgia,serif;
@@ -256,7 +256,7 @@ button{font:inherit;color:inherit}
         </div>
         <div class="readout" aria-hidden="true">
           <div>It’s-It mint · photo samples</div>
-          <div class="hex"><i id="hexDot"></i><span id="hexTxt">#93E9BE</span></div>
+          <div class="hex"><i id="hexDot"></i><span id="hexTxt">#34C77B</span></div>
           <div class="bar"><b id="hexKnob"></b></div>
           <div class="ends"><span>Website photo</span><span>Chronicle, 2026</span></div>
         </div>
@@ -403,7 +403,7 @@ const E={out:t=>1-Math.pow(1-t,3),inOut:t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2,b
 function tween(o){const dur=o.dur==null?600:o.dur,delay=o.delay||0,ease=o.ease||E.inOut;if(RM){o.update(1,1);o.done&&o.done();return()=>{}}let id,dead=false;const t0=performance.now()+delay;const f=now=>{if(dead)return;const t=clamp((now-t0)/dur);o.update(ease(t),t);if(t<1)id=requestAnimationFrame(f);else o.done&&o.done()};id=requestAnimationFrame(f);return()=>{dead=true;cancelAnimationFrame(id)}}
 function smoothClosed(p){const n=p.length;let d=`M${p[0][0].toFixed(2)},${p[0][1].toFixed(2)}`;for(let i=0;i<n;i++){const p0=p[(i-1+n)%n],p1=p[i],p2=p[(i+1)%n],p3=p[(i+2)%n];d+=`C${(p1[0]+(p2[0]-p0[0])/6).toFixed(2)},${(p1[1]+(p2[1]-p0[1])/6).toFixed(2)} ${(p2[0]-(p3[0]-p1[0])/6).toFixed(2)},${(p2[1]-(p3[1]-p1[1])/6).toFixed(2)} ${p2[0].toFixed(2)},${p2[1].toFixed(2)}`}return d+'Z'}
 function blobD(cx,cy,r,seed,amp=.12,n=10){const R=rng(seed);const pts=[];for(let i=0;i<n;i++){const a=i/n*Math.PI*2;const rr=r*(1+(R()*2-1)*amp);pts.push([cx+Math.cos(a)*rr,cy+Math.sin(a)*rr])}return smoothClosed(pts)}
-const MINT_OLD='#93E9BE',MINT_NEW='#D2D7C6';
+const MINT_OLD='#34C77B',MINT_NEW='#D2D7C6';
 
 /* grain */
 try{const c=document.createElement('canvas');c.width=c.height=180;const x=c.getContext('2d');const img=x.createImageData(180,180);const R=rng(3);for(let i=0;i<img.data.length;i+=4){img.data[i]=img.data[i+1]=img.data[i+2]=20;img.data[i+3]=Math.floor(Math.pow(R(),3.2)*100)}x.putImageData(img,0,0);document.documentElement.style.setProperty('--grain-img',`url(${c.toDataURL('image/png')})`)}catch(e){}
