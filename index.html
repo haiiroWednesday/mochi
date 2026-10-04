@@ -336,7 +336,6 @@ button{font:inherit;color:inherit}
   <p class="lg-h">New blues were approved in 2025. The 2026 bowl still has none.</p>
   <p class="lg-sub">Colors in a bowl of Trix, 2015 to 2026</p>
   <div class="lg3-bar">
-    <button class="lg-replay" type="button">↻ Replay</button>
   </div>
   <div class="lg3-chart"><svg class="lg3-svg" role="img" aria-label="Trix timeline. 2015: six colors. January 2016: blue and green disappear when General Mills switches to colors from fruit, vegetables and spices. October 2017: Classic Trix returns with all six while the four-color version stays on sale. August 2026: General Mills says all its U.S. cereals are made without synthetic certified dyes; which Trix colors survived is not yet public."></svg></div>
   <p class="lg-note"><b>How to read:</b> Each line is one color. Line color names the cereal color, not its exact shade. A gap means that color was missing. Pieces were round until 2018, when fruit shapes came back. The 2026 bowl is drawn from the box’s product photo.</p>
@@ -790,7 +789,6 @@ LessGreen.each('.lg3',function(root){
     ds.forEach(function(d){var L=d.getTotalLength();d.style.transition='none';d.style.strokeDasharray=L;d.style.strokeDashoffset=L});
     svg.getBoundingClientRect();
     for(var q=0;q<=7;q++)(function(q){timers.push(setTimeout(function(){gs.forEach(function(g){if(+g.getAttribute('data-q')===q){g.style.transition='';g.style.opacity=1}});ds.forEach(function(d){if(+d.getAttribute('data-dq')===q){d.style.transition='';d.style.strokeDashoffset=0}})},120+q*560))})(q)}
-  root.querySelector('.lg-replay').addEventListener('click',function(){build(true);play()});
   build(true);
   if(window.ResizeObserver)new ResizeObserver(function(){build(false)}).observe(chart);
   if(!LG.RM&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();play()}},{threshold:.35});io.observe(root)}
