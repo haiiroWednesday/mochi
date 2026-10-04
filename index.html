@@ -333,14 +333,14 @@ button{font:inherit;color:inherit}
 
   <div class="g3wrap">
 <div class="lgw lg3" data-lg="trix-timeline" data-trix-photo="">
-  <p class="lg-h">Blue and green left Trix once. New blues arrived in 2025.</p>
+  <p class="lg-h">New blues were approved in 2025. The 2026 bowl still has none.</p>
   <p class="lg-sub">Colors in a bowl of Trix, 2015 to 2026</p>
   <div class="lg3-bar">
     <button class="lg-replay" type="button">↻ Replay</button>
   </div>
   <div class="lg3-chart"><svg class="lg3-svg" role="img" aria-label="Trix timeline. 2015: six colors. January 2016: blue and green disappear when General Mills switches to colors from fruit, vegetables and spices. October 2017: Classic Trix returns with all six while the four-color version stays on sale. August 2026: General Mills says all its U.S. cereals are made without synthetic certified dyes; which Trix colors survived is not yet public."></svg></div>
-  <p class="lg-note"><b>How to read:</b> Each line is one color. Line color names the cereal color, not its exact shade. A gap means that color was missing.</p>
-  <p class="lg-src"><b>Sources:</b> Food Dive and Food Business News, 2016 (reformulated Trix, quotes from General Mills technology director Erika Smith); CNBC and CNN, 2017 (Classic Trix returns); General Mills, Aug. 26, 2026, and its current Trix ingredient list; HHS and FDA, May 9, 2025; Food Dive, 2026.</p>
+  <p class="lg-note"><b>How to read:</b> Each line is one color. Line color names the cereal color, not its exact shade. A gap means that color was missing. Pieces were round until 2018, when fruit shapes came back. The 2026 bowl is drawn from the box’s product photo.</p>
+  <p class="lg-src"><b>Sources:</b> Food Dive and Food Business News, 2016 (reformulated Trix, quotes from General Mills technology director Erika Smith); CNBC and CNN, 2017 (Classic Trix returns); General Mills, Aug. 26, 2026, its current Trix ingredient list and product photo on Walmart.com; Deseret News, 2018 (fruit shapes return); HHS and FDA, May 9, 2025; Food Dive, 2026.</p>
 </div>
 
   </div>
@@ -699,7 +699,7 @@ LessGreen.each('.lg3',function(root){
     {y:'2015',mo:'',u:0,p:[1,1,1,1,1,1],st:'full',n:[['Classic Trix.',1],['Six colors from',0],['synthetic dyes.',0]]},
     {y:'2016',mo:'Jan.',u:1,p:[1,1,1,0,0,1],st:'four',n:[['Colors from fruit,',0],['vegetables and',0],['spices.',0]]},
     {y:'2017',mo:'Oct.',u:2.75,p:[1,1,1,1,1,1],st:'full',n:[['Classic Trix returns.',1],['The four-color',0],['version stays too.',0]]},
-    {y:'2026',mo:'Aug.',u:4.75,p:[1,1,1,0,0,1],st:'likely',n:[['Synthetic dyes out',1],['again. The label lists',0],['juice, annatto, turmeric.',0]]}];
+    {y:'2026',mo:'Aug.',u:4.75,p:[1,1,1,0,0,1],st:'shapes',n:[['Six fruit shapes,',1],['about four colors.',0],['Shape carries what',0],['color used to.',0]]}];
   var MQ=[0,2,4,6];
   var ROW=[0,1,2,4,5,3];var STORY=function(c){return c===3||c===4};
   var photo=root.getAttribute('data-trix-photo')||'';
@@ -707,10 +707,21 @@ LessGreen.each('.lg3',function(root){
   while(puffs.length<18&&tries<4000){tries++;var a=R()*Math.PI*2,d=Math.sqrt(R())*.72,x=Math.cos(a)*d,y=Math.sin(a)*d;if(puffs.every(function(p){return(p.x-x)*(p.x-x)+(p.y-y)*(p.y-y)>.1})){var pts=[];for(var i=0;i<8;i++){var an=i/8*Math.PI*2,rr=1+(R()*2-1)*.16;pts.push([Math.cos(an)*rr,Math.sin(an)*rr])}puffs.push({x:x,y:y,pts:pts})}}
   function smooth(p){var n=p.length,s='M'+p[0][0].toFixed(1)+' '+p[0][1].toFixed(1);for(var i=0;i<n;i++){var p0=p[(i-1+n)%n],p1=p[i],p2=p[(i+1)%n],p3=p[(i+2)%n];s+='C'+(p1[0]+(p2[0]-p0[0])/6).toFixed(1)+' '+(p1[1]+(p2[1]-p0[1])/6).toFixed(1)+' '+(p2[0]-(p3[0]-p1[0])/6).toFixed(1)+' '+(p2[1]-(p3[1]-p1[1])/6).toFixed(1)+' '+p2[0].toFixed(1)+' '+p2[1].toFixed(1)}return s+'Z'}
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+  var SH=['#C97C86','#E39540','#E9C24A','#D88E8A','none','#7E5A78'];
+  function fruit(c,x,y,u){var f=function(v){return v.toFixed(1)},o='',col=SH[c],st=LG.shade(col==='none'?'#999':col,-.28);
+    if(c===0||c===5){var pts=c===0?[[0,0],[-.62,0],[.62,0],[-.31,-.54],[.31,-.54],[-.31,.54],[.31,.54]]:[[-.6,-.5],[0,-.5],[.6,-.5],[-.3,.02],[.3,.02],[0,.54]];
+      pts.forEach(function(p){o+='<circle cx="'+f(x+p[0]*u)+'" cy="'+f(y+p[1]*u)+'" r="'+f(u*.36)+'" fill="'+col+'" stroke="'+st+'" stroke-width=".5"/>'})}
+    else if(c===2)o='<path d="M'+f(x-u)+' '+f(y-.2*u)+'A'+f(u)+' '+f(u)+' 0 0 0 '+f(x+u)+' '+f(y-.2*u)+'A'+f(u*1.25)+' '+f(u*.8)+' 0 0 1 '+f(x-u)+' '+f(y-.2*u)+'Z" fill="'+col+'" stroke="'+st+'" stroke-width=".6"/>';
+    else if(c===1)o='<path d="M'+f(x-u)+' '+f(y-.25*u)+'A'+f(u)+' '+f(u)+' 0 0 0 '+f(x+u)+' '+f(y-.25*u)+'Z" fill="'+col+'" stroke="'+st+'" stroke-width=".6"/><path d="M'+f(x)+' '+f(y-.25*u)+'V'+f(y+.6*u)+'M'+f(x)+' '+f(y-.25*u)+'L'+f(x-.6*u)+' '+f(y+.4*u)+'M'+f(x)+' '+f(y-.25*u)+'L'+f(x+.6*u)+' '+f(y+.4*u)+'" stroke="'+st+'" stroke-width=".5"/>';
+    else if(c===3)o='<path d="M'+f(x-u)+' '+f(y-.5*u)+'Q'+f(x)+' '+f(y-.85*u)+' '+f(x+u)+' '+f(y-.5*u)+'L'+f(x)+' '+f(y+.85*u)+'Z" fill="'+col+'" stroke="#C9A43A" stroke-width="1.6" stroke-linejoin="round"/>';
+    else{for(var i=0;i<5;i++){var a=i/5*Math.PI*2-Math.PI/2;o+='<circle cx="'+f(x+Math.cos(a)*u*.55)+'" cy="'+f(y+Math.sin(a)*u*.55)+'" r="'+f(u*.38)+'" fill="none" stroke="#A39D8F" stroke-width=".8" stroke-dasharray="1.6 1.6"/>'}}
+    return '<g data-c="'+c+'">'+o+'</g>'}
   function bowl(cx,cy,r,st,q,k){
     var s='<g data-q="'+q+'"><circle cx="'+cx+'" cy="'+cy+'" r="'+(r*1.15).toFixed(1)+'" fill="#FFFFFF" stroke="#D6D1C4" stroke-width="1.2"/><circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="#F2EEE3"/>';
     if((st==='pending'||st==='likely')&&photo){s+='<clipPath id="'+uid+'c'+k+'"><circle cx="'+cx+'" cy="'+cy+'" r="'+r+'"/></clipPath><image href="'+esc(photo)+'" x="'+(cx-r)+'" y="'+(cy-r)+'" width="'+(2*r)+'" height="'+(2*r)+'" preserveAspectRatio="xMidYMid slice" clip-path="url(#'+uid+'c'+k+')"/></g>';return s}
     var PAL=(st==='four'||st==='likely')?PC:C;
+    if(st==='shapes'){var SP=[];for(var i=0;i<8;i++){var a=i/8*Math.PI*2+.3;SP.push([Math.cos(a)*.6,Math.sin(a)*.6])}for(var i=0;i<3;i++){var a=i/3*Math.PI*2+1;SP.push([Math.cos(a)*.2,Math.sin(a)*.2])}
+      var ORD=[0,2,5,1,3,2,0,5,4,1,2];SP.forEach(function(p,j){s+=fruit(ORD[j],cx+p[0]*r,cy+p[1]*r,r*.19)});return s+'</g>'}
     puffs.forEach(function(p,j){var c=j%6,px=cx+p.x*r,py=cy+p.y*r,pr=r*.15;
       if(st==='pending'){s+='<circle data-c="'+c+'" cx="'+px.toFixed(1)+'" cy="'+py.toFixed(1)+'" r="'+(pr*.95).toFixed(1)+'" fill="none" stroke="#A39D8F" stroke-width="1" stroke-dasharray="2.5 2"/>'}
       else if(st==='likely'&&(c===3||c===4)){s+='<circle data-c="'+c+'" cx="'+px.toFixed(1)+'" cy="'+py.toFixed(1)+'" r="'+(pr*.92).toFixed(1)+'" fill="none" stroke="'+LG.mix(C[c],'#ECEDE7',.35)+'" stroke-width="1.2" stroke-dasharray="2 2.5"/>'}
@@ -736,8 +747,7 @@ LessGreen.each('.lg3',function(root){
     for(var c=0;c<6;c++){var ty=252+ROW[c]*11;s+='<g data-q="1">'+seg(48,ty,xs[1],ty,c,'solid',1)+'</g>';
       s+='<g data-q="3">'+seg(xs[1],ty,xs[2],ty,c,M[1].p[c]?'solid':'gone',3,1)+'</g>';
       s+='<g data-q="5">'+seg(xs[2],ty,bx-6,ty,c,'solid',5)+seg(bx+6,ty,xs[3],ty,c,'solid',5)+'</g>';
-      s+='<g data-q="6">'+seg(xs[3],ty,686,ty,c,M[3].p[c]?'solid':'unk',6,1)+'</g>'}
-    s+='<g data-q="6"><text class="yr" x="704" y="309" text-anchor="middle">?</text></g>';
+      s+='<g data-q="6">'+seg(xs[3],ty,686,ty,c,M[3].p[c]?'solid':'gone',6,1)+'</g>'}
     M.forEach(function(m,i){var x=xs[i],q=MQ[i];
       s+='<g data-q="'+q+'"><path d="M'+x+' 232V316" stroke="#8B8891" stroke-width="1" stroke-dasharray="2 3"/><circle cx="'+x+'" cy="'+ly+'" r="5.5" fill="#1E1C25"/><text class="yr" x="'+x+'" y="36" text-anchor="middle">'+m.y+'</text>'+(m.mo?'<text class="mo" x="'+x+'" y="52" text-anchor="middle">'+m.mo+'</text>':'')+notes(x,186,m.n,'middle',14)+'</g>';
       s+=bowl(x,130,35,m.st,q,i)});
@@ -746,7 +756,7 @@ LessGreen.each('.lg3',function(root){
     s+='<g data-q="4"><path d="M468 118C460 120 455 124 452 130" class="anl"/><path d="M449 124L452 131L457 126" class="anl"/><text class="an" x="472" y="112">It returned after</text><text class="an" x="472" y="125">fans complained. One</text><text class="an" x="472" y="138">called the plant version</text><text class="an" x="472" y="151"><tspan class="k">“basically a salad.”</tspan></text></g>';
     var x25=X(4.25);
     s+='<g data-q="5"><circle cx="'+x25+'" cy="'+ly+'" r="4" fill="#FAFAF6" stroke="#1E1C25" stroke-width="1.6"/><path d="M'+x25+' 58V46" class="anl"/><text class="an" x="'+(x25+18)+'" y="14" text-anchor="end"><tspan class="k">May 2025:</tspan> new cereal blues</text><text class="an" x="'+(x25+18)+'" y="27" text-anchor="end"><tspan style="fill:#2B8FC9">●</tspan> galdieria, a red alga</text><text class="an" x="'+(x25+18)+'" y="40" text-anchor="end"><tspan style="fill:#4F5FC0">●</tspan> butterfly pea flower</text></g>';
-    s+='<g data-q="7"><text class="an" x="716" y="358" text-anchor="end">But the 2026 label lists no <tspan class="k" style="fill:#2F7FD1">blue</tspan>.</text><text class="an" x="716" y="371" text-anchor="end">General Mills hasn’t said why.</text></g>';
+    s+='<g data-q="7"><text class="an" x="716" y="358" text-anchor="end">The label lists juice, annatto and turmeric, no <tspan class="k" style="fill:#2F7FD1">blue</tspan>.</text><text class="an" x="716" y="371" text-anchor="end">General Mills hasn’t said why.</text></g>';
     var gy={3:307,4:296};
     [3,4].forEach(function(c){var y=gy[c];s+='<g data-q="3"><circle cx="'+xs[1]+'" cy="'+y+'" r="4" fill="#FAFAF6" stroke="'+C[c]+'" stroke-width="2"/></g><g data-q="5"><circle cx="'+xs[2]+'" cy="'+y+'" r="4.2" fill="'+C[c]+'" stroke="#FAFAF6" stroke-width="1.5"/></g>'});
     s+='<g data-q="3"><text class="an" x="'+((xs[1]+xs[2])/2)+'" y="329" text-anchor="middle"><tspan class="k" style="fill:#2F7FD1">blue</tspan> and <tspan class="k" style="fill:#2E8A3A">green</tspan> gone for almost two years</text></g>';
@@ -762,8 +772,7 @@ LessGreen.each('.lg3',function(root){
       s+='<g data-q="1">'+seg(tx,10,tx,ys[1],c,'solid',1)+'</g>';
       s+='<g data-q="3">'+seg(tx,ys[1],tx,ys[2],c,M[1].p[c]?'solid':'gone',3,1)+'</g>';
       s+='<g data-q="5">'+seg(tx,ys[2],tx,by-6,c,'solid',5)+seg(tx,by+6,tx,ys[3],c,'solid',5)+'</g>';
-      s+='<g data-q="6">'+seg(tx,ys[3],tx,end-4,c,M[3].p[c]?'solid':'unk',6,1)+'</g>'}
-    s+='<g data-q="6"><text class="yr" x="84" y="'+(end+22)+'" text-anchor="middle">?</text></g>';
+      s+='<g data-q="6">'+seg(tx,ys[3],tx,end-4,c,M[3].p[c]?'solid':'gone',6,1)+'</g>'}
     M.forEach(function(m,i){var y=ys[i],q=MQ[i];
       s+='<g data-q="'+q+'"><circle cx="'+lx+'" cy="'+y+'" r="5" fill="#1E1C25"/><text class="yr" x="44" y="'+(y+6)+'" text-anchor="end">'+m.y+'</text>'+(m.mo?'<text class="mo" x="44" y="'+(y+20)+'" text-anchor="end">'+m.mo+'</text>':'')+notes(178,y-10,m.n,'start',14)+'</g>';
       s+=bowl(143,y,25,m.st,q,i)});
@@ -771,7 +780,7 @@ LessGreen.each('.lg3',function(root){
     s+='<g data-q="4"><text class="an" x="178" y="'+(ys[2]+36)+'">It came back after fans</text><text class="an" x="178" y="'+(ys[2]+49)+'">complained. One called the</text><text class="an" x="178" y="'+(ys[2]+62)+'">plant version <tspan class="k">“basically a salad.”</tspan></text></g>';
     var y25=Y(4.25);
     s+='<g data-q="5"><circle cx="'+lx+'" cy="'+y25+'" r="3.5" fill="#FAFAF6" stroke="#1E1C25" stroke-width="1.5"/><text class="an" x="178" y="'+(y25-19)+'"><tspan class="k">May 2025:</tspan> new cereal blues</text><text class="an" x="178" y="'+(y25-6)+'"><tspan style="fill:#2B8FC9">●</tspan> galdieria, a red alga</text><text class="an" x="178" y="'+(y25+7)+'"><tspan style="fill:#4F5FC0">●</tspan> butterfly pea flower</text></g>';
-    s+='<g data-q="7"><text class="an" x="178" y="'+(ys[3]+44)+'">But the 2026 label lists</text><text class="an" x="178" y="'+(ys[3]+57)+'">no <tspan class="k" style="fill:#2F7FD1">blue</tspan>. General Mills</text><text class="an" x="178" y="'+(ys[3]+70)+'">hasn’t said why.</text></g>';
+    s+='<g data-q="7"><text class="an" x="178" y="'+(ys[3]+60)+'">Label: juice, annatto,</text><text class="an" x="178" y="'+(ys[3]+73)+'">turmeric, no <tspan class="k" style="fill:#2F7FD1">blue</tspan>. General</text><text class="an" x="178" y="'+(ys[3]+86)+'">Mills hasn’t said why.</text></g>';
     return{vb:'0 0 340 '+(end+40),s:s}}
   var horiz=null,timers=[],hlC=null;
   function build(force){var h=chart.clientWidth>=600;if(h===horiz&&!force)return;horiz=h;var b=h?buildH():buildV();svg.setAttribute('viewBox',b.vb);svg.classList.toggle('lg3-vert',!h);svg.innerHTML=b.s}
