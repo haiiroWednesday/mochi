@@ -11,7 +11,7 @@
 <style>
 :root{
   --bg:#0F100D;--bg2:#161712;--ink:#EDEAE0;--ink2:#B3B0A4;--ink3:#77756C;--rule:#2C2D27;
-  --yel:#FFD60A;--old:#5FA9A4;--new:#D2D7C6;
+  --yel:#FFD60A;--old:#93E9BE;--new:#D2D7C6;
   --serif:"Instrument Serif",Georgia,serif;--body:"Spectral",Georgia,serif;--mono:"Space Mono",ui-monospace,Menlo,monospace;
 }
 *{box-sizing:border-box}
@@ -213,7 +213,7 @@ q{quotes:"“" "”"}
     </div>
     <div class="readout" aria-hidden="true">
       <div>It’s-It mint filling</div>
-      <div class="hex"><i id="hexDot"></i><span id="hexTxt">#5FA9A4</span></div>
+      <div class="hex"><i id="hexDot"></i><span id="hexTxt">#93E9BE</span></div>
       <div class="bar"><b id="hexKnob"></b></div>
       <div class="ends"><span>Website photo</span><span>2026</span></div>
     </div>
@@ -364,7 +364,7 @@ function unlab([L,A,B]){let y=(L+16)/116,x=A/500+y,z=y-B/200;const f=t=>t*t*t>.0
 const mixLab=(a,b,t)=>{const A=lab(a),B=lab(b);return unlab(A.map((v,i)=>v+(B[i]-v)*t))};
 const chroma=h=>{const [,a,b]=lab(h);return Math.hypot(a,b)};
 const lum=h=>lab(h)[0];
-const OLD='#5FA9A4',NEW='#D2D7C6';
+const OLD='#93E9BE',NEW='#D2D7C6';
 
 /* ================= HERO ================= */
 const hero=$('#hero'),pin=$('#heroPin'),hexTxt=$('#hexTxt'),hexDot=$('#hexDot'),knob=$('#hexKnob');
