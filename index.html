@@ -97,6 +97,7 @@ button{font:inherit;color:inherit}
 .steps{position:relative;z-index:2;margin-top:calc(-1 * var(--stage-h));padding-bottom:12vh;pointer-events:none}
 .step{min-height:78vh;min-height:78svh;display:flex;align-items:flex-end;justify-content:center;padding:0 16px 5svh}
 .step:first-child{min-height:72svh}
+@media (max-width:760px){.step{min-height:118vh;min-height:118svh}.step:first-child{min-height:72svh}}
 .card{pointer-events:auto;width:min(100%,30rem);background:var(--card);background:color-mix(in srgb,var(--card) 95%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--rule);border-radius:20px 15px 22px 16px;padding:14px 18px 12px;box-shadow:0 22px 44px -28px rgba(30,28,37,.4);font-size:1.02rem;line-height:1.5}
 .card p{margin:.25em 0}
 .card .note{font-family:var(--hand);font-variation-settings:var(--hand-axes);font-size:.8rem;color:var(--ink-3);line-height:1.4;margin-top:.5em}
@@ -314,7 +315,7 @@ button{font:inherit;color:inherit}
     <div class="steps">
       <div class="step"><div class="card"><p>Peppermint has no color, so mint green is mixed: a blue laid over yellow-orange <span class="chip lt" style="--c:#F2A33A">annatto</span>. For decades that blue was <span class="chip" style="--c:#1A5BD6">Blue No. 1</span>. Its algae replacement, <span class="chip" style="--c:#2C8FAD">spirulina</span>, hits a different wall in each food.</p></div></div>
       <div class="step"><div class="card"><span class="stamp" style="--c:#2C8FAD">Ice cream</span><p>In ice cream the wall is taste. Whipped-in air and fat lighten any color, and enough spirulina to win the green back can bring off-flavors. It’s-It’s technicians wanted color “without an aftertaste.”</p><label class="dose"><span>Add spirulina</span><input id="dose" type="range" min="0" max="100" value="0" aria-label="Amount of spirulina, illustration"><span class="ends"><i>It’s-It 2026</i><i>bright mint</i></span></label></div></div>
-      <div class="step"><div class="card"><span class="stamp" style="--c:#A97F00">Cereal</span><p>Trix needs color so bright that plant colors had to go in heavy, General Mills said in 2016, and at those levels they “can bring with them some off flavors” and cost more. Cereal is cooked, too, and heat fades spirulina’s blue.</p></div></div>
+      <div class="step"><div class="card"><span class="stamp" style="--c:#A97F00">Cereal</span><p>General Mills said in 2016 that Trix needs color so bright that plant colors had to go in heavy. At that dose they “can bring with them some off flavors” and cost more. Cereal also gets cooked, and heat fades spirulina’s blue.</p></div></div>
       <div class="step"><div class="card"><span class="stamp" style="--c:#C8231B">Candy shell</span><p>M&amp;M’s shells are sprayed on by machine, and spirulina left a goopy foam that was hard to clean out. Mars bought more than 300 new machines and cleaning tools, The Wall Street Journal reported, and its dye-free M&amp;M’s still launched two colors short.</p></div></div>
     </div>
   </section>
@@ -335,15 +336,16 @@ button{font:inherit;color:inherit}
 
   </div>
 
-  <figure class="photo">
-    <div class="ph "><div class="ph-in"><span class="hand">Photo 3 · to shoot</span>Overhead: four or five mint ice creams from one store, scooped side by side on one white surface under the same light, a little melted, from nearly white to bright green, with their cartons behind.</div></div>
-    <figcaption>Mint ice creams from one store, from palest to greenest.<span class="credit">Photo: Cynthia</span></figcaption>
-  </figure>
   <article class="story">
     <div class="col">
       <p>For It’s-It, it’s one shade. Few customers have complained and mint sales held, its president says. Still, he admitted the original color would probably be better, “because people know it.”</p>
     </div>
   </article>
+
+  <figure class="photo">
+    <div class="ph "><div class="ph-in"><span class="hand">Photo 3 · to shoot</span>Overhead: five mint ice creams from one store, scooped side by side on one white surface under the same light, a little melted. They run from white (no added color) through It’s-It’s pale jade to bright green, with their cartons behind.</div></div>
+    <figcaption>Mint ice creams from one store, palest to greenest. Which one looks like mint depends on which one you grew up with.<span class="credit">Photo: Cynthia</span></figcaption>
+  </figure>
 </main>
 
 <footer class="foot" id="about">
