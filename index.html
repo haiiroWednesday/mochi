@@ -304,10 +304,10 @@ button{font:inherit;color:inherit}
   <section class="scrolly" id="lab" aria-label="Graphic 2: one blue, three foods">
     <div class="stage">
       <div class="ghead hand"><b>One blue, three foods</b></div>
-      <svg id="labSvg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMin meet" role="img" aria-label="One jar of blue pipes into ice cream, cereal and candy shells. When Blue No. 1 is swapped for spirulina, each food hits a different wall: taste in ice cream, brightness and cost in cereal, and spray machines for candy shells. The results: pale It’s-It mint, 2016 Trix without blue or green, and 2026 M&amp;M’s without blue or brown."></svg>
+      <svg id="labSvg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMin meet" role="img" aria-label="Mint green is mixed from a blue and yellow-orange annatto. One jar of blue pipes into ice cream, cereal and candy shells. When Blue No. 1 is swapped for spirulina, each food hits a different wall: taste in ice cream, brightness and cost in cereal, and spray machines for candy shells. The results: pale It’s-It mint, 2016 Trix without blue or green, and 2026 M&amp;M’s without blue or brown."></svg>
     </div>
     <div class="steps">
-      <div class="step"><div class="card"><p><span class="chip" style="--c:#1A5BD6">Blue No. 1</span> went into ice cream, cereal and candy shells the same way. Its algae replacement, <span class="chip" style="--c:#2C8FAD">spirulina</span>, has to get past a different wall in each food.</p></div></div>
+      <div class="step"><div class="card"><p>Peppermint has no color, so mint green is mixed: a blue laid over yellow-orange <span class="chip lt" style="--c:#F2A33A">annatto</span>. For decades that blue was <span class="chip" style="--c:#1A5BD6">Blue No. 1</span>, the same dye that went into cereal and candy shells. Its algae replacement, <span class="chip" style="--c:#2C8FAD">spirulina</span>, hits a different wall in each food.</p></div></div>
       <div class="step"><div class="card"><span class="stamp" style="--c:#2C8FAD">Ice cream</span><p>In ice cream the wall is taste. Whipped-in air and fat lighten any color, and enough spirulina to win the green back can bring off-flavors. It’s-It’s technicians wanted color “without an aftertaste,” and the filling came out pale.</p><label class="dose"><span>Add spirulina</span><input id="dose" type="range" min="0" max="100" value="0" aria-label="Amount of spirulina, illustration"><span class="ends"><i>It’s-It 2026</i><i>bright mint</i></span></label><p class="note">It’s-It hasn’t published its recipe, so the slider shows the trade-off, not the real amounts.</p></div></div>
       <div class="step"><div class="card"><span class="stamp" style="--c:#A97F00">Cereal</span><p>Trix needs color so bright that plant colors had to go in heavy, General Mills said in 2016, and at those levels they “can bring with them some off flavors” and cost more. That year blue and green dropped out of the box.</p></div></div>
       <div class="step"><div class="card"><span class="stamp" style="--c:#C8231B">Candy shell</span><p>M&amp;M’s shells are sprayed on by machine, and spirulina left a goopy foam that was hard to clean out. Mars bought more than 300 new machines and cleaning tools, The Wall Street Journal reported, and its dye-free M&amp;M’s still launched without blue or brown.</p></div></div>
@@ -578,6 +578,15 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   S('path',{d:'M184 28V66',stroke:'#fff','stroke-opacity':.5,'stroke-width':2.5,'stroke-linecap':'round'},jarG);
   const jarLab=S('text',{x:236,y:40,class:'svg-mono',style:'font-weight:600'},svg);jarLab.textContent='Blue No. 1';
   const jarSub=S('text',{x:236,y:54,class:'svg-tiny'},svg);jarSub.textContent='synthetic dye';
+  /* mint is mixed: blue over annatto, top left */
+  const mixG=S('g',{},svg);mixG.style.transition='opacity .5s';
+  const mcp=S('clipPath',{id:'g2mix'},defs);S('circle',{cx:48,cy:40,r:21},mcp);
+  const mGw=S('g',{filter:'url(#wob)'},mixG);
+  const dBlue=S('circle',{cx:48,cy:40,r:21,fill:B1},mGw);S('circle',{cx:80,cy:40,r:21,fill:'#F2A33A'},mGw);
+  const dMint=S('circle',{cx:80,cy:40,r:21,fill:MINT_OLD,'clip-path':'url(#g2mix)'},mGw);
+  const mLabB=S('text',{x:40,y:76,'text-anchor':'middle',class:'svg-tiny'},mixG);mLabB.textContent='Blue No. 1';
+  S('text',{x:90,y:76,'text-anchor':'middle',class:'svg-tiny'},mixG).textContent='annatto';
+  const mEq=S('text',{x:64,y:12,'text-anchor':'middle',class:'svg-ann'},mixG);const e1=S('tspan',{class:'k'},mEq);e1.textContent='mint';const e2=S('tspan',{},mEq);e2.textContent=' = blue + yellow';
   /* pipes */
   const pipes=LX.map(x=>{const up=`M200 76V88C200 102 ${x} 94 ${x} 110V124`,lo=`M${x} 176V200`;
     const g=S('g',{},svg);
@@ -600,7 +609,6 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   S('rect',{x:27,y:208,width:86,height:14,rx:7,fill:'#C4935C'},icG);
   const fill=S('rect',{x:24,y:222,width:92,height:22,rx:4,fill:MINT_OLD},icG);
   S('rect',{x:27,y:244,width:86,height:14,rx:7,fill:'#C4935C'},icG);
-  const yel=S('text',{x:78,y:104,class:'svg-tiny'},lanes[0]);yel.textContent='+ yellow';
   /* cereal puffs */
   const TC=['#E2382F','#F08A24','#F5CF2B','#7B4BB0','#3DAE4A','#2F7FD1'],TP=[[-22,-12],[2,-20],[24,-8],[-12,10],[14,14],[-30,16]];
   const puffs=TP.map(([dx,dy],k)=>{const d=blobD(200+dx,233+dy,11,k*7+3,.18,9);const p=S('path',{d,fill:TC[k],stroke:'none','stroke-width':1.6},lanes[1]);return{p,c:TC[k],miss:k>=4}});
@@ -624,7 +632,7 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   const mR=S('rect',{x:MX,y:358,width:0,height:9,rx:4.5,fill:'#C9620F'},meter);
   S('text',{x:200,y:386,'text-anchor':'middle',class:'svg-tiny'},meter).textContent='an illustration of the trade-off, not It’s-It’s recipe';
   let dose=0;const doseCol=()=>mix(MINT_NEW,MINT_OLD,dose);
-  function paintDose(){mG.setAttribute('width',(MW*(.18+.82*dose)).toFixed(1));mR.setAttribute('width',(MW*(.06+.94*Math.pow(dose,1.7))).toFixed(1));mG.setAttribute('fill',doseCol());if(cur>=1)fill.setAttribute('fill',doseCol())}
+  function paintDose(){mG.setAttribute('width',(MW*(.18+.82*dose)).toFixed(1));mR.setAttribute('width',(MW*(.06+.94*Math.pow(dose,1.7))).toFixed(1));mG.setAttribute('fill',doseCol());if(cur>=1){fill.setAttribute('fill',doseCol());dMint.setAttribute('fill',doseCol())}}
   /* state */
   let cur=-9,jobs=[];const kill=()=>{jobs.forEach(c=>c());jobs=[]};
   function setMiss(on,which){(which===1?puffs:shells).forEach(o=>{const el=o.p||o.e;if(o.miss&&on){el.setAttribute('fill','none');el.setAttribute('stroke','#8B8891');el.setAttribute('stroke-dasharray','3 3')}else{el.setAttribute('fill',o.c);el.setAttribute('stroke','none');el.removeAttribute('stroke-dasharray')}})}
@@ -636,7 +644,7 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
     lanes.forEach((g,j)=>{const on=act.includes(j);g.style.opacity=on?1:.32;pipes[j].g.style.opacity=on?1:.32;walls[j].style.opacity=spi?(on?1:.32):0});
     res.forEach((t,j)=>t.style.opacity=(k>=1&&j<=k-1)?(j===k-1?1:.45):0);
     meter.style.opacity=k===1?1:0;
-    fill.setAttribute('fill',k>=1?doseCol():MINT_OLD);yel.style.opacity=k===1?1:0;
+    fill.setAttribute('fill',k>=1?doseCol():MINT_OLD);dMint.setAttribute('fill',k>=1?doseCol():MINT_OLD);dBlue.setAttribute('fill',spi?SPI:B1);mLabB.textContent=spi?'spirulina':'Blue No. 1';mixG.style.opacity=k<=1?1:.32;
     setMiss(k>=2,1);setMiss(k>=3,2);
     paintDose();
     act.forEach((j,n)=>{if(RM||(prev>k)){flow(j,1,1);return}flow(j,0,0);jobs.push(tween({dur:380,delay:n*120,ease:E.lin,update:t=>flow(j,t,0)}));jobs.push(tween({dur:300,delay:n*120+380,ease:E.lin,update:t=>flow(j,1,t)}))});
