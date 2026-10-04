@@ -289,7 +289,7 @@ button{font:inherit;color:inherit}
       <svg id="machineSvg" viewBox="0 0 400 560" preserveAspectRatio="xMidYMin meet" role="img" aria-label="Six synthetic dye vats pour into labeled foods. In 2026 the machine cracks. Below it each dye is replaced unevenly by one or two plant or algae sources, green is mixed from spirulina and turmeric, and the two blue candy shells stay empty."></svg>
     </div>
     <div class="steps">
-      <div class="step"><div class="card"><span class="stamp" style="--c:#1B57C9">Spread</span><p>FDA tests and certifies every batch of these dyes before it can be sold, so a cereal plant in Minnesota and an ice cream plant near San Francisco could count on the same intense, predictable <span class="chip" style="--c:#1A5BD6">Blue No. 1</span>.</p><button class="btn" id="pourAgain" type="button">Pour again</button></div></div>
+      <div class="step"><div class="card"><span class="stamp" style="--c:#1B57C9">Spread</span><p>FDA tests and certifies every batch of these dyes before it can be sold, so a cereal plant in Minnesota and an ice cream plant near San Francisco could count on the same intense, predictable <span class="chip" style="--c:#1A5BD6">Blue No. 1</span>.</p></div></div>
       <div class="step"><div class="card"><span class="stamp" style="--c:#1E1C25;--r:3deg">2026</span><p>This year the machine cracked. All six dyes are still legal, yet companies are dropping them anyway after the Trump administration’s health secretary, Robert F. Kennedy Jr., asked food makers to phase them out by the end of 2027. A California law keeps them out of school meals from that date too.</p></div></div>
       <div class="step"><div class="card"><span class="stamp" style="--c:#A97F00">Split</span><p>Each old dye was one stable molecule that looked the same in a sour drink or a hot oven. Plant colors react to the food around them, so below the crack every food needs its own recipe. Fat in its icing meant one Sam’s Club cookie needed thirty times more natural color, NPR reported.</p><p class="note">The <span class="chip thin" style="--c:#1A5BD6">thin outline</span> around each food is its old color.</p></div></div>
     </div>
@@ -328,7 +328,6 @@ button{font:inherit;color:inherit}
   <div class="g3wrap">
 <div class="lgw lg3" data-lg="trix-timeline" data-trix-photo="">
   <p class="lg-h">New blues were approved in 2025. The 2026 bowl still has none.</p>
-  <p class="lg-sub">Colors in a bowl of Trix, 2015 to 2026</p>
   <div class="lg3-bar">
   </div>
   <div class="lg3-chart"><svg class="lg3-svg" role="img" aria-label="Trix timeline. 2015: six colors. January 2016: blue and green disappear when General Mills switches to colors from fruit, vegetables and spices. October 2017: Classic Trix returns with all six while the four-color version stays on sale. August 2026: General Mills says all its U.S. cereals are made without synthetic certified dyes; which Trix colors survived is not yet public."></svg></div>
@@ -513,6 +512,12 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
     const fp=S('path',{d:dd,fill:d.c,'fill-rule':'evenodd','clip-path':`url(#fc${i}${j})`},fillG);
     foods.push({i,j,cx,fx,fy,rect,fp,ghost})})});
   const byIJ=(i,j)=>foods[i*3+j];
+  /* mint is never blue alone: a small annatto drip joins the mint ice cream */
+  {const f=foods[4*3+0],ax=f.fx+21,ay=f.fy-30;const g=S('g',{},gLower);
+    S('path',{d:`M${ax} ${ay}V${ay+12}`,stroke:'#CBCBC2','stroke-width':4,'stroke-linecap':'round'},g);
+    S('path',{d:`M${ax} ${ay}V${ay+12}`,stroke:'#F2A33A','stroke-width':2,'stroke-linecap':'round'},g);
+    S('path',{d:`M${ax} ${ay+13}c-2.6 3.4-3.6 5-3.6 6.4a3.6 3.6 0 0 0 7.2 0c0-1.4-1-3-3.6-6.4z`,fill:'#F2A33A'},g);
+    const t=S('text',{x:f.fx,y:f.fy+53,'text-anchor':'middle',class:'svg-tiny',style:'fill:#B4521A;font-weight:600'},g);t.textContent='+ annatto';}
   const setLevel=(f,v)=>{f.rect.setAttribute('y',(f.fy+26-52*v).toFixed(1));f.rect.setAttribute('height',(52*v).toFixed(1))};
   const CR=rng(11);const cpts=[];for(let x=-10;x<=414;x+=14)cpts.push([x,196+(CR()*2-1)*7]);
   const cd='M'+cpts.map(p=>p[0].toFixed(1)+','+p[1].toFixed(1)).join('L');
@@ -541,7 +546,7 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   function note(parent,lines,x,y,anchor){const t=S('text',{class:'svg-ann','text-anchor':anchor||'start'},parent);lines.forEach((ln,k)=>{const ts=S('tspan',{x,y:y+k*13},t);ln.forEach(([w,b,c])=>{const sp=S('tspan',b?{class:'k',style:c?'fill:'+c:''}:{},ts);sp.textContent=w})});return t}
   function arrow(parent,d,hx,hy,ang){S('path',{d,class:'ann-halo'},parent);S('path',{d,class:'ann-line'},parent);const a1=ang+2.6,a2=ang-2.6;S('path',{d:`M${(hx+6*Math.cos(a1)).toFixed(1)} ${(hy+6*Math.sin(a1)).toFixed(1)}L${hx} ${hy}L${(hx+6*Math.cos(a2)).toFixed(1)} ${(hy+6*Math.sin(a2)).toFixed(1)}`,class:'ann-line'},parent)}
   const annOld=S('g',{},gAnn),annNew=S('g',{},gAnn);annOld.style.transition=annNew.style.transition='opacity .5s';
-  note(annOld,[[['One ',0],['Blue No. 1',1,'#1A5BD6'],[' looked',0]],[['the same in all three,',0]],[['sour or baked.',0]]],112,500,'start');
+  note(annOld,[[['One ',0],['Blue No. 1',1,'#1A5BD6'],[' looked',0]],[['the same in a sour drink',0]],[['or a candy shell.',0]]],112,500,'start');
   arrow(annOld,'M252 500C272 496 284 482 290 466',290,466,-1.25);
   note(annNew,[[['Empty shells: Mars’s new',0]],[['M&M’s launched without ',0],['blue',1,'#1A5BD6'],['.',0]]],392,500,'end');
   /* what each food does to a plant color */
@@ -550,11 +555,10 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
     heat:(g,x,y)=>{S('path',{d:`M${x} ${y+6}c-4.5 0-6.5-3.2-5-6.6 1-2.2 2.6-3.2 2.4-6.2 2.6 1.4 3.8 3.6 3.2 5.8 1.2-.6 1.8-1.6 1.8-3 2.4 2.4 3 6.2 .8 8.2-.9.9-2 1.8-3.2 1.8z`,fill:'#E0702E'},g)},
     fat:(g,x,y)=>{S('rect',{x:x-6,y:y-4,width:12,height:8,rx:2,fill:'#F7E7A6',stroke:'#C9B060','stroke-width':1},g)}};
   const gIcon=S('g',{},annNew);
-  const tagFood=(i,j,k)=>{const f=byIJ(i,j);const g=S('g',{},gIcon);S('circle',{cx:f.fx+17,cy:f.fy-19,r:9,fill:'#FAFAF6',stroke:'#CBCBC2','stroke-width':.8},g);ICO[k](g,f.fx+17,f.fy-19)};
+  const tagFood=(i,j,k)=>{const f=byIJ(i,j);const bx=f.fx+19,by=(i===4&&j===1)?f.fy+2:f.fy-19;const g=S('g',{},gIcon);S('circle',{cx:bx,cy:by,r:9,fill:'#FAFAF6',stroke:'#CBCBC2','stroke-width':.8},g);ICO[k](g,bx,by)};
   [[4,1,'acid'],[0,2,'heat'],[5,1,'heat'],[5,0,'fat']].forEach(a=>tagFood(...a));
   const leg=S('g',{},gIcon);
   [['acid','acid dulls spirulina’s blue'],['heat','baking fades beet and algae blues'],['fat','fat in frosting mutes color']].forEach(([k,t],n)=>{const y=486+n*15;ICO[k](leg,22,y-3);S('text',{x:34,y,class:'svg-ann'},leg).textContent=t});
-  $('#pourAgain').addEventListener('click',()=>pour('old'));
   let filled='none';
   function step(i,dir){kill();
     vis(gUpper,true);vis(gLower,true);vis(gVats,i<=1);vis(gSplit,i>=2);vis(gCrack,i>=1);
@@ -780,7 +784,7 @@ LessGreen.each('.lg3',function(root){
     M.forEach(function(m,i){var y=ys[i],q=MQ[i];
       s+='<g data-q="'+q+'"><circle cx="'+lx+'" cy="'+y+'" r="5" fill="#1E1C25"/><text class="yr" x="44" y="'+(y+6)+'" text-anchor="end">'+m.y+'</text>'+(m.mo?'<text class="mo" x="44" y="'+(y+20)+'" text-anchor="end">'+m.mo+'</text>':'')+notes(178,y-10,m.n,'start',14)+'</g>';
       s+=bowl(143,y,25,m.st,q,i)});
-    s+='<g data-q="2"><path d="M188 '+(ys[1]+40)+'h104a8 8 0 0 1 8 8v18a8 8 0 0 1-8 8H188a8 8 0 0 1-8-8v-18a8 8 0 0 1 3-6l-5-11 12 9z" fill="#FAFAF6" stroke="#55525E" stroke-width="1.1"/><text class="qt" x="240" y="'+(ys[1]+54)+'" text-anchor="middle">“What did you do</text><text class="qt" x="240" y="'+(ys[1]+68)+'" text-anchor="middle">with my cereal?”</text><text class="an" x="182" y="'+(ys[1]+90)+'">kids in 2016 taste tests</text><text class="an" x="182" y="'+(ys[1]+108)+'">Sales still beat expectations,</text><text class="an" x="182" y="'+(ys[1]+121)+'">General Mills said.</text></g>';
+    s+='<g data-q="2"><path d="M188 '+(ys[1]+40)+'h104a8 8 0 0 1 8 8v18a8 8 0 0 1-8 8H188a8 8 0 0 1-8-8v-18a8 8 0 0 1 3-6l-5-11 12 9z" fill="#FAFAF6" stroke="#55525E" stroke-width="1.1"/><text class="qt" x="240" y="'+(ys[1]+54)+'" text-anchor="middle">“What did you do</text><text class="qt" x="240" y="'+(ys[1]+68)+'" text-anchor="middle">with my cereal?”</text><text class="an" x="182" y="'+(ys[1]+92)+'">Kids asked this in taste tests.</text><text class="an" x="182" y="'+(ys[1]+105)+'">Sales still beat forecasts,</text><text class="an" x="182" y="'+(ys[1]+118)+'">General Mills said.</text></g>';
     s+='<g data-q="4"><text class="an" x="178" y="'+(ys[2]+36)+'">It came back after fans</text><text class="an" x="178" y="'+(ys[2]+49)+'">complained. One called the</text><text class="an" x="178" y="'+(ys[2]+62)+'">plant version <tspan class="k">“basically a salad.”</tspan></text></g>';
     var y25=Y(4.25);
     s+='<g data-q="5"><circle cx="'+lx+'" cy="'+y25+'" r="3.5" fill="#FAFAF6" stroke="#1E1C25" stroke-width="1.5"/><text class="an" x="178" y="'+(y25-19)+'"><tspan class="k">May 2025:</tspan> new cereal blues</text><text class="an" x="178" y="'+(y25-6)+'"><tspan style="fill:#2B8FC9">●</tspan> galdieria, a red alga</text><text class="an" x="178" y="'+(y25+7)+'"><tspan style="fill:#4F5FC0">●</tspan> butterfly pea flower</text></g>';
