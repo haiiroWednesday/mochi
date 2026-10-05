@@ -179,6 +179,14 @@ button{font:inherit;color:inherit}
 .chip.thin{background:none;border:1.4px solid var(--c);color:var(--ink);font-weight:500}
 /* graph-paper stage (Sizing Chaos) */
 .stage{background-image:linear-gradient(rgba(30,28,37,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(30,28,37,.05) 1px,transparent 1px);background-size:22px 22px;background-position:center top}
+.pk{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin:.55em 0 0}
+.pk-l{font-family:var(--hand);font-variation-settings:var(--hand-axes);font-size:.74rem;color:var(--ink-3);width:3.4em}
+.pk button{display:inline-flex;align-items:center;gap:5px;font:inherit;font-size:.8rem;line-height:1;padding:5px 9px 5px 6px;border-radius:13px 10px 14px 9px;border:1px solid var(--rule);background:var(--paper);color:var(--ink-2);cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+.pk button i{width:.8em;height:.8em;border-radius:50%;background:var(--c);display:inline-block}
+.pk button:hover{transform:translateY(-1px)}
+.pk button[aria-pressed="true"]{background:var(--card);color:var(--ink);border-color:var(--ink);box-shadow:0 0 0 1.5px var(--ink) inset;font-weight:600}
+.pk-out{margin:.7em 0 .1em;font-size:.88rem;line-height:1.45;color:var(--ink-2);min-height:4.4em}
+.pk-out b{color:var(--ink)}
 .dose{display:block;margin:.8em 0 .2em;font-family:var(--hand);font-variation-settings:var(--hand-axes);font-size:.82rem;color:var(--ink-2)}
 .dose input{display:block;width:100%;margin:6px 0 2px;accent-color:#2C8FAD;cursor:pointer}
 .dose .ends{display:flex;justify-content:space-between;font-size:.74rem;color:var(--ink-3)}
@@ -345,6 +353,10 @@ button{font:inherit;color:inherit}
       <div class="step"><div class="card"><span class="stamp" style="--c:#2C8FAD">Ice cream</span><p>In ice cream the wall is taste. Whipped-in air and fat lighten any color, and enough spirulina to win the green back can bring off-flavors. It’s-It’s technicians wanted color “without an aftertaste.”</p><label class="dose"><span>Add spirulina</span><input id="dose" type="range" min="0" max="100" value="0" aria-label="Amount of spirulina, illustration"><span class="ends"><i>It’s-It 2026</i><i>bright mint</i></span></label></div></div>
       <div class="step"><div class="card"><span class="stamp" style="--c:#A97F00">Cereal</span><p>General Mills said in 2016 that Trix needs color so bright that plant colors had to go in heavy. At that dose they “can bring with them some off flavors” and cost more. Cereal also gets cooked, and heat fades spirulina’s blue.</p></div></div>
       <div class="step"><div class="card"><span class="stamp" style="--c:#C8231B">Candy shell</span><p>M&amp;M’s shells are sprayed on by machine, and spirulina left a goopy foam that was hard to clean out. Mars bought more than 300 new machines and cleaning tools, The Wall Street Journal reported, and its dye-free M&amp;M’s still launched two colors short.</p></div></div>
+      <div class="step"><div class="card"><span class="stamp" style="--c:#2E8A5E">Mix a mint</span><p>Pick one blue and one yellow.</p>
+        <div class="pk" role="group" aria-label="Blues"><span class="pk-l">Blue</span><button type="button" data-b="b1"><i style="--c:#1A5BD6"></i>Blue 1</button><button type="button" data-b="spi"><i style="--c:#2FA3C4"></i>spirulina</button><button type="button" data-b="pea"><i style="--c:#5A6BD2"></i>butterfly pea</button><button type="button" data-b="gal"><i style="--c:#2A8ED4"></i>galdieria</button><button type="button" data-b="gar"><i style="--c:#2F4FA0"></i>gardenia</button></div>
+        <div class="pk" role="group" aria-label="Yellows"><span class="pk-l">Yellow</span><button type="button" data-y="y5"><i style="--c:#F5D90F"></i>Yellow 5</button><button type="button" data-y="bc"><i style="--c:#F0A21C"></i>beta carotene</button><button type="button" data-y="tur"><i style="--c:#F2D21A"></i>turmeric</button><button type="button" data-y="ann"><i style="--c:#F2A33A"></i>annatto</button></div>
+        <p class="pk-out" id="pkOut" aria-live="polite"></p></div></div>
     </div>
   </section>
 
@@ -409,6 +421,8 @@ button{font:inherit;color:inherit}
         <li><a href="https://www.cnbc.com/2017/09/21/trix-bringing-back-to-artificial-colors-after-customers-complained.html">CNBC, 2017: Classic Trix returns</a></li>
         <li><a href="https://www.nasdaq.com/press-release/general-mills-completes-removal-certified-colors-us-cereal-portfolio-2026-08-26">General Mills, Aug. 26, 2026: certified colors removed from U.S. cereals</a></li>
         <li>General Mills Trix ingredient list and Walmart.com product photo, 2026</li>
+        <li><a href="https://cheesereporter.com/news/2025/05/14/fda-approves-three-food-colors-for-use-in-various-food-products-including-dairy/">Cheese Reporter, May 2025: FDA approves galdieria extract blue for ice cream and expands butterfly pea flower extract</a></li>
+        <li><a href="https://www.fda.gov/news-events/press-announcements/fda-approves-gardenia-genipin-blue-color-additive-while-encouraging-faster-phase-out-fdc-red-no-3">FDA, July 14, 2025: gardenia blue approved for drinks and candy</a></li>
         <li><a href="https://doi.org/10.1111/j.1365-2621.1980.tb06562.x">DuBose, Cardello and Maller, Journal of Food Science, 1980: a cherry drink colored green drew 26 percent lime responses</a>, as summarized in <a href="https://link.springer.com/article/10.1186/s13411-015-0031-3">Charles Spence, “On the psychological impact of food colour,” Flavour, 2015</a></li>
         <li>Ingredient lists for the four mint ice creams: <a href="https://world.openfoodfacts.org/product/0072830081047/mint-chocolate-chip-ice-cream-tillamook">Tillamook (Open Food Facts)</a>, <a href="https://baskinrobbinsathome.com/pages/mint-chocolate-chip">Baskin-Robbins</a>, <a href="https://proteinpints.com/products/mint-chip">Protein Pints</a>, <a href="https://tools.myfooddata.com/nutrition-facts/2172104/wt1">Favorite Day (MyFoodData)</a></li>
       </ul>
@@ -685,6 +699,7 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   let cur=-9,jobs=[];const kill=()=>{jobs.forEach(c=>c());jobs=[]};
   function setMiss(on,which){(which===1?puffs:shells).forEach(o=>{const el=o.p||o.e;if(o.miss&&on){el.setAttribute('fill','none');el.setAttribute('stroke','#8B8891');el.setAttribute('stroke-dasharray','3 3')}else{el.setAttribute('fill',o.c);el.setAttribute('stroke','none');el.removeAttribute('stroke-dasharray')}})}
   function step(i){const k=Math.max(0,i);if(k===cur)return;const prev=cur;cur=k;kill();
+    baseG.style.opacity=k>=4?0:1;pk.style.opacity=k>=4?1:0;if(k>=4)return;
     const spi=k>=1;liq.setAttribute('fill',spi?SPI:B1);jarLab.textContent=spi?'spirulina':'Blue No. 1';jarSub.textContent='';
     pipes.forEach(p=>{p.fu.setAttribute('stroke',spi?SPI:B1);p.fl.setAttribute('stroke',spi?SPI:B1)});
     walls.forEach(w=>w.style.opacity=spi?1:0);
@@ -697,6 +712,37 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
     paintDose();
     act.forEach((j,n)=>{if(RM||(prev>k)){flow(j,1,1);return}flow(j,0,0);jobs.push(tween({dur:380,delay:n*120,ease:E.lin,update:t=>flow(j,t,0)}));jobs.push(tween({dur:300,delay:n*120+380,ease:E.lin,update:t=>flow(j,1,t)}))});
     LX.forEach((x,j)=>{if(!act.includes(j))flow(j,1,1)})}
+  /* mix-a-mint picker, last step */
+  const baseG=S('g',{},svg);[...svg.childNodes].forEach(n=>{if(n!==defs&&n!==baseG)baseG.appendChild(n)});
+  const pk=S('g',{},svg);pk.style.opacity=0;
+  const PB={b1:'#1A5BD6',spi:'#2FA3C4',pea:'#5A6BD2',gal:'#2A8ED4',gar:'#2F4FA0'},PY={y5:'#F5D90F',bc:'#F0A21C',tur:'#F2D21A',ann:'#F2A33A'};
+  const NM={b1:'Blue 1',spi:'spirulina',pea:'butterfly pea',gal:'galdieria',gar:'gardenia',y5:'Yellow 5',bc:'beta carotene',tur:'turmeric',ann:'annatto'};
+  /* scoop colors: four pairs follow real mints, the rest are drawn to match how each blue behaves in ice cream */
+  const MIXC={b1:{y5:'#7ED6A4',bc:'#86C47E',tur:'#6CD38E',ann:MINT_OLD},spi:{y5:'#CFE0C4',bc:'#D6D6C2',tur:'#D2E0BE',ann:MINT_NEW},
+    pea:{y5:'#C3CDB4',bc:'#C9C4AE',tur:'#C4CDAE',ann:'#C9C3B1'},gal:{y5:'#A6D9BD',bc:'#B4CFA8',tur:'#A9D7AE',ann:'#A9D2BC'},gar:{y5:'#8FB5A0',bc:'#9AAA8E',tur:'#93B496',ann:'#96AE9F'}};
+  const WHO={'b1|y5':'Favorite Day mint chip uses this pair.','b1|ann':'It’s-It used this pair until 2026.','spi|ann':'It’s-It’s 2026 mint.','spi|bc':'Baskin-Robbins and Protein Pints use this pair.','spi|tur':'The pair in the jars above.'};
+  const FB={b1:'Synthetic, made from petroleum. A pinch gives a bright, steady blue.',spi:'From algae. Ice cream needs a lot of it, and a lot can taste off.',pea:'From a flower. Blue in neutral foods, purple in sour ones.',gal:'From a red algae that grows in hot, acidic springs. Approved for U.S. ice cream in May 2025.',gar:'From gardenia fruit. Approved in July 2025 for drinks and candy, not ice cream.'};
+  const FY={y5:'Yellow 5 is synthetic and lemon yellow.',bc:'Beta carotene, the orange in carrots, tilts the green toward olive.',tur:'Turmeric is lemon yellow and fades in light.',ann:'Annatto, from achiote seeds, is yellow-orange.'};
+  const pw=S('g',{filter:'url(#wob)'},pk);
+  const cB=S('circle',{cx:150,cy:46,r:20},pw),cY=S('circle',{cx:250,cy:46,r:20},pw);
+  S('text',{x:200,y:52,'text-anchor':'middle',class:'svg-display',style:'font-size:22px'},pk).textContent='+';
+  const tB=S('text',{x:150,y:84,'text-anchor':'middle',class:'svg-tiny'},pk),tY=S('text',{x:250,y:84,'text-anchor':'middle',class:'svg-tiny'},pk);
+  S('path',{d:'M200 74V102M193 95L200 103L207 95',fill:'none',stroke:'#8B8891','stroke-width':1.6,'stroke-linecap':'round','stroke-linejoin':'round'},pk);
+  const cone=S('g',{filter:'url(#wob)'},pk);const ccp=S('clipPath',{id:'g2cone'},defs);S('path',{d:'M160 176L200 290L240 176Z'},ccp);
+  S('path',{d:'M160 176L200 290L240 176Z',fill:'#D9A86C'},cone);const hat=S('g',{'clip-path':'url(#g2cone)'},cone);
+  for(let q=-3;q<6;q++){S('path',{d:`M${150+q*18} 176L${210+q*18} 300`,stroke:'#B88A50','stroke-width':1,opacity:.7},hat);S('path',{d:`M${250-q*18} 176L${190-q*18} 300`,stroke:'#B88A50','stroke-width':1,opacity:.7},hat)}
+  S('path',{d:'M160 176L200 290L240 176Z',fill:'none',stroke:'#A87A43','stroke-width':1.3,'stroke-linejoin':'round'},cone);
+  const scoop=S('path',{d:blobD(200,150,46,11,.1,12),stroke:'none','stroke-width':1.6},S('g',{filter:'url(#wob)'},pk));
+  S('path',{d:'M172 128Q182 118 194 122',fill:'none',stroke:'#fff','stroke-opacity':.55,'stroke-width':4,'stroke-linecap':'round'},pk);
+  [[184,160],[214,140],[206,172],[176,146]].forEach(([x,y],q)=>S('rect',{x,y,width:7,height:5,rx:1.5,fill:'#3B2317',transform:`rotate(${q*37} ${x} ${y})`},pk));
+  const noG=S('text',{x:200,y:310,'text-anchor':'middle',class:'svg-ann'},pk);noG.textContent='not approved for U.S. ice cream';
+  const pkOut=$('#pkOut');let selB='b1',selY='ann';
+  function paintPick(){const c=MIXC[selB][selY];cB.setAttribute('fill',PB[selB]);cY.setAttribute('fill',PY[selY]);tB.textContent=NM[selB];tY.textContent=NM[selY];
+    scoop.setAttribute('fill',c);const bad=selB==='gar';scoop.setAttribute('stroke',bad?'#55525E':'none');scoop.setAttribute('stroke-dasharray',bad?'4 4':'none');noG.style.opacity=bad?1:0;
+    $$('#lab .pk button').forEach(b=>b.setAttribute('aria-pressed',(b.dataset.b===selB||b.dataset.y===selY)?'true':'false'));
+    if(pkOut){const w=WHO[selB+'|'+selY];pkOut.innerHTML=(w?`<b>${w}</b> `:'')+FB[selB]+' '+FY[selY]}}
+  $$('#lab .pk button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.b)selB=b.dataset.b;else selY=b.dataset.y;paintPick()}));
+  paintPick();
   const doseIn=$('#dose');
   if(doseIn)doseIn.addEventListener('input',()=>{dose=doseIn.value/100;paintDose()});
   step(-1);
