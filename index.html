@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght,BNCE,INFM,SPAC@0,300..800,-100..100,0..100,0..100;1,300..800,-100..100,0..100,0..100&display=swap">
 <style>
 /* Layout: mochi., a one-person visual news desk. Centered newspaper column in a reading serif; graphics sit centered behind cards that scroll over them; every label is handwritten like a margin note. Single light look on purpose. */
@@ -14,7 +14,7 @@
   --display:"Fraunces","Iowan Old Style","Palatino Linotype",Georgia,serif;
   --body:"Newsreader","Iowan Old Style","Charter","Georgia",serif;
   --title:"Instrument Serif",Georgia,serif;
-  --label:"Instrument Sans","Helvetica Neue",Arial,system-ui,sans-serif;
+  --script:"Caveat","Segoe Print","Bradley Hand",cursive;
   --hand:"Shantell Sans","Segoe Print","Bradley Hand","Comic Neue",system-ui,sans-serif;
   --disp-axes:"SOFT" 100,"WONK" 0;
   --hand-axes:"BNCE" 45,"INFM" 70,"SPAC" 0;
@@ -108,23 +108,25 @@ button{font:inherit;color:inherit}
   .step,.step:first-child{min-height:88vh;min-height:88svh;justify-content:flex-end;align-items:center;padding:0}
   .step:first-child{min-height:60svh}
   .scrolly .card{width:var(--cardw);font-size:1.22rem;padding:18px 24px 16px}
-  #labSvg{max-width:min(660px,100%)!important;flex:0 1 auto;height:auto;max-height:calc(100% - 60px);margin:auto 0;align-self:center}
+  #labSvg,#mixSvg{max-width:min(660px,100%)!important;flex:0 1 auto;height:auto;max-height:calc(100% - 60px);margin:auto 0;align-self:center}
 }
 .card{pointer-events:auto;width:min(100%,30rem);background:var(--card);background:color-mix(in srgb,var(--card) 95%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--rule);border-radius:20px 15px 22px 16px;padding:14px 18px 12px;box-shadow:0 22px 44px -28px rgba(30,28,37,.4);font-size:1.12rem;line-height:1.5}
 .card p{margin:.25em 0}
 .card .note{font-family:var(--hand);font-variation-settings:var(--hand-axes);font-size:.8rem;color:var(--ink-3);line-height:1.4;margin-top:.5em}
 .card.big p{font-family:var(--display);font-variation-settings:var(--disp-axes);font-weight:700;font-size:clamp(1.45rem,4.4vw,2rem);line-height:1.1;letter-spacing:-.015em;text-align:center}
 .btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);border:0;border-radius:13px 10px 14px 9px;padding:6px 14px 7px;font-family:var(--hand);font-variation-settings:var(--hand-axes);font-weight:600;cursor:pointer;font-size:.88rem;margin-top:6px}
-.svg-mono{font-family:var(--label);font-weight:600;font-size:11px;fill:var(--ink-2)}
-.svg-tiny{font-family:var(--label);font-weight:500;font-size:9px;fill:var(--ink-2)}
-#machineSvg .svg-tiny{font-size:8.2px;fill:#6E6B77}
+.svg-mono{font-family:var(--script);font-weight:600;font-size:14.5px;fill:var(--ink-2)}
+.svg-tiny{font-family:var(--script);font-weight:500;font-size:12.5px;fill:var(--ink-2)}
+#machineSvg .svg-tiny{font-size:11.5px;fill:#6E6B77}
+#machineSvg .m-vats .svg-mono{font-family:var(--title);font-weight:400;font-size:14.5px;fill:var(--ink)}
+#machineSvg .m-split .svg-mono{font-size:13.5px!important;font-weight:600}
 .svg-display{font-family:var(--display);font-variation-settings:var(--disp-axes);font-weight:700;fill:var(--ink)}
-#machineSvg > g,#labSvg > g{transition:opacity .55s}
+#machineSvg > g,#labSvg > g,#mixSvg > g{transition:opacity .55s}
 .vat{transition:transform .5s}
 .shake .vat{animation:shake .5s 3}
 @keyframes shake{0%,100%{transform:rotate(0)}25%{transform:rotate(-3deg)}75%{transform:rotate(3deg)}}
 .m-lower{transition:transform .55s cubic-bezier(.3,1.6,.5,1),opacity .55s}
-#labSvg{max-width:500px!important}
+#labSvg,#mixSvg{max-width:500px!important}
 
 /* trix wrapper, with its type brought into the page system */
 .g3wrap{padding-inline:16px}
@@ -205,9 +207,9 @@ button{font:inherit;color:inherit}
 .dose .ends{display:flex;justify-content:space-between;font-size:.74rem;color:var(--ink-3)}
 .dose .ends i{font-style:normal}
 .gsrc b{font-weight:700;color:var(--ink-2)}
-.svg-ann{font-family:var(--hand);font-variation-settings:var(--hand-axes);font-size:10.5px;fill:#5B5864}
+.svg-ann{font-family:var(--script);font-weight:500;font-size:13.5px;fill:#5B5864}
 #machine{--stage-h:min(100svh,calc(min(100vw - 24px,780px)*1.12 + 96px))}
-@media (max-width:760px){#machineSvg .svg-mono{font-size:12.5px}#machineSvg .svg-tiny{font-size:10.4px}#machineSvg .svg-ann{font-size:12px}}
+@media (max-width:760px){#machineSvg .svg-mono{font-size:15.5px}#machineSvg .m-vats .svg-mono{font-size:16px}#machineSvg .m-split .svg-mono{font-size:15px!important}#machineSvg .svg-tiny{font-size:13px}#machineSvg .svg-ann{font-size:14.5px}}
 .svg-ann .k{font-weight:700;fill:#1E1C25}
 .ann-line{fill:none;stroke:#6B6873;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
 .ann-halo{fill:none;stroke:#EEEFE9;stroke-width:5;stroke-linecap:round}
@@ -334,7 +336,7 @@ button{font:inherit;color:inherit}
 
   <article class="story">
     <div class="col">
-      <p>Both can be true. Color changes what people taste. In a 1980 study, a cherry drink dyed green tasted like lime to a quarter of the people who tried it. A paler mint can taste weaker.</p>
+      <p>Morris may still be right, because the color of a food changes how it tastes. In a 1980 study, a cherry drink dyed green tasted like lime to a quarter of the people who tried it.</p>
       <p>It’s-It dropped Blue No. 1 this year, along with much of the food industry.</p>
     </div>
   </article>
@@ -352,20 +354,16 @@ button{font:inherit;color:inherit}
     <figcaption>Two plant powders, turmeric and spirulina, make all five greens. Only the ratio changes. The fourth jar matches the mint people grew up with, and it has no synthetic dye. So why did It’s-It’s new mint come out so pale?</figcaption>
   </figure>
 
-  <section class="scrolly" id="lab" aria-label="Graphic 1: mixing mint, and where the new blue gets stuck">
+  <section class="scrolly" id="mix" aria-label="Graphic 1: mix a mint">
     <div class="stage">
-      <div class="ghead hand"><b>Mint is a blue plus a yellow. The blue is the hard part.</b></div>
-      <svg id="labSvg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMin meet" role="img" aria-label="A picker mixes one of five blues with one of four yellows into a mint scoop. Then: mint green is mixed from a blue and yellow-orange annatto. One jar of blue pipes into ice cream, cereal and candy shells. When Blue No. 1 is swapped for spirulina, each food hits a different wall: taste in ice cream, brightness and cost in cereal, and spray machines for candy shells. The results: pale It’s-It mint, 2016 Trix without blue or green, and 2026 M&amp;M’s without blue or brown."></svg>
+      <div class="ghead hand"><b>Mint is a blue plus a yellow. Try making one.</b></div>
+      <svg id="mixSvg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMin meet" role="img" aria-label="Pick one of five blues and one of four yellows. A scoop of mint ice cream on a cone shows the green they make."></svg>
     </div>
     <div class="steps">
       <div class="step"><div class="card pick"><span class="stamp" style="--c:#2E8A5E">Mix a mint</span><p>Peppermint itself has no color. Pick one blue and one yellow to make the green.</p>
         <div class="pk" role="group" aria-label="Blues"><span class="pk-l">Blue</span><button type="button" data-b="b1"><i style="--c:#1A5BD6"></i>Blue 1</button><button type="button" data-b="spi"><i style="--c:#2FA3C4"></i>spirulina</button><button type="button" data-b="pea"><i style="--c:#5A6BD2"></i>butterfly pea</button><button type="button" data-b="gal"><i style="--c:#2A8ED4"></i>galdieria</button><button type="button" data-b="gar"><i style="--c:#2F4FA0"></i>gardenia</button></div>
         <div class="pk" role="group" aria-label="Yellows"><span class="pk-l">Yellow</span><button type="button" data-y="y5"><i style="--c:#F5D90F"></i>Yellow 5</button><button type="button" data-y="bc"><i style="--c:#F0A21C"></i>beta carotene</button><button type="button" data-y="tur"><i style="--c:#F2D21A"></i>turmeric</button><button type="button" data-y="ann"><i style="--c:#F2A33A"></i>annatto</button></div>
         <p class="pk-out" id="pkOut" aria-live="polite"></p></div></div>
-      <div class="step"><div class="card"><p>It’s-It swapped <span class="chip" style="--c:#1A5BD6">Blue No. 1</span> for <span class="chip" style="--c:#2C8FAD">spirulina</span>, a blue from algae. Spirulina gives every food a different kind of trouble.</p></div></div>
-      <div class="step"><div class="card"><span class="stamp" style="--c:#2C8FAD">Ice cream</span><p>Air and fat make any color look paler in ice cream. Adding enough spirulina to bring the green back can make it taste off. It’s-It’s technicians wanted color “without an aftertaste.”</p><label class="dose"><span>Add spirulina</span><input id="dose" type="range" min="0" max="100" value="0" aria-label="Amount of spirulina, illustration"><span class="ends"><i>It’s-It 2026</i><i>bright mint</i></span></label></div></div>
-      <div class="step"><div class="card"><span class="stamp" style="--c:#A97F00">Cereal</span><p>Trix needs such bright colors that plant colors had to go in heavy, General Mills said in 2016. In those amounts they “can bring with them some off flavors” and cost more. Cereal is also cooked, and heat fades spirulina’s blue.</p></div></div>
-      <div class="step"><div class="card"><span class="stamp" style="--c:#C8231B">Candy shell</span><p>M&amp;M’s shells are sprayed on by machine. Spirulina left a goopy foam that was hard to clean out. Mars bought more than 300 new machines and cleaning tools, The Wall Street Journal reported. Its dye-free M&amp;M’s still launched without blue or brown.</p></div></div>
     </div>
   </section>
 
@@ -384,6 +382,19 @@ button{font:inherit;color:inherit}
       <div class="step"><div class="card"><span class="stamp" style="--c:#1B57C9">Spread</span><p>The FDA tests every batch of these dyes before it goes on sale. A cereal plant in Minnesota and an ice cream plant near San Francisco got the exact same <span class="chip" style="--c:#1A5BD6">Blue No. 1</span>.</p></div></div>
       <div class="step"><div class="card"><span class="stamp" style="--c:#1E1C25;--r:3deg">2026</span><p>Then food makers started pulling them. Only Red 3 is banned, starting in 2027. Companies are dropping the rest because Health Secretary Robert F. Kennedy Jr. asked them to by the end of 2027. California bans them from school meals starting then.</p></div></div>
       <div class="step"><div class="card"><span class="stamp" style="--c:#A97F00">Split</span><p>Each old dye looked the same in a sour drink or a hot oven. Plant colors don’t. Acid, heat and fat all change them, so every food needs its own recipe. One Sam’s Club cookie needed 30 times more natural color because of the fat in its icing, NPR reported.</p><p class="note">The <span class="chip thin" style="--c:#1A5BD6">thin outline</span> around each food is its old color.</p></div></div>
+    </div>
+  </section>
+
+  <section class="scrolly" id="lab" aria-label="Graphic 3: where the new blue gets stuck">
+    <div class="stage">
+      <div class="ghead hand"><b>The new blue looks fine in a jar. Then it meets food.</b></div>
+      <svg id="labSvg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMin meet" role="img" aria-label="mint green is mixed from a blue and yellow-orange annatto. One jar of blue pipes into ice cream, cereal and candy shells. When Blue No. 1 is swapped for spirulina, each food hits a different wall: taste in ice cream, brightness and cost in cereal, and spray machines for candy shells. The results: pale It’s-It mint, 2016 Trix without blue or green, and 2026 M&amp;M’s without blue or brown."></svg>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="card"><p>It’s-It swapped <span class="chip" style="--c:#1A5BD6">Blue No. 1</span> for <span class="chip" style="--c:#2C8FAD">spirulina</span>, a blue from algae. Spirulina gives every food a different kind of trouble.</p></div></div>
+      <div class="step"><div class="card"><span class="stamp" style="--c:#2C8FAD">Ice cream</span><p>Air and fat make any color look paler in ice cream. Adding enough spirulina to bring the green back can make it taste off. It’s-It’s technicians wanted color “without an aftertaste.”</p><label class="dose"><span>Add spirulina</span><input id="dose" type="range" min="0" max="100" value="0" aria-label="Amount of spirulina, illustration"><span class="ends"><i>It’s-It 2026</i><i>bright mint</i></span></label></div></div>
+      <div class="step"><div class="card"><span class="stamp" style="--c:#A97F00">Cereal</span><p>Trix needs such bright colors that plant colors had to go in heavy, General Mills said in 2016. In those amounts they “can bring with them some off flavors” and cost more. Cereal is also cooked, and heat fades spirulina’s blue.</p></div></div>
+      <div class="step"><div class="card"><span class="stamp" style="--c:#C8231B">Candy shell</span><p>M&amp;M’s shells are sprayed on by machine. Spirulina left a goopy foam that was hard to clean out. Mars bought more than 300 new machines and cleaning tools, The Wall Street Journal reported. Its dye-free M&amp;M’s still launched without blue or brown.</p></div></div>
     </div>
   </section>
 
@@ -675,7 +686,7 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   const jarSub=S('text',{x:236,y:54,class:'svg-tiny'},svg);
 
   /* mint is mixed: blue over annatto, top left */
-  const mixG=S('g',{},svg);mixG.style.display='none';
+  const mixG=S('g',{},svg);mixG.style.transition='opacity .5s';
   const mcp=S('clipPath',{id:'g2mix'},defs);S('circle',{cx:48,cy:40,r:21},mcp);
   const mGw=S('g',{filter:'url(#wob)'},mixG);
   const dBlue=S('circle',{cx:48,cy:40,r:21,fill:B1},mGw);S('circle',{cx:80,cy:40,r:21,fill:'#F2A33A'},mGw);
@@ -734,9 +745,7 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
   let cur=-9,jobs=[];const kill=()=>{jobs.forEach(c=>c());jobs=[]};
   function setMiss(on,which){(which===1?puffs:shells).forEach(o=>{const el=o.p||o.e;if(o.miss&&on){el.setAttribute('fill','none');el.setAttribute('stroke','#8B8891');el.setAttribute('stroke-dasharray','3 3')}else{el.setAttribute('fill',o.c);el.setAttribute('stroke','none');el.removeAttribute('stroke-dasharray')}})}
   function step(i){const kk=Math.max(0,i);
-    if(kk===0){baseG.style.opacity=0;pk.style.opacity=1;kill();cur=-9;return}
-    baseG.style.opacity=1;pk.style.opacity=0;
-    const k=kk-1;if(k===cur)return;const prev=cur;cur=k;kill();
+    const k=kk;if(k===cur)return;const prev=cur;cur=k;kill();
     const spi=k>=1;liq.setAttribute('fill',spi?SPI:B1);jarLab.textContent=spi?'spirulina':'Blue No. 1';jarSub.textContent='';
     pipes.forEach(p=>{p.fu.setAttribute('stroke',spi?SPI:B1);p.fl.setAttribute('stroke',spi?SPI:B1)});
     walls.forEach(w=>w.style.opacity=spi?1:0);
@@ -751,7 +760,7 @@ const SK=['#D62839','#F07A1F','#F5D020','#6B3FA0','#3DAA3A'];
     LX.forEach((x,j)=>{if(!act.includes(j))flow(j,1,1)})}
   /* mix-a-mint picker, last step */
   const baseG=S('g',{},svg);[...svg.childNodes].forEach(n=>{if(n!==defs&&n!==baseG)baseG.appendChild(n)});
-  const pk=S('g',{},svg);pk.style.opacity=0;
+  const mixSvg=$('#mixSvg');const pk=S('g',{},mixSvg||svg);
   const PB={b1:'#1A5BD6',spi:'#2FA3C4',pea:'#5A6BD2',gal:'#2A8ED4',gar:'#2F4FA0'},PY={y5:'#F5D90F',bc:'#F0A21C',tur:'#F2D21A',ann:'#F2A33A'};
   const NM={b1:'Blue 1',spi:'spirulina',pea:'butterfly pea',gal:'galdieria',gar:'gardenia',y5:'Yellow 5',bc:'beta carotene',tur:'turmeric',ann:'annatto'};
   /* scoop colors: four pairs follow real mints, the rest are drawn to match how each blue behaves in ice cream */
