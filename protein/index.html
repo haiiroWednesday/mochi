@@ -19,12 +19,13 @@
   --display:"Fraunces","Iowan Old Style","Palatino Linotype",Georgia,serif;
   --body:"Newsreader","Iowan Old Style","Charter","Georgia",serif;
   --title:"Instrument Serif",Georgia,serif;
+  --script:"Caveat","Segoe Print","Bradley Hand",cursive;
   --hand:"Shantell Sans","Segoe Print","Bradley Hand","Comic Neue",system-ui,sans-serif;
   --disp-axes:"SOFT" 100,"WONK" 0;
   --hand-axes:"BNCE" 45,"INFM" 70,"SPAC" 0;
   color-scheme:light}
 *{box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:20px;line-height:1.58;margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-optical-sizing:auto;font-kerning:normal}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:21px;line-height:1.58;margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-optical-sizing:auto;font-kerning:normal}
 .grain{position:fixed;inset:0;pointer-events:none;z-index:90;background-image:var(--grain-img);background-size:180px 180px;opacity:.45;mix-blend-mode:multiply}
 .hand{font-family:var(--hand);font-variation-settings:var(--hand-axes);font-weight:450;letter-spacing:0;text-transform:none}
 a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.18em}
@@ -106,28 +107,31 @@ button{font:inherit;color:inherit}
 @media (max-width:999px){.step{min-height:118vh;min-height:118svh}.step:first-child{min-height:72svh}}
 /* wide screens: graphic in its own column on the left, cards scroll up a column on the right */
 @media (min-width:1000px){
-  .scrolly{--col:min(1200px,100vw - 64px);--cardw:26rem}
+  .scrolly{--col:min(1320px,100vw - 64px);--cardw:31rem}
   .stage{width:var(--col);margin-inline:auto;align-items:flex-start;padding:10px calc(var(--cardw) + 48px) 0 0}
   .steps{width:var(--col);margin-inline:auto}
   .step,.step:first-child{min-height:88vh;min-height:88svh;justify-content:flex-end;align-items:center;padding:0}
   .step:first-child{min-height:60svh}
-  .card{width:var(--cardw)}
-  #labSvg{max-width:min(660px,100%)!important;flex:0 1 auto;height:auto;max-height:calc(100% - 60px);margin:auto 0;align-self:center}
+  .scrolly .card{width:var(--cardw);font-size:1.22rem;padding:18px 24px 16px}
+  #labSvg,#mixSvg{max-width:min(660px,100%)!important;flex:0 1 auto;height:auto;max-height:calc(100% - 60px);margin:auto 0;align-self:center}
 }
-.card{pointer-events:auto;width:min(100%,30rem);background:var(--card);background:color-mix(in srgb,var(--card) 95%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--rule);border-radius:20px 15px 22px 16px;padding:14px 18px 12px;box-shadow:0 22px 44px -28px rgba(30,28,37,.4);font-size:1.02rem;line-height:1.5}
+.card{pointer-events:auto;width:min(100%,30rem);background:var(--card);background:color-mix(in srgb,var(--card) 95%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--rule);border-radius:20px 15px 22px 16px;padding:14px 18px 12px;box-shadow:0 22px 44px -28px rgba(30,28,37,.4);font-size:1.12rem;line-height:1.5}
 .card p{margin:.25em 0}
 .card .note{font-family:var(--hand);font-variation-settings:var(--hand-axes);font-size:.8rem;color:var(--ink-3);line-height:1.4;margin-top:.5em}
 .card.big p{font-family:var(--display);font-variation-settings:var(--disp-axes);font-weight:700;font-size:clamp(1.45rem,4.4vw,2rem);line-height:1.1;letter-spacing:-.015em;text-align:center}
 .btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);border:0;border-radius:13px 10px 14px 9px;padding:6px 14px 7px;font-family:var(--hand);font-variation-settings:var(--hand-axes);font-weight:600;cursor:pointer;font-size:.88rem;margin-top:6px}
-.svg-mono{font-family:var(--hand);font-variation-settings:var(--hand-axes);font-weight:500;font-size:11.5px;fill:var(--ink-2)}
-.svg-tiny{font-family:var(--hand);font-variation-settings:var(--hand-axes);font-weight:450;font-size:9.5px;fill:var(--ink-2)}
+.svg-mono{font-family:var(--script);font-weight:600;font-size:14.5px;fill:var(--ink-2)}
+.svg-tiny{font-family:var(--script);font-weight:500;font-size:12.5px;fill:var(--ink-2)}
+#machineSvg .svg-tiny{font-size:11.5px;fill:#6E6B77}
+#machineSvg .m-vats .svg-mono{font-family:var(--title);font-weight:400;font-size:14.5px;fill:var(--ink)}
+#machineSvg .m-split .svg-mono{font-size:13.5px!important;font-weight:600}
 .svg-display{font-family:var(--display);font-variation-settings:var(--disp-axes);font-weight:700;fill:var(--ink)}
-#machineSvg > g,#labSvg > g{transition:opacity .55s}
+#machineSvg > g,#labSvg > g,#mixSvg > g{transition:opacity .55s}
 .vat{transition:transform .5s}
 .shake .vat{animation:shake .5s 3}
 @keyframes shake{0%,100%{transform:rotate(0)}25%{transform:rotate(-3deg)}75%{transform:rotate(3deg)}}
 .m-lower{transition:transform .55s cubic-bezier(.3,1.6,.5,1),opacity .55s}
-#labSvg{max-width:500px!important}
+#labSvg,#mixSvg{max-width:500px!important}
 
 /* trix wrapper, with its type brought into the page system */
 .g3wrap{padding-inline:16px}
@@ -194,6 +198,7 @@ button{font:inherit;color:inherit}
 .chip.thin{background:none;border:1.4px solid var(--c);color:var(--ink);font-weight:500}
 /* graph-paper stage (Sizing Chaos) */
 .stage{background-image:linear-gradient(rgba(30,28,37,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(30,28,37,.05) 1px,transparent 1px);background-size:22px 22px;background-position:center top}
+@media (max-width:999px){.card.pick{padding:10px 14px 9px}.card.pick>p{font-size:1rem;line-height:1.4}.card.pick .pk button{font-size:.74rem;padding:4px 8px 4px 5px}.card.pick .pk{gap:4px;margin-top:.4em}.card.pick .pk-out{font-size:.8rem;min-height:3.6em;margin-top:.5em}}
 .pk{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin:.55em 0 0}
 .pk-l{font-family:var(--hand);font-variation-settings:var(--hand-axes);font-size:.74rem;color:var(--ink-3);width:3.4em}
 .pk button{display:inline-flex;align-items:center;gap:5px;font:inherit;font-size:.8rem;line-height:1;padding:5px 9px 5px 6px;border-radius:13px 10px 14px 9px;border:1px solid var(--rule);background:var(--paper);color:var(--ink-2);cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
@@ -207,9 +212,9 @@ button{font:inherit;color:inherit}
 .dose .ends{display:flex;justify-content:space-between;font-size:.74rem;color:var(--ink-3)}
 .dose .ends i{font-style:normal}
 .gsrc b{font-weight:700;color:var(--ink-2)}
-.svg-ann{font-family:var(--hand);font-variation-settings:var(--hand-axes);font-size:10.5px;fill:#5B5864}
+.svg-ann{font-family:var(--script);font-weight:500;font-size:13.5px;fill:#5B5864}
 #machine{--stage-h:min(100svh,calc(min(100vw - 24px,780px)*1.12 + 96px))}
-@media (max-width:760px){#machineSvg .svg-mono{font-size:13.5px}#machineSvg .svg-tiny{font-size:12px}#machineSvg .svg-ann{font-size:12.5px}}
+@media (max-width:760px){#machineSvg .svg-mono{font-size:15.5px}#machineSvg .m-vats .svg-mono{font-size:16px}#machineSvg .m-split .svg-mono{font-size:15px!important}#machineSvg .svg-tiny{font-size:13px}#machineSvg .svg-ann{font-size:14.5px}}
 .svg-ann .k{font-weight:700;fill:#1E1C25}
 .ann-line{fill:none;stroke:#6B6873;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
 .ann-halo{fill:none;stroke:#EEEFE9;stroke-width:5;stroke-linecap:round}
@@ -296,7 +301,7 @@ button{font:inherit;color:inherit}
         <div class="mast">
           <span class="l hand">Visual stories in small bites</span>
           <a class="logo" href="#top" aria-label="mochi. home">mochi<span>.</span></a>
-          <nav class="hand" aria-label="Site"><a href="../">No. 1</a><a href="#story">Story</a><a href="#about">About</a></nav>
+          <nav class="hand" aria-label="Site"><a href="../">No. 1</a><a href="../sober/">No. 3</a><a href="#story">Story</a><a href="#about">About</a></nav>
         </div>
         <div class="rules"><hr><hr>
           <div class="edition hand"><span>Vol. 1 · No. 2</span><span>Monday, Oct. 5, 2026</span></div>
@@ -399,6 +404,7 @@ button{font:inherit;color:inherit}
       <h3>mochi<span>.</span></h3>
       <p>A one-person visual desk by Cynthia, telling small stories about how ordinary things look and why they look that way.</p>
       <p class="more"><a href="../">← No. 1: Why Is My Mint Ice Cream Less Green?</a></p>
+      <p class="more"><a href="../sober/">No. 3: Why Are College Students Drinking Less? →</a></p>
       <p class="fine hand">© 2026 mochi. Package colors in the graphics are drawn.</p>
     </div>
     <div>
