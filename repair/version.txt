@@ -1,1 +1,1 @@
-v82 2026-11-13 headlines off
+v83 2026-11-13 headlines off, corner ticket off
